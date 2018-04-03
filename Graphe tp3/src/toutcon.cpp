@@ -13,5 +13,5 @@ toutcon::~toutcon()
 
 void toutcon::ok()
 {
-    std::cout<<"ma bite";
+    std::cout<<"ma chatte";
 }

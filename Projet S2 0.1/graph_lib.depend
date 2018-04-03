@@ -1,0 +1,88 @@
+# depslib dependency file v1.0
+1522774165 source:c:\users\ramzi\desktop\projet info code test\graph_lib_exemple_graph\graph.cpp
+	"graph.h"
+
+1522774389 c:\users\ramzi\desktop\projet info code test\graph_lib_exemple_graph\graph.h
+	<map>
+	<string>
+	"Edge.h"
+	"GrapheInterface.h"
+
+1522539041 c:\users\ramzi\desktop\projet info code test\graph_lib_exemple_graph\grman\grman.h
+	<allegro.h>
+	<string>
+	"grman_couleurs.h"
+	"coords.h"
+	"widget.h"
+
+1509222372 c:\users\ramzi\desktop\projet info code test\graph_lib_exemple_graph\grman\grman_couleurs.h
+
+1522575424 c:\users\ramzi\desktop\projet info code test\graph_lib_exemple_graph\grman\coords.h
+	<cmath>
+
+1522636616 c:\users\ramzi\desktop\projet info code test\graph_lib_exemple_graph\grman\widget.h
+	"grman.h"
+	<iostream>
+	<string>
+	<vector>
+	<algorithm>
+	<allegro.h>
+
+1522575069 source:c:\users\ramzi\desktop\projet info code test\graph_lib_exemple_graph\grman\coords.cpp
+	"coords.h"
+
+1522515823 source:c:\users\ramzi\desktop\projet info code test\graph_lib_exemple_graph\grman\grman.cpp
+	<cmath>
+	<unordered_map>
+	<unordered_set>
+	<utility>
+	<string>
+	<iostream>
+	<regex>
+	"grman.h"
+	<allegro.h>
+	<png.h>
+	<loadpng.h>
+	<jpgalleg.h>
+
+1522636919 source:c:\users\ramzi\desktop\projet info code test\graph_lib_exemple_graph\grman\widget.cpp
+	"widget.h"
+
+1522747178 source:c:\users\ramzi\desktop\projet info code test\graph_lib_exemple_graph\main.cpp
+	"grman/grman.h"
+	<iostream>
+	"graph.h"
+
+1522773163 c:\users\ramzi\desktop\projet info code test\graph_lib_exemple_graph\include\vertexinterface.h
+	"grman/grman.h"
+
+1522773360 c:\users\ramzi\desktop\projet info code test\graph_lib_exemple_graph\vertexinterface.h
+	"grman/grman.h"
+
+1522773936 c:\users\ramzi\desktop\projet info code test\graph_lib_exemple_graph\vertex.h
+	<vector>
+	<memory>
+	"VertexInterface.h"
+
+1522773360 source:c:\users\ramzi\desktop\projet info code test\graph_lib_exemple_graph\vertexinterface.cpp
+	"VertexInterface.h"
+
+1522773669 source:c:\users\ramzi\desktop\projet info code test\graph_lib_exemple_graph\vertex.cpp
+	"Vertex.h"
+
+1522773988 c:\users\ramzi\desktop\projet info code test\graph_lib_exemple_graph\edgeinterface.h
+	"grman/grman.h"
+	"Vertex.h"
+
+1522773936 source:c:\users\ramzi\desktop\projet info code test\graph_lib_exemple_graph\edgeinterface.cpp
+	"EdgeInterface.h"
+
+1522774165 c:\users\ramzi\desktop\projet info code test\graph_lib_exemple_graph\edge.h
+	"EdgeInterface.h"
+
+1522774165 source:c:\users\ramzi\desktop\projet info code test\graph_lib_exemple_graph\edge.cpp
+	"Edge.h"
+
+1522774308 c:\users\ramzi\desktop\projet info code test\graph_lib_exemple_graph\grapheinterface.h
+	"grman/grman.h"
+

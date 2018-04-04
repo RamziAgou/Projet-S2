@@ -21,7 +21,20 @@ class GraphInterface
         /// Dans cette boite seront ajoutés des boutons de contrôle etc...
         grman::WidgetBox m_tool_box;
 
+        grman::WidgetBox m_boite_boutons;    // Sera la boite à boutons en haut à droite
+        grman::WidgetButton m_bouton1;       // Sera le bouton avec le texte NEW
+        grman::WidgetButton m_bouton_quitter;
 
+        grman::WidgetText m_bouton1_label1;   // Le texte NEW
+        grman::WidgetText m_bouton1_label2;
+        grman::WidgetText m_bouton_quitter_label;
+
+
+        grman::WidgetButton m_bouton_pause;       // Sera le bouton avec l'image de clown méchant
+        grman::WidgetImage m_bouton_pause_image;  // L'image de clown méchant
+
+        grman::WidgetButton m_bouton_play;       // Sera le bouton avec l'image de clown méchant
+        grman::WidgetImage m_bouton_play_image;
         // A compléter éventuellement par des widgets de décoration ou
         // d'édition (boutons ajouter/enlever ...)
 

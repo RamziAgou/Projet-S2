@@ -1,5 +1,10 @@
 #include "VertexInterface.h"
 
+grman::WidgetBox& VertexInterface::getTopBox()
+{
+    return m_top_box;
+}
+
 VertexInterface::VertexInterface(int idx, int x, int y, std::string pic_name, int pic_idx)
 {
     // La boite englobante

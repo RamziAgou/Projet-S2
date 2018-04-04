@@ -75,6 +75,7 @@
 #include <string>
 #include "Edge.h"
 #include "GrapheInterface.h"
+#include <fstream>
 
 
 class Graph
@@ -90,6 +91,10 @@ class Graph
         /// le POINTEUR sur l'interface associée, nullptr -> pas d'interface
         std::shared_ptr<GraphInterface> m_interface = nullptr;
 
+        std::string m_name;
+        int m_ordre;
+        int m_nbArc;
+
 
     public:
 
@@ -98,7 +103,7 @@ class Graph
         Graph (GraphInterface *interface=nullptr) :
             m_interface(interface)  {  }
 
-        void add_interfaced_vertex(int idx, double value, int x, int y, std::string pic_name="", int pic_idx=0 );
+        void add_interfaced_vertex(int idx, std::string name, double value, int x, int y, std::string pic_name="", int pic_idx=0 );
         void add_interfaced_edge(int idx, int vert1, int vert2, double weight=0);
 
         /// Méthode spéciale qui construit un graphe arbitraire (démo)
@@ -107,9 +112,19 @@ class Graph
         /// de chargement de fichiers par exemple.
         void make_example();
 
+        void ChargerGraphe(std::string fichier);
 
         /// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface
         void update();
+
+        int getOrdre() const;
+        int getNbArc() const;
+        std::string getName() const;
+        void setOrdre(int a);
+        void setNbArc(int a);
+        void setName(std::string a);
+
+        std::map<int, Vertex>& getMapVertex();
 };
 
 

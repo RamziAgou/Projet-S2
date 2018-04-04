@@ -2,6 +2,7 @@
 #include <iostream>
 
 #include "graph.h"
+#include "Acceuil1.h"
 
 int main()
 {
@@ -15,16 +16,26 @@ int main()
     Graph g;
     g.make_example();
 
+    Acceuil1();
 
     /// Vous gardez la main sur la "boucle de jeu"
     /// ( contrairement à des frameworks plus avancés )
     while ( !key[KEY_ESC] )
     {
-        /// Il faut appeler les méthodes d'update des objets qui comportent des widgets
-        g.update();
 
-        /// Mise à jour générale (clavier/souris/buffer etc...)
-        grman::mettre_a_jour();
+
+
+
+
+
+
+////        /// Il faut appeler les méthodes d'update des objets qui comportent des widgets
+//        g.update();
+////
+////        /// Mise à jour générale (clavier/souris/buffer etc...)
+//        grman::mettre_a_jour();
+////
+//        std::cout << "X = " << g.getMapVertex()[1].getX() << " Y = " << g.getMapVertex()[1].getY() << std::endl;
     }
 
     grman::fermer_allegro();

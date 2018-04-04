@@ -2,7 +2,7 @@
 #define ACCEUIL1_H
 
 
-///appelle acc2 attend qu'on appuie sur une touche
+/// attend qu'on appuie sur une touche et se termine
 void Acceuil1();
 
 #endif // ACCEUIL1_H

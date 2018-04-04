@@ -17,7 +17,7 @@ class Edge
         int m_to;
 
         /// un exemple de donnée associée à l'arc, on peut en ajouter d'autres...
-        double m_weight;
+        int m_weight;
 
         /// le POINTEUR sur l'interface associée, nullptr -> pas d'interface
         std::shared_ptr<EdgeInterface> m_interface = nullptr;
@@ -27,7 +27,7 @@ class Edge
 
         /// Les constructeurs sont à compléter selon vos besoin...
         /// Ici on ne donne qu'un seul constructeur qui peut utiliser une interface
-        Edge (double weight=0, EdgeInterface *interface=nullptr) :
+        Edge (int weight=0, EdgeInterface *interface=nullptr) :
             m_weight(weight), m_interface(interface)  {  }
 
         /// Edge étant géré par Graph ce sera la méthode update de graph qui appellera

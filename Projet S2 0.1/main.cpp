@@ -25,6 +25,8 @@ int main()
 
         /// Mise à jour générale (clavier/souris/buffer etc...)
         grman::mettre_a_jour();
+
+        std::cout << "X = " << g.getMapVertex()[1].getX() << " Y = " << g.getMapVertex()[1].getY() << std::endl;
     }
 
     grman::fermer_allegro();

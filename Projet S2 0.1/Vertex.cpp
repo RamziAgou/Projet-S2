@@ -1,5 +1,25 @@
 #include "Vertex.h"
 
+std::string Vertex::getName() const
+{
+    return m_nom;
+}
+
+std::shared_ptr<VertexInterface>& Vertex::getInterVertex()
+{
+    return m_interface;
+}
+
+double Vertex::getX()
+{
+    return getInterVertex()->getTopBox().get_frame().pos.x;
+}
+
+double Vertex::getY()
+{
+   return getInterVertex()->getTopBox().get_frame().pos.y;
+}
+
 /// Le constructeur met en place les éléments de l'interface
 void Vertex::pre_update()
 {
@@ -7,10 +27,10 @@ void Vertex::pre_update()
         return;
 
     /// Copier la valeur locale de la donnée m_value vers le slider associé
-    m_interface->m_slider_value.set_value(m_value);
+    m_interface->m_slider_value.set_value(m_popul);
 
     /// Copier la valeur locale de la donnée m_value vers le label sous le slider
-    m_interface->m_label_value.set_message( std::to_string( (int)m_value) );
+    m_interface->m_label_value.set_message( std::to_string( (int)m_popul) );
 }
 
 
@@ -21,6 +41,6 @@ void Vertex::post_update()
         return;
 
     /// Reprendre la valeur du slider dans la donnée m_value locale
-    m_value = m_interface->m_slider_value.get_value();
+    m_popul = m_interface->m_slider_value.get_value();
 }
 /// Gestion du Vertex avant l'appel à l'interface

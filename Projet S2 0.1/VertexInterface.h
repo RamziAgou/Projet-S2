@@ -39,6 +39,7 @@ class VertexInterface
         // Le constructeur met en place les éléments de l'interface
         // voir l'implémentation dans le .cpp
         VertexInterface(int idx, int x, int y, std::string pic_name="", int pic_idx=0);
+        grman::WidgetBox& getTopBox();
 };
 
 #endif // VERTEXINTERFACE_H_INCLUDED

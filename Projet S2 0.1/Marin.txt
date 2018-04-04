@@ -1,25 +1,24 @@
 Marin
-C'est un bail sur les animaux marins c'est vraiment trop cool
 10
 11
 Algue 540 595 100 100
 Crabe 740 595 100 100
-Calmar 770 410 100 100
+Calamar 770 410 100 100
 Pingouin 650 250 100 100
 Leopard 400 160 100 100
 Orque 770 50 100 100
-Plancton 220 600 100 100
-Crevette 360 410 100 100
-Poisson 160 400 100 100
 Baleine 170 60 100 100
-Algue Crabe 1 10
-Crabe Calmar 1 10
-Calmar pingouin 1 10
-Pingouin Orque 1 10
-Leopard Pingouin 1 10
-Pingouin Leopard 1 10
-Plancton Crevette 1 10
-Plancton Poisson 1 10
-Crevette Poisson 1 10 
-Poisson Leopard 1 10
-Crevette Baleine 1 10
+Poisson 160 400 100 100
+Crevette 360 410 100 100
+Plankton 220 600 100 100
+0 1 1 10
+1 2 1 10
+2 3 1 10
+3 5 1 10
+3 4 1 10
+4 5 1 10
+9 8 1 10
+9 7 1 10
+8 7 1 10 
+7 4 1 10
+8 6 1 10

@@ -103,7 +103,7 @@ class Graph
         Graph (GraphInterface *interface=nullptr) :
             m_interface(interface)  {  }
 
-        void add_interfaced_vertex(int idx, std::string name, double value, int x, int y, std::string pic_name="",double range=0, int pic_idx=0 );
+        void add_interfaced_vertex(int idx, std::string name, double value, int x, int y, std::string pic_name="",double range=0,int popu=0, int pic_idx=0 );
         void add_interfaced_edge(int idx, int vert1, int vert2, double weight=0);
 
         /// Méthode spéciale qui construit un graphe arbitraire (démo)
@@ -116,7 +116,7 @@ class Graph
         void SauverGraphe();
 
         /// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface
-        void update();
+        bool update();
 
         int getOrdre() const;
         int getNbArc() const;

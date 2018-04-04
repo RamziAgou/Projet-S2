@@ -429,3 +429,131 @@
 
 1522834310 c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 0.1\void analyse_k_c.h
 
+1522850639 source:c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 0.2\acceuil1.cpp
+	"Acceuil1.h"
+	<allegro.h>
+	<iostream>
+
+1522834310 c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 0.2\acceuil1.h
+
+1522834310 source:c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 0.2\acceuil2.cpp
+	"Acceuil2.h"
+
+1522834310 c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 0.2\acceuil2.h
+	<iostream>
+
+1522834310 source:c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 0.2\analyse1.cpp
+	"Analyse1.h"
+
+1522834310 c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 0.2\analyse1.h
+
+1522834310 source:c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 0.2\analyse_f_c.cpp
+	"Analyse_F_C.h"
+
+1522834310 c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 0.2\analyse_f_c.h
+
+1522855127 source:c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 0.2\edge.cpp
+	"Edge.h"
+
+1522855127 c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 0.2\edge.h
+	"EdgeInterface.h"
+
+1522774921 c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 0.2\edgeinterface.h
+	"grman/grman.h"
+	"Vertex.h"
+
+1522774921 c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 0.2\grman\grman.h
+	<allegro.h>
+	<string>
+	"grman_couleurs.h"
+	"coords.h"
+	"widget.h"
+
+1522774921 c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 0.2\grman\grman_couleurs.h
+
+1522774921 c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 0.2\grman\coords.h
+	<cmath>
+
+1522860487 c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 0.2\grman\widget.h
+	"grman.h"
+	<iostream>
+	<string>
+	<vector>
+	<algorithm>
+	<allegro.h>
+
+1522848809 c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 0.2\vertex.h
+	<vector>
+	<memory>
+	"VertexInterface.h"
+
+1522848809 c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 0.2\vertexinterface.h
+	"grman/grman.h"
+
+1522855929 source:c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 0.2\edgeinterface.cpp
+	"EdgeInterface.h"
+
+1522774921 source:c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 0.2\grman\coords.cpp
+	"coords.h"
+
+1522774921 source:c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 0.2\grman\grman.cpp
+	<cmath>
+	<unordered_map>
+	<unordered_set>
+	<utility>
+	<string>
+	<iostream>
+	<regex>
+	"grman.h"
+	<allegro.h>
+	<png.h>
+	<loadpng.h>
+	<jpgalleg.h>
+
+1522774921 source:c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 0.2\grman\widget.cpp
+	"widget.h"
+
+1522858511 source:c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 0.2\main.cpp
+	"grman/grman.h"
+	<iostream>
+	"graph.h"
+	"Acceuil1.h"
+
+1522858818 c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 0.2\graph.h
+	<map>
+	<string>
+	"Edge.h"
+	"GrapheInterface.h"
+	<fstream>
+
+1522861599 c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 0.2\grapheinterface.h
+	"grman/grman.h"
+
+1522834310 source:c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 0.2\manuel.cpp
+	"Manuel.h"
+
+1522834310 c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 0.2\manuel.h
+
+1522834310 source:c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 0.2\menu1.cpp
+	"Menu1.h"
+
+1522834310 c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 0.2\menu1.h
+	<iostream>
+
+1522860487 source:c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 0.2\vertex.cpp
+	"Vertex.h"
+
+1522858241 source:c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 0.2\vertexinterface.cpp
+	"VertexInterface.h"
+
+1522834310 source:c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 0.2\void analyse_k_c.cpp
+	"void Analyse_K_C.h"
+
+1522834310 c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 0.2\void analyse_k_c.h
+
+1522861326 source:c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 0.2\graph.cpp
+	"graph.h"
+
+1522861154 source:c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 0.2\grapheinterface.cpp
+	"GrapheInterface.h"
+

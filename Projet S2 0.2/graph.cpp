@@ -60,7 +60,7 @@ void Graph::ChargerGraphe(std::string fichier)
         {
             fp >> idx >> nom >> x >> y >> popul >> range;
             //nom = "Images/" + nom + ".jpg";
-            add_interfaced_vertex(idx, nom, popul, x, y, nom + ".jpg", range);
+            add_interfaced_vertex(idx, nom, popul, x, y, nom + ".jpg", range, popul);
             std::cout << "Indice : " << i <<  " Nom : " << nom << " x : " << x << " y : " << y << " Popul : " << popul << "Range : " << range << std::endl;
         }
 
@@ -95,7 +95,7 @@ void Graph::SauverGraphe()
         {
             actuel = getMapVertex()[i];
             fp << actuel.getIdx() << " " << actuel.getName() << " " << actuel.getX() << " " << actuel.getY()
-               << " " << actuel.getPopu() << " " << actuel.getPopu() << std::endl;
+               << " " << actuel.getPopu() << " " << actuel.getRange() << std::endl;
         }
 
         for(int j=0; j< m_nbArc; j++)
@@ -158,10 +158,10 @@ void Graph::make_example()
 }
 
 /// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface
-void Graph::update()
+bool Graph::update()
 {
     if (!m_interface)
-        return;
+        return false;
 
     for (auto &elt : m_vertices)
         elt.second.pre_update();
@@ -177,10 +177,67 @@ void Graph::update()
     for (auto &elt : m_edges)
         elt.second.post_update();
 
+    if ( m_interface->get_bouton_sauver().clicked() )
+    {
+        SauverGraphe();
+    }
+
+    if ( m_interface->get_bouton_pause().clicked() )
+    {
+        m_interface->get_tool_box().remove_child(m_interface->get_bouton_pause());
+        m_interface->get_tool_box().add_child(m_interface->get_bouton_play());
+        m_interface->get_bouton_play_pause_label().set_message("Pause");
+
+        for(auto elem : m_vertices)
+        {
+            elem.second.getInterVertex()->m_top_box.add_child(elem.second.getInterVertex()->m_slider_value);
+            elem.second.getInterVertex()->m_slider_value.set_range(0.0 , elem.second.getRange()); // Valeurs arbitraires, à adapter...
+            elem.second.getInterVertex()->m_slider_value.set_dim(20,80);
+            elem.second.getInterVertex()->m_slider_value.set_gravity_xy(grman::GravityX::Left, grman::GravityY::Up);
+
+        }
+
+        for(auto elem : m_edges)
+        {
+            elem.second.getInterEdge()->m_box_edge.add_child(elem.second.getInterEdge()->m_slider_weight);
+            elem.second.getInterEdge()->m_box_edge.set_dim(24,60);
+            elem.second.getInterEdge()->m_slider_weight.set_range(0.0 , 100.0); // Valeurs arbitraires, à adapter...
+            elem.second.getInterEdge()->m_slider_weight.set_dim(16,40);
+            elem.second.getInterEdge()->m_slider_weight.set_gravity_y(grman::GravityY::Up);
+
+        }
+    }
+
+    if ( m_interface->get_bouton_play().clicked() )
+    {
+        m_interface->get_tool_box().remove_child(m_interface->get_bouton_play());
+        m_interface->get_tool_box().add_child(m_interface->get_bouton_pause());
+        m_interface->get_bouton_play_pause_label().set_message("Simulation");
+
+        for(auto elem : m_vertices)
+        {
+            elem.second.getInterVertex()->m_top_box.remove_child(elem.second.getInterVertex()->m_slider_value);
+
+        }
+
+        for(auto elem : m_edges)
+        {
+            elem.second.getInterEdge()->m_box_edge.remove_child(elem.second.getInterEdge()->m_slider_weight);
+            elem.second.getInterEdge()->m_box_edge.set_dim(24,15);
+
+        }
+    }
+
+    if ( m_interface->get_bouton_quitter().clicked() )
+    {
+        return true;
+    }
+    return false;
+
 }
 
 /// Aide à l'ajout de sommets interfacés
-void Graph::add_interfaced_vertex(int idx, std::string name, double value, int x, int y, std::string pic_name,double range, int pic_idx )
+void Graph::add_interfaced_vertex(int idx, std::string name, double value, int x, int y, std::string pic_name,double range,int popu, int pic_idx )
 {
     if ( m_vertices.find(idx)!=m_vertices.end() )
     {
@@ -195,7 +252,9 @@ void Graph::add_interfaced_vertex(int idx, std::string name, double value, int x
     m_vertices[idx] = Vertex(name, value, vi);
     m_vertices[idx].setIdx(idx);
     m_vertices[idx].setRange(range);
-    std::cout << m_vertices[idx].getIdx() << std::endl;
+    m_vertices[idx].setPopu(popu);
+    std::cout << m_vertices[idx].getPopu() << std::endl;
+
 }
 
 /// Aide à l'ajout d'arcs interfacés

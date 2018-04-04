@@ -12,24 +12,19 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
     m_tool_box.set_gravity_xy(grman::GravityX::Left, grman::GravityY::Up);
     m_tool_box.set_bg_color(BLANCBLEU);
 
-//    m_tool_box.add_child( m_boite_boutons );
-//    m_boite_boutons.set_dim(75,50);
-//    m_boite_boutons.set_gravity_xy(grman::GravityX::Right, grman::GravityY::Up );
-//    m_boite_boutons.set_bg_color(BLANC);
-//    //m_boite_boutons.set_moveable();
 
-    m_tool_box.add_child( m_bouton1 );
-    m_bouton1.set_frame(3,3,77,60);
+    m_tool_box.add_child( m_bouton_sauver );
+    m_bouton_sauver.set_frame(3,3,77,60);
     //m_boite_boutons.set_gravity_xy(grman::GravityX::Right, grman::GravityY::Up );
-    m_bouton1.set_bg_color(BLANC);
+    m_bouton_sauver.set_bg_color(BLANC);
 
     //bouton sauvegarder
-    m_bouton1.add_child(m_bouton1_label1);
-    m_bouton1_label1.set_frame(14,25,100,100);
-    m_bouton1_label1.set_message("Sauve-");
-    m_bouton1.add_child(m_bouton1_label2);
-    m_bouton1_label2.set_frame(14,35,100,100);
-    m_bouton1_label2.set_message("garder");
+    m_bouton_sauver.add_child(m_bouton_sauver_label1);
+    m_bouton_sauver_label1.set_frame(14,25,100,100);
+    m_bouton_sauver_label1.set_message("Sauve-");
+    m_bouton_sauver.add_child(m_bouton_sauver_label2);
+    m_bouton_sauver_label2.set_frame(14,35,100,100);
+    m_bouton_sauver_label2.set_message("garder");
 
     //bouton quitter
     m_tool_box.add_child( m_bouton_quitter );
@@ -51,9 +46,48 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
     m_bouton_play.add_child(m_bouton_play_image);
     m_bouton_play_image.set_pic_name("bouton_play.png");
 
+    m_tool_box.add_child( m_bouton_play_pause_label );
+    m_bouton_play_pause_label.set_frame(5,675,100,100);
+    m_bouton_play_pause_label.set_message("Simulation");
+
+
+    //m_bouton_play_pause_label.set_message("Sauve-");
+
 
     m_top_box.add_child(m_main_box);
     m_main_box.set_dim(908,720);
     m_main_box.set_gravity_xy(grman::GravityX::Right, grman::GravityY::Up);
     m_main_box.set_bg_color(BLANCJAUNE);
+
+
+}
+
+grman::WidgetButton& GraphInterface::get_bouton_pause()
+{
+    return m_bouton_pause;
+}
+
+grman::WidgetButton& GraphInterface::get_bouton_quitter()
+{
+    return m_bouton_quitter;
+}
+
+grman::WidgetButton& GraphInterface::get_bouton_play()
+{
+    return m_bouton_play;
+}
+
+grman::WidgetButton& GraphInterface::get_bouton_sauver()
+{
+    return m_bouton_sauver;
+}
+
+grman::WidgetBox& GraphInterface::get_tool_box()
+{
+    return m_tool_box;
+}
+
+grman::WidgetText& GraphInterface::get_bouton_play_pause_label()
+{
+    return m_bouton_play_pause_label;
 }

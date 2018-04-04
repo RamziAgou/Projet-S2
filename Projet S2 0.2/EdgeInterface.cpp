@@ -14,14 +14,14 @@ EdgeInterface::EdgeInterface(Vertex& from, Vertex& to)
 
     // Une boite pour englober les widgets de réglage associés
     m_top_edge.add_child(m_box_edge);
-    m_box_edge.set_dim(24,60);
+    m_box_edge.set_dim(24,15);
     m_box_edge.set_bg_color(BLANCBLEU);
 
     // Le slider de réglage de valeur
-    m_box_edge.add_child( m_slider_weight );
-    m_slider_weight.set_range(0.0 , 100.0); // Valeurs arbitraires, à adapter...
-    m_slider_weight.set_dim(16,40);
-    m_slider_weight.set_gravity_y(grman::GravityY::Up);
+//    m_box_edge.add_child( m_slider_weight );
+//    m_slider_weight.set_range(0.0 , 100.0); // Valeurs arbitraires, à adapter...
+//    m_slider_weight.set_dim(16,40);
+//    m_slider_weight.set_gravity_y(grman::GravityY::Up);
 
     // Label de visualisation de valeur
     m_box_edge.add_child( m_label_weight );

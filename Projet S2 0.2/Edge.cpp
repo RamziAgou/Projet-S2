@@ -12,6 +12,11 @@ void Edge::pre_update()
     m_interface->m_label_weight.set_message( std::to_string( (int)m_poids ) );
 }
 
+std::shared_ptr<EdgeInterface>& Edge::getInterEdge()
+{
+    return m_interface;
+}
+
 /// Gestion du Edge après l'appel à l'interface
 void Edge::post_update()
 {

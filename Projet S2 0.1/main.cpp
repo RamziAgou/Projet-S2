@@ -2,6 +2,7 @@
 #include <iostream>
 
 #include "graph.h"
+#include "Acceuil1.h"
 
 int main()
 {
@@ -16,6 +17,7 @@ int main()
     g.make_example();
 
 
+    Acceuil1();
     /// Vous gardez la main sur la "boucle de jeu"
     /// ( contrairement à des frameworks plus avancés )
     while ( !key[KEY_ESC] )

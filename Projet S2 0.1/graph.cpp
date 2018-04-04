@@ -32,11 +32,15 @@ void Graph::setName(std::string a)
 
 void Graph::ChargerGraphe(std::string fichier)
 {
+    m_edges.clear();
+    m_vertices.clear();
+
     std::string buffer, nom;
-    int buffer2, x, y, popul, range;
-    double poids;
+    int buffer2, x, y, popul, idx;
+    double poids, range;
     int indice1, indice2;
     std::ifstream fp;
+    fichier += ".txt";
     fp.open(fichier.c_str());
 
     if(fp)
@@ -54,10 +58,10 @@ void Graph::ChargerGraphe(std::string fichier)
 
         for(int i=0; i< getOrdre(); i++)
         {
-            fp >> nom >> x >> y >> popul >> range;
+            fp >> idx >> nom >> x >> y >> popul >> range;
             //nom = "Images/" + nom + ".jpg";
-            add_interfaced_vertex(i, nom, popul, x, y, nom + ".jpg");
-            std::cout << "Indice : " << i <<  " Nom : " << nom << " x : " << x << " y : " << y << " Popul : " << popul << std::endl;
+            add_interfaced_vertex(idx, nom, popul, x, y, nom + ".jpg", range);
+            std::cout << "Indice : " << i <<  " Nom : " << nom << " x : " << x << " y : " << y << " Popul : " << popul << "Range : " << range << std::endl;
         }
 
         for(int j=0; j< getNbArc(); j++)
@@ -68,14 +72,50 @@ void Graph::ChargerGraphe(std::string fichier)
             add_interfaced_edge(j, indice1, indice2, poids);
         }
 
-        std::cout << m_vertices[1].getInterVertex()->getTopBox().get_frame().pos.x << std::endl; ///RECUPERER X !!!
-
     }
+}
+
+void Graph::SauverGraphe()
+{
+
+    for(const auto elem : m_edges)
+    {
+        std::cout << "Depart : " << elem.second.getDepart() << " Arrive : " << elem.second.getArrive() << std::endl;
+    }
+    std::ofstream fp(m_name + ".txt");
+    Vertex actuel;
+
+    if(fp)
+    {
+        fp << m_name << std::endl
+           << m_ordre << std::endl
+           << m_nbArc << std::endl;
+
+        for(int i=0; i< m_ordre; i++)
+        {
+            actuel = getMapVertex()[i];
+            fp << actuel.getIdx() << " " << actuel.getName() << " " << actuel.getX() << " " << actuel.getY()
+               << " " << actuel.getPopu() << " " << actuel.getPopu() << std::endl;
+        }
+
+        for(int j=0; j< m_nbArc; j++)
+        {
+            fp << m_vertices[m_edges[j].getDepart()].getIdx() << " " << m_vertices[m_edges[j].getArrive()].getIdx() << " "
+               << m_edges[j].getPoids() << " " << 10 << std::endl;
+        }
+    }
+    else
+        std::cout << "Erreur FICHIER" << std::endl;
 }
 
 std::map<int, Vertex>& Graph::getMapVertex()
 {
     return m_vertices;
+}
+
+std::map<int, Edge>& Graph::getMapEdge()
+{
+    return m_edges;
 }
 
 
@@ -88,7 +128,7 @@ void Graph::make_example()
 {
     m_interface = std::make_shared<GraphInterface>(50, 0, 750, 600);
 
-    ChargerGraphe("Marin.txt");
+    ChargerGraphe("Marin");
     // La ligne précédente est en gros équivalente à :
     // m_interface = new GraphInterface(50, 0, 750, 600);
 //
@@ -140,7 +180,7 @@ void Graph::update()
 }
 
 /// Aide à l'ajout de sommets interfacés
-void Graph::add_interfaced_vertex(int idx, std::string name, double value, int x, int y, std::string pic_name, int pic_idx )
+void Graph::add_interfaced_vertex(int idx, std::string name, double value, int x, int y, std::string pic_name,double range, int pic_idx )
 {
     if ( m_vertices.find(idx)!=m_vertices.end() )
     {
@@ -148,11 +188,14 @@ void Graph::add_interfaced_vertex(int idx, std::string name, double value, int x
         throw "Error adding vertex";
     }
     // Création d'une interface de sommet
-    VertexInterface *vi = new VertexInterface(idx, x, y, pic_name, pic_idx);
+    VertexInterface *vi = new VertexInterface(idx, x, y, pic_name,range, pic_idx);
     // Ajout de la top box de l'interface de sommet
     m_interface->m_main_box.add_child(vi->m_top_box);
     // On peut ajouter directement des vertices dans la map avec la notation crochet :
     m_vertices[idx] = Vertex(name, value, vi);
+    m_vertices[idx].setIdx(idx);
+    m_vertices[idx].setRange(range);
+    std::cout << m_vertices[idx].getIdx() << std::endl;
 }
 
 /// Aide à l'ajout d'arcs interfacés
@@ -173,5 +216,7 @@ void Graph::add_interfaced_edge(int idx, int id_vert1, int id_vert2, double weig
     EdgeInterface *ei = new EdgeInterface(m_vertices[id_vert1], m_vertices[id_vert2]);
     m_interface->m_main_box.add_child(ei->m_top_edge);
     m_edges[idx] = Edge(weight, ei);
+    m_edges[idx].setArrive(id_vert2);
+    m_edges[idx].setDepart(id_vert1);
 }
 

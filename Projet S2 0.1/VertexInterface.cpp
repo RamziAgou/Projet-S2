@@ -5,7 +5,7 @@ grman::WidgetBox& VertexInterface::getTopBox()
     return m_top_box;
 }
 
-VertexInterface::VertexInterface(int idx, int x, int y, std::string pic_name, int pic_idx)
+VertexInterface::VertexInterface(int idx, int x, int y, std::string pic_name,double range, int pic_idx)
 {
     // La boite englobante
     m_top_box.set_pos(x, y);
@@ -14,7 +14,7 @@ VertexInterface::VertexInterface(int idx, int x, int y, std::string pic_name, in
 
     // Le slider de réglage de valeur
     m_top_box.add_child( m_slider_value );
-    m_slider_value.set_range(0.0 , 100.0); // Valeurs arbitraires, à adapter...
+    m_slider_value.set_range(0.0 , range); // Valeurs arbitraires, à adapter...
     m_slider_value.set_dim(20,80);
     m_slider_value.set_gravity_xy(grman::GravityX::Left, grman::GravityY::Up);
 

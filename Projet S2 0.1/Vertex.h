@@ -23,6 +23,8 @@ class Vertex
         /// un exemple de donnée associée à l'arc, on peut en ajouter d'autres...
         int m_popul;
         std::string m_nom;
+        int m_idx;
+        double m_range;
 
         /// le POINTEUR sur l'interface associée, nullptr -> pas d'interface
         std::shared_ptr<VertexInterface> m_interface = nullptr;
@@ -47,6 +49,15 @@ class Vertex
 
         double getX();
         double getY();
+
+        void setIdx(int a);
+        int getIdx() const;
+
+        int getPopu() const;
+        void setPopu(int a);
+
+        double getRange() const;
+        void setRange(double a);
 
         std::string getName() const;
         std::shared_ptr<VertexInterface>& getInterVertex();

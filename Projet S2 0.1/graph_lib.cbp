@@ -42,12 +42,24 @@
 			<Add library="jpgalleg" />
 			<Add library="alleg44.dll" />
 		</Linker>
+		<Unit filename="Acceuil1.cpp" />
+		<Unit filename="Acceuil1.h" />
+		<Unit filename="Acceuil2.cpp" />
+		<Unit filename="Acceuil2.h" />
+		<Unit filename="Analyse1.cpp" />
+		<Unit filename="Analyse1.h" />
+		<Unit filename="Analyse_F_C.cpp" />
+		<Unit filename="Analyse_F_C.h" />
 		<Unit filename="Edge.cpp" />
 		<Unit filename="Edge.h" />
 		<Unit filename="EdgeInterface.cpp" />
 		<Unit filename="EdgeInterface.h" />
 		<Unit filename="GrapheInterface.cpp" />
 		<Unit filename="GrapheInterface.h" />
+		<Unit filename="Manuel.cpp" />
+		<Unit filename="Manuel.h" />
+		<Unit filename="Menu1.cpp" />
+		<Unit filename="Menu1.h" />
 		<Unit filename="Vertex.cpp" />
 		<Unit filename="Vertex.h" />
 		<Unit filename="VertexInterface.cpp" />
@@ -62,6 +74,8 @@
 		<Unit filename="grman/widget.cpp" />
 		<Unit filename="grman/widget.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="void Analyse_K_C.cpp" />
+		<Unit filename="void Analyse_K_C.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

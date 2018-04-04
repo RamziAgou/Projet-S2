@@ -103,7 +103,7 @@ class Graph
         Graph (GraphInterface *interface=nullptr) :
             m_interface(interface)  {  }
 
-        void add_interfaced_vertex(int idx, std::string name, double value, int x, int y, std::string pic_name="", int pic_idx=0 );
+        void add_interfaced_vertex(int idx, std::string name, double value, int x, int y, std::string pic_name="",double range=0, int pic_idx=0 );
         void add_interfaced_edge(int idx, int vert1, int vert2, double weight=0);
 
         /// Méthode spéciale qui construit un graphe arbitraire (démo)
@@ -113,6 +113,7 @@ class Graph
         void make_example();
 
         void ChargerGraphe(std::string fichier);
+        void SauverGraphe();
 
         /// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface
         void update();
@@ -125,6 +126,7 @@ class Graph
         void setName(std::string a);
 
         std::map<int, Vertex>& getMapVertex();
+        std::map<int, Edge>& getMapEdge();
 };
 
 

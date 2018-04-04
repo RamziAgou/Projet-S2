@@ -20,6 +20,16 @@ double Vertex::getY()
    return getInterVertex()->getTopBox().get_frame().pos.y;
 }
 
+double Vertex::getRange() const
+{
+    return m_range;
+}
+
+void Vertex::setRange(double a)
+{
+    m_range = a;
+}
+
 /// Le constructeur met en place les éléments de l'interface
 void Vertex::pre_update()
 {
@@ -33,6 +43,25 @@ void Vertex::pre_update()
     m_interface->m_label_value.set_message( std::to_string( (int)m_popul) );
 }
 
+void Vertex::setIdx(int a)
+{
+    m_idx = a;
+}
+
+int Vertex::getPopu() const
+{
+    return m_popul;
+}
+
+void Vertex::setPopu(int a)
+{
+    m_popul = a;
+}
+
+int Vertex::getIdx() const
+{
+    return m_idx;
+}
 
 /// Gestion du Vertex après l'appel à l'interface
 void Vertex::post_update()

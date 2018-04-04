@@ -27,6 +27,7 @@ int main()
         grman::mettre_a_jour();
 
         std::cout << "X = " << g.getMapVertex()[1].getX() << " Y = " << g.getMapVertex()[1].getY() << std::endl;
+        g.SauverGraphe();
     }
 
     grman::fermer_allegro();

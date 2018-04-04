@@ -76,6 +76,8 @@
 #include "Edge.h"
 #include "GrapheInterface.h"
 #include <fstream>
+#include <stack>
+#include <vector>
 
 
 class Graph
@@ -127,6 +129,9 @@ class Graph
 
         std::map<int, Vertex>& getMapVertex();
         std::map<int, Edge>& getMapEdge();
+
+        ///algorithme de forte connexité
+        std::vector<std::vector<int>> F_C();
 };
 
 

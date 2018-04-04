@@ -281,3 +281,112 @@ void Graph::add_interfaced_edge(int idx, int id_vert1, int id_vert2, double weig
     m_vertices[id_vert2].m_in.push_back(idx);
 }
 
+std::vector<std::vector<int>> Graph::F_C()
+{
+    int depart=0;
+    int tempo=0;
+    int i=0;
+    std::vector<std::vector<int>> resultat_algo;
+    std::vector<int> composante_fortement_connexe_actuel;
+    std::stack<int> pile;
+    for(auto elem_depart : m_vertices)
+    {
+        depart=elem_depart.first;
+        std::cout<<"je commence la forte connexite a "<<depart<<std::endl;
+        if(m_vertices[depart].m_moins!=-1&&m_vertices[depart].m_plus!=-1)
+        {
+            std::cout<<"le départ n'est pas a -1 -1 donc nouvelle connexité à partir de ce point"<<std::endl;
+            m_vertices[depart].m_moins=2;
+            m_vertices[depart].m_plus=2;
+            pile.push(depart);
+            while(!pile.empty())
+            {
+                std::cout<<"    La pile n'est pas vide je continue"<<std::endl;
+                tempo=pile.top();
+                std::cout<<"        le point a partir du quel je regarde est "<<tempo<<std::endl;
+                pile.pop();
+                std::cout<<"            il a "<< m_vertices[tempo].m_out.size()<<"arrete sortantes"<<std::endl;
+                for(i=0;i<m_vertices[tempo].m_out.size();i++)
+                {
+                    std::cout<<"                Dans l'arrete d'indice "<<m_vertices[tempo].m_out[i]<<std::endl;
+                    std::cout<<m_edges[m_vertices[tempo].m_out[i]].getArrive()<<"                    est le sommet d'arrive de larete"<<std::endl;
+                    std::cout<<"                        ca marque plus est "<<m_vertices[m_edges[m_vertices[tempo].m_out[i]].getArrive()].m_plus<<std::endl;
+                    std::cout<<"                        ca marque moins est "<<m_vertices[m_edges[m_vertices[tempo].m_out[i]].getArrive()].m_moins<<std::endl;
+
+                    if(m_vertices[m_edges[m_vertices[tempo].m_out[i]].getArrive()].m_plus!=2&&m_vertices[m_edges[m_vertices[tempo].m_out[i]].getArrive()].m_plus!=1)
+                    {
+                        m_vertices[m_edges[m_vertices[tempo].m_out[i]].getArrive()].m_plus=1;
+                        pile.push(m_edges[m_vertices[tempo].m_out[i]].getArrive());
+                        std::cout<<"                    je met + sur " <<m_edges[m_vertices[tempo].m_out[i]].getArrive()<<std::endl;
+                    }
+                }
+            }
+            pile.push(depart);
+            std::cout<<"les plus c'est finit je fais les moins"<<std::endl<<std::endl;
+            while(!pile.empty())
+            {
+                std::cout<<"    La pile n'est pas vide je continue"<<std::endl;
+                tempo=pile.top();
+                std::cout<<"        le point a partir du quel je regarde est "<<tempo<<std::endl;
+                pile.pop();
+                std::cout<<"            il a "<< m_vertices[tempo].m_in.size()<<"arrete entrante"<<std::endl;
+                for(i=0;i<m_vertices[tempo].m_in.size();i++)
+                {
+                    std::cout<<"                Dans l'arrete d'indice "<<m_vertices[tempo].m_in[i]<<std::endl;
+                    std::cout<<m_edges[m_vertices[tempo].m_in[i]].getDepart()<<"                    est le sommet de Depart de larete "<<std::endl;
+                    std::cout<<"                        ca marque plus est "<<m_vertices[m_edges[m_vertices[tempo].m_in[i]].getDepart()].m_plus<<std::endl;
+                    std::cout<<"                        ca marque moins est "<<m_vertices[m_edges[m_vertices[tempo].m_in[i]].getDepart()].m_moins<<std::endl;
+
+                    if(m_vertices[m_edges[m_vertices[tempo].m_in[i]].getDepart()].m_plus!=2&&m_vertices[m_edges[m_vertices[tempo].m_in[i]].getDepart()].m_plus!=1)
+                    {
+                        m_vertices[m_edges[m_vertices[tempo].m_in[i]].getDepart()].m_plus=1;
+                        pile.push(m_edges[m_vertices[tempo].m_in[i]].getDepart());
+                        std::cout<<"                je met - sur " <<m_edges[m_vertices[tempo].m_in[i]].getDepart()<<std::endl;
+                    }
+                }
+            }
+
+            std::cout<<"j'ai finit un tour de recherche je passe à la verif du graphe actuel"<<std::endl;
+            for(auto elem_verif : m_vertices)
+            {
+
+                tempo=elem_verif.first;
+                std::cout<<tempo<<" est l'ellement que je verifie  "<<std::endl;;
+                std::cout<<"    sa marque plus est "<<m_vertices[tempo].m_plus<<std::endl;
+                std::cout<<"    sa marque moins est "<<m_vertices[tempo].m_moins<<std::endl;
+                if((m_vertices[tempo].m_moins==1&&m_vertices[tempo].m_plus==1)||(m_vertices[tempo].m_moins==2&&m_vertices[tempo].m_plus==2))
+                {
+                    std::cout<<"        il est marqué ou est l'origine de la recherche je le met a -1/-1 et l'ajoute";
+                    m_vertices[tempo].m_moins=-1;
+                    m_vertices[tempo].m_plus=-1;
+                    composante_fortement_connexe_actuel.push_back(tempo);
+                }
+                else
+                {
+                    if(!(m_vertices[tempo].m_moins==-1&&m_vertices[tempo].m_plus==-1))
+                    {
+                        m_vertices[tempo].m_moins=0;
+                        m_vertices[tempo].m_plus=0;
+                    }
+
+                }
+            }
+
+
+        }
+
+        resultat_algo.push_back(composante_fortement_connexe_actuel);
+        composante_fortement_connexe_actuel.clear();
+    }
+    for(i=0;i<resultat_algo.size();i++)
+    {
+        std::cout<<"connexité numéro:   "<<i<<std::endl;
+        for(int y=0;y<resultat_algo[i].size();y++)
+        {
+            std::cout<<resultat_algo[i][y]<<" ";
+        }
+    }
+    return resultat_algo;
+}
+
+

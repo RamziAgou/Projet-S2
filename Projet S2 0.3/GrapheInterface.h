@@ -25,6 +25,11 @@ class GraphInterface
         grman::WidgetButton m_bouton_sauver;
         grman::WidgetButton m_bouton_quitter;
         grman::WidgetButton m_bouton_charger;
+        grman::WidgetButton m_add_sommet;
+        grman::WidgetImage m_add_sommet_image;
+
+        grman::WidgetButton m_remove_sommet;
+        grman::WidgetImage m_remove_sommet_image;
 
         grman::WidgetText m_bouton_sauver_label1;
         grman::WidgetText m_bouton_sauver_label2;
@@ -54,11 +59,18 @@ class GraphInterface
 
         grman::WidgetButton& get_bouton_sauver();
         grman::WidgetButton& get_bouton_quitter();
+        grman::WidgetButton& get_bouton_charger();
         grman::WidgetButton& get_bouton_pause();
         grman::WidgetButton& get_bouton_play();
+        grman::WidgetButton& get_add_sommet();
+        grman::WidgetButton& get_remove_sommet();
+
         grman::WidgetBox& get_tool_box();
 
+
         grman::WidgetText& get_bouton_play_pause_label();
+        grman::WidgetText& get_sommet_label();
+        grman::WidgetText& get_edition_label();
 };
 
 #endif // GRAPHEINTERFACE_H_INCLUDED

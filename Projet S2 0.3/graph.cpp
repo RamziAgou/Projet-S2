@@ -30,8 +30,75 @@ void Graph::setName(std::string a)
     m_name = a;
 }
 
+void Graph::SupprimerArete(int a)
+{
+    Edge &deledge = m_edges[a];
+    std::vector<int>& vedepart = m_vertices[deledge.m_from].m_out;
+    std::vector<int>& vearrive = m_vertices[deledge.m_to].m_in;
+
+    if(m_interface && deledge.m_interface)
+    {
+        m_interface->m_main_box.remove_child(deledge.m_interface->m_top_edge);
+    }
+
+    std::vector<int>::iterator it;
+    for(it = vedepart.begin(); it != vedepart.end(); it++)
+    {
+        if((*it) == a)
+        {
+            vedepart.erase(it);
+            it--;
+        }
+    }
+
+    for(it = vearrive.begin(); it != vearrive.end(); it++)
+    {
+        if((*it) == a)
+        {
+            vearrive.erase(it);
+            it--;
+        }
+    }
+
+}
+
+void Graph::SupprimerSommet(int b)
+{
+    Vertex &delVer = m_vertices[b];
+
+    if(m_interface && delVer.m_interface)
+    {
+        m_interface->m_main_box.remove_child(delVer.m_interface->m_top_box);
+    }
+
+    std::vector<int>::iterator it;
+    for(it = delVer.m_out.begin(); it != delVer.m_out.end(); it++)
+    {
+        SupprimerArete(*it);
+        it--;
+    }
+
+    for(it = delVer.m_in.begin(); it != delVer.m_in.end(); it++)
+    {
+        SupprimerArete(*it);
+        it--;
+    }
+
+    m_supprime.push_back(b);
+
+    std::cout << "Vous avez supprime le/la : " << m_vertices[b].getName() << std::endl;
+
+}
+
+void Graph::TuerSommet(int b)
+{
+    SupprimerSommet(b);
+    m_vertices[b].m_popul = 0;
+}
+
 void Graph::ChargerGraphe(std::string fichier)
 {
+    m_interface = std::make_shared<GraphInterface>(50, 0, 750, 600);
     std::cout<<"je commence";
     m_edges.clear();
     m_vertices.clear();
@@ -161,6 +228,12 @@ void Graph::make_example()
 
 bool Graph::update_simulation()
 {
+
+    if ( m_interface->get_bouton_charger().clicked() )
+    {
+        ChargerGraphe(m_name);
+    }
+
     if ( m_interface->get_bouton_sauver().clicked() )
     {
         SauverGraphe();
@@ -168,12 +241,11 @@ bool Graph::update_simulation()
 
     if ( m_interface->get_bouton_pause().clicked() )
     {
-        m_interface->get_tool_box().remove_child(m_interface->get_bouton_pause());
-        m_interface->get_tool_box().add_child(m_interface->get_bouton_play());
-        m_interface->get_bouton_play_pause_label().set_message("Pause");
+        afficher_editeur();//affiche l'interface editeur
 
         for(auto elem : m_vertices)
         {
+            //affiche les sliders des Sommets
             elem.second.getInterVertex()->m_top_box.add_child(elem.second.getInterVertex()->m_slider_value);
             elem.second.getInterVertex()->m_slider_value.set_range(0.0, elem.second.getRange());  // Valeurs arbitraires, à adapter...
             elem.second.getInterVertex()->m_slider_value.set_dim(20,80);
@@ -194,9 +266,7 @@ bool Graph::update_simulation()
 
     if ( m_interface->get_bouton_play().clicked() )
     {
-        m_interface->get_tool_box().remove_child(m_interface->get_bouton_play());
-        m_interface->get_tool_box().add_child(m_interface->get_bouton_pause());
-        m_interface->get_bouton_play_pause_label().set_message("Simulation");
+        enlever_editeur();//enleve l'interface editeur
 
         for(auto elem : m_vertices)
         {
@@ -243,6 +313,10 @@ bool Graph::update_F_C()
         elem.second.getInterEdge()->m_box_edge.set_dim(24,15);
 
     }
+
+    std::vector<Edge> aretes_a_conserver;
+    std::vector<Edge> aretes_a_enlever;
+
     for(int i=0;i<sommet_a_afficher.size();i++)
     {
         for(auto elem_arete : m_edges)
@@ -255,8 +329,30 @@ bool Graph::update_F_C()
                 {
                     testd=1;
                 }
+                if(elem_arete.second.m_to==sommet_a_afficher[i][y])
+                {
+                    testa=1;
+                }
             }
+            if(testa==1&&testd==1)
+            aretes_a_conserver.push_back(elem_arete.second);
         }
+    }
+    int tempo;
+    for(auto elem_arete : m_edges)
+        {
+            tempo=0;
+            for(int z=0;z<aretes_a_conserver.size();z++)
+            {
+                if((elem_arete.second.m_from==aretes_a_conserver[z].m_from)&&(elem_arete.second.m_to==aretes_a_conserver[z].m_to))
+                    tempo=1;
+            }
+            if(tempo!=1)
+                aretes_a_enlever.push_back(elem_arete.second);
+        }
+    for(int i=0;i<aretes_a_enlever.size();i++)
+    {
+        m_interface->m_main_box.remove_child(aretes_a_enlever[i].m_interface->m_top_edge);
     }
     return false;
 }
@@ -280,7 +376,7 @@ bool Graph::update(int a)
     switch(a)
     {
     case 0:
-        std::cout<<"oui oui";
+
         fin=update_simulation();
         break;
     case 1:
@@ -289,11 +385,9 @@ bool Graph::update(int a)
     default:
         std::cout<<"uptade failed"<<std::endl;
     }
-    std::cout<<"je suis la";
-    std::cout<<"fin=" <<fin<<std::endl;
+
     m_interface->m_top_box.update();
-    std::cout<<"je suis ici";
-    std::cout<<"fin=" <<fin<<std::endl;
+
 
     for (auto &elt : m_vertices)
         elt.second.post_update();
@@ -359,6 +453,18 @@ std::vector<std::vector<int>> Graph::F_C()
     std::stack<int> pile;
     for(auto elem_depart : m_vertices)
     {
+        std::cout<<std::endl<<"je commence par nettoyer tout les plus et moins qui ne sont pas a -1 -1"<<std::endl;
+        for(auto elem_net : m_vertices)
+        {
+            std::cout<<" le sommet "<<elem_net.first<<" a pour plus "<<m_vertices[elem_net.first].m_plus<<" et pour moins "<<m_vertices[elem_net.first].m_moins<<std::endl;
+            if(!(m_vertices[elem_net.first].m_moins==-1&&m_vertices[elem_net.first].m_plus==-1))
+            {
+                std::cout<<"        je le nettois"<<std::endl;
+                m_vertices[elem_net.first].m_moins=0;
+                m_vertices[elem_net.first].m_plus=0;
+            }
+        }
+        std::cout<<"                        nettoyage terminé"<<std::endl;
         depart=elem_depart.first;
         std::cout<<"je commence la forte connexite a "<<depart<<std::endl;
         if(m_vertices[depart].m_moins!=-1&&m_vertices[depart].m_plus!=-1)
@@ -381,7 +487,7 @@ std::vector<std::vector<int>> Graph::F_C()
                     std::cout<<"                        ca marque plus est "<<m_vertices[m_edges[m_vertices[tempo].m_out[i]].getArrive()].m_plus<<std::endl;
                     std::cout<<"                        ca marque moins est "<<m_vertices[m_edges[m_vertices[tempo].m_out[i]].getArrive()].m_moins<<std::endl;
 
-                    if(m_vertices[m_edges[m_vertices[tempo].m_out[i]].getArrive()].m_plus!=2&&m_vertices[m_edges[m_vertices[tempo].m_out[i]].getArrive()].m_plus!=1)
+                    if((m_vertices[m_edges[m_vertices[tempo].m_out[i]].getArrive()].m_plus!=2)&&(m_vertices[m_edges[m_vertices[tempo].m_out[i]].getArrive()].m_plus!=1)&&(m_vertices[m_edges[m_vertices[tempo].m_out[i]].getArrive()].m_plus!=-1)&&(m_vertices[m_edges[m_vertices[tempo].m_out[i]].getArrive()].m_moins!=-1))
                     {
                         m_vertices[m_edges[m_vertices[tempo].m_out[i]].getArrive()].m_plus=1;
                         pile.push(m_edges[m_vertices[tempo].m_out[i]].getArrive());
@@ -405,9 +511,9 @@ std::vector<std::vector<int>> Graph::F_C()
                     std::cout<<"                        ca marque plus est "<<m_vertices[m_edges[m_vertices[tempo].m_in[i]].getDepart()].m_plus<<std::endl;
                     std::cout<<"                        ca marque moins est "<<m_vertices[m_edges[m_vertices[tempo].m_in[i]].getDepart()].m_moins<<std::endl;
 
-                    if(m_vertices[m_edges[m_vertices[tempo].m_in[i]].getDepart()].m_plus!=2&&m_vertices[m_edges[m_vertices[tempo].m_in[i]].getDepart()].m_plus!=1)
+                    if((m_vertices[m_edges[m_vertices[tempo].m_in[i]].getDepart()].m_moins!=2)&&(m_vertices[m_edges[m_vertices[tempo].m_in[i]].getDepart()].m_moins!=1)&&(m_vertices[m_edges[m_vertices[tempo].m_in[i]].getArrive()].m_plus!=-1)&&(m_vertices[m_edges[m_vertices[tempo].m_in[i]].getArrive()].m_moins!=-1))
                     {
-                        m_vertices[m_edges[m_vertices[tempo].m_in[i]].getDepart()].m_plus=1;
+                        m_vertices[m_edges[m_vertices[tempo].m_in[i]].getDepart()].m_moins=1;
                         pile.push(m_edges[m_vertices[tempo].m_in[i]].getDepart());
                         std::cout<<"                je met - sur " <<m_edges[m_vertices[tempo].m_in[i]].getDepart()<<std::endl;
                     }
@@ -457,4 +563,28 @@ std::vector<std::vector<int>> Graph::F_C()
     return resultat_algo;
 }
 
+void Graph::afficher_editeur()
+{
 
+    m_interface->get_tool_box().add_child(m_interface->get_edition_label());
+    m_interface->get_tool_box().add_child(m_interface->get_sommet_label());
+    m_interface->get_tool_box().remove_child(m_interface->get_bouton_pause());
+    m_interface->get_tool_box().add_child(m_interface->get_bouton_play());
+    m_interface->get_bouton_play_pause_label().set_message("Pause");
+    m_interface->get_tool_box().add_child(m_interface->get_add_sommet());
+    m_interface->get_tool_box().add_child(m_interface->get_remove_sommet());
+
+}
+
+void Graph::enlever_editeur()
+{
+    //enleve l'editeur
+    m_interface->get_tool_box().remove_child(m_interface->get_bouton_play());
+    m_interface->get_tool_box().add_child(m_interface->get_bouton_pause());
+    m_interface->get_bouton_play_pause_label().set_message("Simulation");
+
+    m_interface->get_tool_box().remove_child(m_interface->get_edition_label());
+    m_interface->get_tool_box().remove_child(m_interface->get_sommet_label());
+    m_interface->get_tool_box().remove_child(m_interface->get_add_sommet());
+    m_interface->get_tool_box().remove_child(m_interface->get_remove_sommet());
+}

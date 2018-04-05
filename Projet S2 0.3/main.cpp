@@ -16,20 +16,32 @@ int main()
     Graph g;
     g.make_example();
 
+    ///g.TuerSommet(5);
 
-//    Acceuil1();
-//
-//
-//
-//    int i;
-//    g.update(1);
-//    grman::mettre_a_jour();
-//
-//    std::cin>>i;
-//    ///clear le graphe
-//
-//    ///recharger le graphe
-//    g.make_example();
+    Acceuil1();
+    ///______________________________
+    ///Début Forte conexité
+    ///______________________________
+
+    int i;
+    g.update(1);
+    grman::mettre_a_jour();
+    Graph reduit;
+
+
+    std::cin>>i;
+
+    ///______________________________
+    ///FIN Forte conexité
+    ///______________________________
+
+
+    ///clear le graphe
+
+    ///recharger le graphe
+    g.make_example();
+
+
 
     bool fin = false;
     /// Vous gardez la main sur la "boucle de jeu"

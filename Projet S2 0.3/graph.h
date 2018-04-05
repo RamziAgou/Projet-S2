@@ -100,6 +100,7 @@ class Graph
 
     public:
 
+
         /// Les constructeurs sont à compléter selon vos besoin...
         /// Ici on ne donne qu'un seul constructeur qui peut utiliser une interface
         Graph (GraphInterface *interface=nullptr) :
@@ -118,7 +119,10 @@ class Graph
         void SauverGraphe();
 
         /// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface
-        bool update();
+        bool update(int a=0);
+        bool update_simulation();
+        bool update_F_C();
+
 
         int getOrdre() const;
         int getNbArc() const;

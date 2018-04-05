@@ -30,10 +30,71 @@ void Graph::setName(std::string a)
     m_name = a;
 }
 
+void Graph::SupprimerArete(int a)
+{
+    Edge &deledge = m_edges[a];
+    std::vector<int>& vedepart = m_vertices[deledge.m_from].m_out;
+    std::vector<int>& vearrive = m_vertices[deledge.m_to].m_in;
+
+    if(m_interface && deledge.m_interface)
+    {
+        m_interface->m_main_box.remove_child(deledge.m_interface->m_top_edge);
+    }
+
+    std::vector<int>::iterator it;
+    for(it = vedepart.begin(); it != vedepart.end(); it++)
+    {
+        if((*it) == a)
+        {
+            vedepart.erase(it);
+            it--;
+        }
+    }
+
+    for(it = vearrive.begin(); it != vearrive.end(); it++)
+    {
+        if((*it) == a)
+        {
+            vearrive.erase(it);
+            it--;
+        }
+    }
+
+}
+
+void Graph::SupprimerSommet(int b)
+{
+    Vertex &delVer = m_vertices[b];
+
+    if(m_interface && delVer.m_interface)
+    {
+        m_interface->m_main_box.remove_child(delVer.m_interface->m_top_box);
+    }
+
+    std::vector<int>::iterator it;
+    for(it = delVer.m_out.begin(); it != delVer.m_out.end(); it++)
+    {
+        SupprimerArete(*it);
+        it--;
+    }
+
+    for(it = delVer.m_in.begin(); it != delVer.m_in.end(); it++)
+    {
+        SupprimerArete(*it);
+        it--;
+    }
+
+    m_supprime.push_back(b);
+
+    std::cout << "Vous avez supprime le/la : " << m_vertices[b].getName() << std::endl;
+
+}
 void Graph::ChargerGraphe(std::string fichier)
 {
+    std::cout<<"je commence";
     m_edges.clear();
     m_vertices.clear();
+
 
     std::string buffer, nom;
     int buffer2, x, y, popul, idx;
@@ -157,26 +218,8 @@ void Graph::make_example()
 //    add_interfaced_edge(9, 3, 7, 80.0);
 }
 
-/// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface
-bool Graph::update()
+bool Graph::update_simulation()
 {
-    if (!m_interface)
-        return false;
-
-    for (auto &elt : m_vertices)
-        elt.second.pre_update();
-
-    for (auto &elt : m_edges)
-        elt.second.pre_update();
-
-    m_interface->m_top_box.update();
-
-    for (auto &elt : m_vertices)
-        elt.second.post_update();
-
-    for (auto &elt : m_edges)
-        elt.second.post_update();
-
     if ( m_interface->get_bouton_sauver().clicked() )
     {
         SauverGraphe();
@@ -191,7 +234,7 @@ bool Graph::update()
         for(auto elem : m_vertices)
         {
             elem.second.getInterVertex()->m_top_box.add_child(elem.second.getInterVertex()->m_slider_value);
-            elem.second.getInterVertex()->m_slider_value.set_range(0.0 , elem.second.getRange()); // Valeurs arbitraires, à adapter...
+            elem.second.getInterVertex()->m_slider_value.set_range(0.0, elem.second.getRange());  // Valeurs arbitraires, à adapter...
             elem.second.getInterVertex()->m_slider_value.set_dim(20,80);
             elem.second.getInterVertex()->m_slider_value.set_gravity_xy(grman::GravityX::Left, grman::GravityY::Up);
 
@@ -201,7 +244,7 @@ bool Graph::update()
         {
             elem.second.getInterEdge()->m_box_edge.add_child(elem.second.getInterEdge()->m_slider_weight);
             elem.second.getInterEdge()->m_box_edge.set_dim(24,60);
-            elem.second.getInterEdge()->m_slider_weight.set_range(0.0 , 100.0); // Valeurs arbitraires, à adapter...
+            elem.second.getInterEdge()->m_slider_weight.set_range(0.0, 100.0);  // Valeurs arbitraires, à adapter...
             elem.second.getInterEdge()->m_slider_weight.set_dim(16,40);
             elem.second.getInterEdge()->m_slider_weight.set_gravity_y(grman::GravityY::Up);
 
@@ -227,12 +270,89 @@ bool Graph::update()
 
         }
     }
-
     if ( m_interface->get_bouton_quitter().clicked() )
     {
         return true;
     }
     return false;
+}
+
+bool Graph::update_F_C()
+{
+    int testd,testa;
+    std::vector<std::vector<int>> sommet_a_afficher;
+    sommet_a_afficher=F_C();
+    std::cout<<"je supprime les affichages"<<std::endl;
+
+    m_interface->get_tool_box().remove_child(m_interface->get_bouton_pause());
+    m_interface->get_tool_box().remove_child(m_interface->get_bouton_play());
+    m_interface->get_tool_box().remove_child(m_interface->get_bouton_play_pause_label());
+    m_interface->get_tool_box().remove_child(m_interface->get_bouton_sauver());
+    for(auto elem : m_vertices)
+    {
+        elem.second.getInterVertex()->m_top_box.remove_child(elem.second.getInterVertex()->m_slider_value);
+
+    }
+
+    for(auto elem : m_edges)
+    {
+        elem.second.getInterEdge()->m_box_edge.remove_child(elem.second.getInterEdge()->m_slider_weight);
+        elem.second.getInterEdge()->m_box_edge.set_dim(24,15);
+
+    }
+    for(int i=0;i<sommet_a_afficher.size();i++)
+    {
+        for(auto elem_arete : m_edges)
+        {
+            testa=0;
+            testd=0;
+            for(int y=0;y<sommet_a_afficher[i].size();y++)
+            {
+                if(elem_arete.second.m_from==sommet_a_afficher[i][y])
+                {
+                    testd=1;
+                }
+            }
+        }
+    }
+    return false;
+}
+/// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface
+bool Graph::update(int a)
+{
+    bool fin=false;
+
+    if (!m_interface)
+    {
+        std::cout<<"il n'y a pas d'interface a afficher"<<std::endl;
+        return false;
+    }
+
+    for (auto &elt : m_vertices)
+        elt.second.pre_update();
+
+    for (auto &elt : m_edges)
+        elt.second.pre_update();
+
+    switch(a)
+    {
+    case 0:
+        fin=update_simulation();
+        break;
+    case 1:
+        fin=update_F_C();
+        break;
+    default:
+        std::cout<<"uptade failed"<<std::endl;
+    }
+    m_interface->m_top_box.update();
+
+    for (auto &elt : m_vertices)
+        elt.second.post_update();
+
+    for (auto &elt : m_edges)
+        elt.second.post_update();
+    return fin;
 
 }
 
@@ -275,8 +395,8 @@ void Graph::add_interfaced_edge(int idx, int id_vert1, int id_vert2, double weig
     EdgeInterface *ei = new EdgeInterface(m_vertices[id_vert1], m_vertices[id_vert2]);
     m_interface->m_main_box.add_child(ei->m_top_edge);
     m_edges[idx] = Edge(weight, ei);
-    m_edges[idx].setArrive(id_vert2);
-    m_edges[idx].setDepart(id_vert1);
+    m_edges[idx].m_from = id_vert1;
+    m_edges[idx].m_to = id_vert2;
     m_vertices[id_vert1].m_out.push_back(idx);
     m_vertices[id_vert2].m_in.push_back(idx);
 }
@@ -306,7 +426,7 @@ std::vector<std::vector<int>> Graph::F_C()
                 std::cout<<"        le point a partir du quel je regarde est "<<tempo<<std::endl;
                 pile.pop();
                 std::cout<<"            il a "<< m_vertices[tempo].m_out.size()<<"arrete sortantes"<<std::endl;
-                for(i=0;i<m_vertices[tempo].m_out.size();i++)
+                for(i=0; i<m_vertices[tempo].m_out.size(); i++)
                 {
                     std::cout<<"                Dans l'arrete d'indice "<<m_vertices[tempo].m_out[i]<<std::endl;
                     std::cout<<m_edges[m_vertices[tempo].m_out[i]].getArrive()<<"                    est le sommet d'arrive de larete"<<std::endl;
@@ -330,7 +450,7 @@ std::vector<std::vector<int>> Graph::F_C()
                 std::cout<<"        le point a partir du quel je regarde est "<<tempo<<std::endl;
                 pile.pop();
                 std::cout<<"            il a "<< m_vertices[tempo].m_in.size()<<"arrete entrante"<<std::endl;
-                for(i=0;i<m_vertices[tempo].m_in.size();i++)
+                for(i=0; i<m_vertices[tempo].m_in.size(); i++)
                 {
                     std::cout<<"                Dans l'arrete d'indice "<<m_vertices[tempo].m_in[i]<<std::endl;
                     std::cout<<m_edges[m_vertices[tempo].m_in[i]].getDepart()<<"                    est le sommet de Depart de larete "<<std::endl;
@@ -378,10 +498,10 @@ std::vector<std::vector<int>> Graph::F_C()
         resultat_algo.push_back(composante_fortement_connexe_actuel);
         composante_fortement_connexe_actuel.clear();
     }
-    for(i=0;i<resultat_algo.size();i++)
+    for(i=0; i<resultat_algo.size(); i++)
     {
         std::cout<<"connexité numéro:   "<<i<<std::endl;
-        for(int y=0;y<resultat_algo[i].size();y++)
+        for(int y=0; y<resultat_algo[i].size(); y++)
         {
             std::cout<<resultat_algo[i][y]<<" ";
         }

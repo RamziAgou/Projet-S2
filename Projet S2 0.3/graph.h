@@ -90,6 +90,8 @@ class Graph
         /// La liste des sommets
         std::map<int, Vertex> m_vertices;
 
+        std::vector<int> m_supprime;
+
         /// le POINTEUR sur l'interface associée, nullptr -> pas d'interface
         std::shared_ptr<GraphInterface> m_interface = nullptr;
 
@@ -99,6 +101,7 @@ class Graph
 
 
     public:
+
 
         /// Les constructeurs sont à compléter selon vos besoin...
         /// Ici on ne donne qu'un seul constructeur qui peut utiliser une interface
@@ -116,9 +119,14 @@ class Graph
 
         void ChargerGraphe(std::string fichier);
         void SauverGraphe();
+        void SupprimerArete(int a);
+        void SupprimerSommet(int b);
 
         /// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface
-        bool update();
+        bool update(int a=0);
+        bool update_simulation();
+        bool update_F_C();
+
 
         int getOrdre() const;
         int getNbArc() const;

@@ -43,6 +43,20 @@ void Vertex::pre_update()
     m_interface->m_label_value.set_message( std::to_string( (int)m_popul) );
 }
 
+void Vertex::AfficherArc()
+{
+    std::vector<int>::iterator it;
+    for(it = m_out.begin(); it != m_out.end(); it++)
+    {
+        std::cout << "Indice : " << getIdx() << std::endl;
+        std::cout << "INDICE ARC SORTANT = " << (*it) << std::endl;
+    }
+
+    for(it = m_in.begin(); it != m_in.end(); it++)
+    {
+        std::cout << "INDICE ARC ENTRANT = " << (*it) << std::endl;
+    }
+}
 void Vertex::setIdx(int a)
 {
     m_idx = a;

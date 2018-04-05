@@ -6,6 +6,7 @@
 
 int main()
 {
+    int a;
     /// A appeler en 1er avant d'instancier des objets graphiques etc..t.
     grman::init();
 
@@ -15,28 +16,43 @@ int main()
     /// Un exemple de graphe
     Graph g;
     g.make_example();
+    g.SupprimerSommet(4);
 
 
-    Acceuil1();
-
-    g.F_C();
+//    Acceuil1();
+//
+//
+//
+//    int i;
+//    g.update(1);
+//    grman::mettre_a_jour();
+//
+//    std::cin>>i;
+//    ///clear le graphe
+//
+//    ///recharger le graphe
+//    g.make_example();
 
     bool fin = false;
     /// Vous gardez la main sur la "boucle de jeu"
     /// ( contrairement à des frameworks plus avancés )
     while (!fin )
     {
-        if(g.update())fin = true;
-        if(key[KEY_ESC])fin = true;
+        if(g.update())
+            fin = true;
+
+        if(key[KEY_ESC])
+            fin = true;
         /// Il faut appeler les méthodes d'update des objets qui comportent des widgets
 
         /// Mise à jour générale (clavier/souris/buffer etc...)
         grman::mettre_a_jour();
-
-        std::cout << "X = " << g.getMapVertex()[1].getX() << " Y = " << g.getMapVertex()[1].getY() << std::endl;
-        std::cout << "Population de Crabe = " << g.getMapVertex()[1].getPopu() << std::endl;
-
+//        std::cout<<"je met a jour"<<std::endl;
+//        std::cout << "X = " << g.getMapVertex()[1].getX() << " Y = " << g.getMapVertex()[1].getY() << std::endl;
+//        std::cout << "Population de Crabe = " << g.getMapVertex()[1].getPopu() << std::endl;
+//        std::cout<<"fin=" <<fin<<std::endl;
     }
+
 
     grman::fermer_allegro();
 

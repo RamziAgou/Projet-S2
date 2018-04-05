@@ -50,6 +50,8 @@ class Vertex
         void pre_update();
         void post_update();
 
+        void AfficherArc();
+
         double getX();
         double getY();
 

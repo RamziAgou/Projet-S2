@@ -58,11 +58,30 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
     m_bouton_play_pause_label.set_frame(5,675,100,100);
     m_bouton_play_pause_label.set_message("Simulation");
 
-    m_tool_box.add_child( m_edition_label );
+    //m_tool_box.add_child( m_edition_label );
     m_edition_label.set_frame(5,210,100,100);
     m_edition_label.set_message("EDITER :");
 
-    m_tool_box.add_child( m_sommet_label );
+    //Edition Sommets
+    //m_tool_box.add_child( m_sommet_label );
+    m_sommet_label.set_frame(5,230,100,100);
+    m_sommet_label.set_message("Sommet");
+
+    //m_tool_box.add_child( m_add_sommet );
+    m_add_sommet.set_frame(3,240,35,35);
+    m_add_sommet.add_child(m_add_sommet_image);
+    m_add_sommet_image.set_pic_name("add_sommet.jpg");
+
+    //m_tool_box.add_child( m_remove_sommet );
+    m_remove_sommet.set_frame(47,240,35,35);
+    m_remove_sommet.add_child(m_remove_sommet_image);
+    m_remove_sommet_image.set_pic_name("remove_sommet.png");
+
+    //m_tool_box.add_child( m_edition_label );
+    m_edition_label.set_frame(5,210,100,100);
+    m_edition_label.set_message("EDITER :");
+
+    //m_tool_box.add_child( m_sommet_label );
     m_sommet_label.set_frame(5,230,100,100);
     m_sommet_label.set_message("Sommet");
 
@@ -86,6 +105,11 @@ grman::WidgetButton& GraphInterface::get_bouton_quitter()
     return m_bouton_quitter;
 }
 
+grman::WidgetButton& GraphInterface::get_bouton_charger()
+{
+    return m_bouton_charger;
+}
+
 grman::WidgetButton& GraphInterface::get_bouton_play()
 {
     return m_bouton_play;
@@ -104,4 +128,24 @@ grman::WidgetBox& GraphInterface::get_tool_box()
 grman::WidgetText& GraphInterface::get_bouton_play_pause_label()
 {
     return m_bouton_play_pause_label;
+}
+
+grman::WidgetButton& GraphInterface::get_add_sommet()
+{
+    return m_add_sommet;
+}
+
+grman::WidgetButton& GraphInterface::get_remove_sommet()
+{
+    return m_remove_sommet;
+}
+
+grman::WidgetText& GraphInterface::get_sommet_label()
+{
+    return m_sommet_label;
+}
+
+grman::WidgetText& GraphInterface::get_edition_label()
+{
+    return m_edition_label;
 }

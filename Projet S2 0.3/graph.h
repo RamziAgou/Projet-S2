@@ -119,13 +119,18 @@ class Graph
 
         void ChargerGraphe(std::string fichier);
         void SauverGraphe();
-        void SupprimerArete(int a);
-        void SupprimerSommet(int b);
+
+        void afficher_editeur();
+        void enlever_editeur();
 
         /// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface
         bool update(int a=0);
         bool update_simulation();
         bool update_F_C();
+
+        void SupprimerArete(int a);
+        void SupprimerSommet(int b);
+        void TuerSommet(int b);
 
 
         int getOrdre() const;

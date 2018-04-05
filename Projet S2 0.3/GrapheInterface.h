@@ -22,6 +22,7 @@ class GraphInterface
         grman::WidgetBox m_tool_box;
 
 
+
         grman::WidgetButton m_bouton_sauver;
         grman::WidgetButton m_bouton_quitter;
         grman::WidgetButton m_bouton_charger;

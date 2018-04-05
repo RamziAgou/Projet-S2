@@ -26,6 +26,9 @@ class Vertex
         int m_idx;
         double m_range;
 
+        int m_plus;
+        int m_moins;
+
         /// le POINTEUR sur l'interface associée, nullptr -> pas d'interface
         std::shared_ptr<VertexInterface> m_interface = nullptr;
 
@@ -39,7 +42,7 @@ class Vertex
         /// Les constructeurs sont à compléter selon vos besoin...
         /// Ici on ne donne qu'un seul constructeur qui peut utiliser une interface
         Vertex (std::string name ="", double value=0, VertexInterface *interface=nullptr) :
-            m_nom(name), m_popul(value), m_interface(interface)  {  }
+            m_nom(name), m_popul(value), m_interface(interface),m_moins(0),m_plus(0)  {  }
 
         /// Vertex étant géré par Graph ce sera la méthode update de graph qui appellera
         /// le pre_update et post_update de Vertex (pas directement la boucle de jeu)

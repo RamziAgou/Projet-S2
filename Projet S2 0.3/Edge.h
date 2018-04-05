@@ -42,6 +42,8 @@ class Edge
 
         void setArrive(int a);
         void setDepart(int a);
+
+        std::shared_ptr<EdgeInterface>& getInterEdge();
 };
 
 #endif // EDGE_H_INCLUDED

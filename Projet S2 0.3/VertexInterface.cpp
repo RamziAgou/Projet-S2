@@ -13,10 +13,10 @@ VertexInterface::VertexInterface(int idx, int x, int y, std::string pic_name,dou
     m_top_box.set_moveable();
 
     // Le slider de réglage de valeur
-    m_top_box.add_child( m_slider_value );
-    m_slider_value.set_range(0.0 , range); // Valeurs arbitraires, à adapter...
-    m_slider_value.set_dim(20,80);
-    m_slider_value.set_gravity_xy(grman::GravityX::Left, grman::GravityY::Up);
+//    m_top_box.add_child( m_slider_value );
+//    m_slider_value.set_range(0.0 , range); // Valeurs arbitraires, à adapter...
+//    m_slider_value.set_dim(20,80);
+//    m_slider_value.set_gravity_xy(grman::GravityX::Left, grman::GravityY::Up);
 
     // Label de visualisation de valeur
     m_top_box.add_child( m_label_value );

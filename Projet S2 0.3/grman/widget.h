@@ -295,7 +295,7 @@ class WidgetVSlider : public Widget
 
     public :
 
-        WidgetVSlider(double min=0, double max=1, bool integer=false) :
+        WidgetVSlider(double min=0, double max=99999, bool integer=false) :
             m_min(min), m_max(max), m_integer(integer)
             { m_padding=m_specific_padding; limit_to_range(); }
 
@@ -307,7 +307,7 @@ class WidgetVSlider : public Widget
         double typed(double v) { return m_integer ? round(v) : v; }
         double get_value() { return typed(m_value); }
         void limit_to_range() { if (m_value<m_min) m_value=m_min; if (m_value>m_max) m_value=m_max; }
-        void set_value(double value) { m_value = value; m_value =get_value(); limit_to_range(); }
+        void set_value(double value) { m_value = value; m_value =get_value(); limit_to_range();}
         void set_range(double min, double max, bool integer=false) { m_min = min; m_max = max; m_integer = integer; limit_to_range(); }
 };
 

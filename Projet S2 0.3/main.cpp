@@ -18,18 +18,24 @@ int main()
 
 
     Acceuil1();
+
+    g.F_C();
+
+    bool fin = false;
     /// Vous gardez la main sur la "boucle de jeu"
     /// ( contrairement à des frameworks plus avancés )
-    while ( !key[KEY_ESC] )
+    while (!fin )
     {
+        if(g.update())fin = true;
+        if(key[KEY_ESC])fin = true;
         /// Il faut appeler les méthodes d'update des objets qui comportent des widgets
-        g.update();
 
         /// Mise à jour générale (clavier/souris/buffer etc...)
         grman::mettre_a_jour();
 
         std::cout << "X = " << g.getMapVertex()[1].getX() << " Y = " << g.getMapVertex()[1].getY() << std::endl;
-        g.SauverGraphe();
+        std::cout << "Population de Crabe = " << g.getMapVertex()[1].getPopu() << std::endl;
+
     }
 
     grman::fermer_allegro();

@@ -69,7 +69,9 @@ void Vertex::post_update()
     if (!m_interface)
         return;
 
+
+
     /// Reprendre la valeur du slider dans la donnée m_value locale
-    m_popul = m_interface->m_slider_value.get_value();
+    setPopu(m_interface->m_slider_value.get_value());
 }
 /// Gestion du Vertex avant l'appel à l'interface

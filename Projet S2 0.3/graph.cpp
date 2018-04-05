@@ -30,12 +30,16 @@ void Graph::setName(std::string a)
     m_name = a;
 }
 
-void Graph::ChargerGraphe(std::string fichier)
+void Graph::ChargerGraphe(std::string _fichier)
 {
     m_interface = std::make_shared<GraphInterface>(50, 0, 750, 600);
     std::cout<<"je commence";
+
+    std::string fichier = _fichier;
+
     m_edges.clear();
     m_vertices.clear();
+
 
 
     std::string buffer, nom;

@@ -33,6 +33,8 @@ class EdgeInterface
         // Le constructeur met en place les éléments de l'interface
         // voir l'implémentation dans le .cpp
         EdgeInterface(Vertex& from, Vertex& to);
+
+        void indicateur_poids();
 };
 
 #endif // EDGEINTERFACE_H_INCLUDED

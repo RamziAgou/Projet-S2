@@ -29,6 +29,10 @@ class Vertex
         int m_plus;
         int m_moins;
 
+        bool m_marque = false;
+        std::vector<int> m_connexe;
+        bool actif = true;
+
         /// le POINTEUR sur l'interface associée, nullptr -> pas d'interface
         std::shared_ptr<VertexInterface> m_interface = nullptr;
 

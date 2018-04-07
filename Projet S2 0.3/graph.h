@@ -73,6 +73,7 @@
 
 #include <map>
 #include <string>
+#include <queue>
 #include "Edge.h"
 #include "GrapheInterface.h"
 #include <fstream>
@@ -89,8 +90,9 @@ class Graph
 
         /// La liste des sommets
         std::map<int, Vertex> m_vertices;
-
         std::vector<int> m_supprime;
+
+        std::vector<std::vector<int>> m_sommet_k_connexe;
 
         /// le POINTEUR sur l'interface associée, nullptr -> pas d'interface
         std::shared_ptr<GraphInterface> m_interface = nullptr;
@@ -98,6 +100,8 @@ class Graph
         std::string m_name;
         int m_ordre;
         int m_nbArc;
+
+        int m_maxconnex = 0;
 
 
     public:
@@ -120,8 +124,19 @@ class Graph
         void ChargerGraphe(std::string fichier);
         void SauverGraphe();
 
+        void UseBFS(int a, int numero);
+        int Connexe();
+        void K_Connexe();
+        std::vector<std::vector<int>> Combinaison(int K);
+        void AffichageCombi();
+        void AfficherKConnexe();
+
+
         void afficher_editeur();
         void enlever_editeur();
+
+        //void ajouter_sommet();
+        //void supprimer_sommet(int id);
 
         /// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface
         bool update(int a=0);
@@ -131,6 +146,8 @@ class Graph
         void SupprimerArete(int a);
         void SupprimerSommet(int b);
         void TuerSommet(int b);
+        void EcrireFichierSupprimer();
+        void ChargerSupprimer();
 
 
         int getOrdre() const;

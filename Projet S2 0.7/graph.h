@@ -156,6 +156,7 @@ class Graph
         void ChargerSupprimer();
 
         void AjouterArete(int a);
+        void AjouterSommet(int b);
 
         std::shared_ptr<GraphInterface> getm_interface() const;
 

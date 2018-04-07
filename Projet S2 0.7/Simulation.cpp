@@ -5,6 +5,7 @@ void Simulation()
 {
     Graph g;
     g.make_example();
+    g.AjouterSommet(1);
     bool fin = false;
     int tempo_visu=0;
     int tempo_visu_max=30;

@@ -22,6 +22,7 @@ int main()
 
     Acceuil1();
 
+
    // analyse_K_C();
  //int i;
    // std::cin>>i;

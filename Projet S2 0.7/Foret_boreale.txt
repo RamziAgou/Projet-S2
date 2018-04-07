@@ -1,6 +1,6 @@
 Foret_boreale
 12
-17
+16
 0 vegetation 356 613 1000 10000 1000 1
 1 orignal 16 551 20 50 0 0.5
 2 castor 44 187 15 50 0 0.5

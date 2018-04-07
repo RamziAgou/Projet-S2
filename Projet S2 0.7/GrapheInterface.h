@@ -31,6 +31,7 @@ class GraphInterface
         grman::WidgetButton m_bouton_sauver;
         grman::WidgetButton m_bouton_quitter;
         grman::WidgetButton m_bouton_charger;
+
         grman::WidgetButton m_add_sommet;
         grman::WidgetImage m_add_sommet_image;
 

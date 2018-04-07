@@ -34,12 +34,17 @@ class VertexInterface
         // Une boite pour le label précédent
         grman::WidgetText m_box_label_idx;
 
+        grman::WidgetButton m_delete;//bouton delete sommet
+        grman::WidgetImage m_delete_image;
+
     public :
 
         // Le constructeur met en place les éléments de l'interface
         // voir l'implémentation dans le .cpp
         VertexInterface(int idx, int x, int y, std::string pic_name="",double range=0, int pic_idx=0);
         grman::WidgetBox& getTopBox();
+
+        void adjust_dim_sommet();
 };
 
 #endif // VERTEXINTERFACE_H_INCLUDED

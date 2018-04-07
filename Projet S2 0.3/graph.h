@@ -89,6 +89,7 @@ class Graph
 
         /// La liste des sommets
         std::map<int, Vertex> m_vertices;
+        std::map<int, Vertex> m_sommet_supprime;
 
         /// le POINTEUR sur l'interface associée, nullptr -> pas d'interface
         std::shared_ptr<GraphInterface> m_interface = nullptr;
@@ -120,6 +121,9 @@ class Graph
 
         void afficher_editeur();
         void enlever_editeur();
+
+        void ajouter_sommet();
+        void supprimer_sommet(int id);
 
         /// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface
         bool update(int a=0);

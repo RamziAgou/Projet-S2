@@ -47,8 +47,8 @@ class GraphInterface
         grman::WidgetText m_bouton_play_pause_label;
 
         grman::WidgetText m_edition_label;
-        // A compléter éventuellement par des widgets de décoration ou
-        // d'édition (boutons ajouter/enlever ...)
+
+        bool deja_clique=0;
 
 
     public :

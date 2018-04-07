@@ -135,7 +135,10 @@ void Graph::make_example()
 {
     m_interface = std::make_shared<GraphInterface>(50, 0, 750, 600);
 
-    ChargerGraphe("Marin");
+    //ChargerGraphe("Marin");
+    ChargerGraphe("Foret_boreale");
+    //ChargerGraphe("Foret");
+
     // La ligne précédente est en gros équivalente à :
     // m_interface = new GraphInterface(50, 0, 750, 600);
 //
@@ -177,9 +180,44 @@ bool Graph::update_simulation()
         SauverGraphe();
     }
 
+    if( m_interface->get_add_sommet().clicked())
+    {
+        ajouter_sommet();
+    }
+
+    if( m_interface->get_remove_sommet().clicked())
+    {
+        if(m_interface->deja_clique==0)
+        {
+            for(auto elem : m_vertices)
+            {
+                elem.second.getInterVertex()->m_top_box.add_child(elem.second.getInterVertex()->m_delete );
+                if(elem.second.getInterVertex()->m_delete.clicked())
+                {
+                    //supprimer_sommet(elem.second.getIdx());
+                }
+
+            }
+            m_interface->deja_clique=1;
+        }
+
+        else
+        {
+            for(auto elem : m_vertices)
+            {
+                elem.second.getInterVertex()->m_top_box.remove_child(elem.second.getInterVertex()->m_delete );
+
+            }
+            m_interface->deja_clique=0;
+        }
+
+    }
+
     if ( m_interface->get_bouton_pause().clicked() )
     {
         afficher_editeur();//affiche l'interface editeur
+
+
 
         for(auto elem : m_vertices)
         {
@@ -202,9 +240,27 @@ bool Graph::update_simulation()
         }
     }
 
+    for(auto elem : m_vertices)
+    {
+        elem.second.getInterVertex()->adjust_dim_sommet();
+
+    }
+
+    for(auto elem : m_edges)
+    {
+        elem.second.getInterEdge()->indicateur_poids();
+
+    }
+
     if ( m_interface->get_bouton_play().clicked() )
     {
         enlever_editeur();//enleve l'interface editeur
+        for(auto elem : m_vertices)
+        {
+            elem.second.getInterVertex()->m_top_box.remove_child(elem.second.getInterVertex()->m_delete );
+
+        }
+
 
         for(auto elem : m_vertices)
         {
@@ -221,7 +277,7 @@ bool Graph::update_simulation()
     }
     if ( m_interface->get_bouton_quitter().clicked() )
     {
-        std::cout<<"t'appuie sur quitter bolossssss"<<std::endl;
+
         return true;
     }
     std::cout<<"pas appuyer"<<std::endl;
@@ -490,3 +546,36 @@ void Graph::enlever_editeur()
     m_interface->get_tool_box().remove_child(m_interface->get_add_sommet());
     m_interface->get_tool_box().remove_child(m_interface->get_remove_sommet());
 }
+
+void Graph::ajouter_sommet()
+{
+    int choix;
+    do
+    {
+        std::cout << std::endl;
+        std::cout << "Choisissez quel sommet ajouter: " << std::endl;
+        std::cout << "Quitter: -1" << std::endl;
+        for(int i=0; i<m_sommet_supprime.size();i++)
+        {
+            std::cout << m_sommet_supprime[i].getIdx() << " " << m_sommet_supprime[i].getName() << std::endl;
+
+
+        }
+
+        std::cin >> choix;
+        //add_interfaced_vertex(m_sommet_supprime[choix].m_idx, )
+        if( choix <= m_sommet_supprime.size() && 0 <= choix  )
+        {
+            //add_interfaced_vertex(m_sommet_supprime[choix].getIdx(), m_sommet_supprime[choix].getName(), m_sommet_supprime[choix].getPopu(), m_sommet_supprime[choix].getX(), m_sommet_supprime[choix].getY(), m_sommet_supprime[choix].getName() + ".jpg", m_sommet_supprime[choix].getRange(), m_sommet_supprime[choix].getPopu());
+            m_interface->m_main_box.add_child(m_vertices[choix].m_interface->m_top_box);
+        }
+        //add_interfaced_edge(choix, indice1, indice2, poids);
+    }
+    while(choix <= m_sommet_supprime.size() && 0 <= choix );
+}
+
+//void Graph::enlever_sommet()
+//{
+//
+//
+//}

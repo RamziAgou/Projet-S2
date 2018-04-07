@@ -11,6 +11,12 @@ EdgeInterface::EdgeInterface(Vertex& from, Vertex& to)
     m_top_edge.attach_from(from.m_interface->m_top_box);
     m_top_edge.attach_to(to.m_interface->m_top_box);
     m_top_edge.reset_arrow_with_bullet();
+//    m_top_edge.set;
+//    m_top_edge.add_item( {grman::ArrowItemType::Arrow, 0.4 }   );
+//    m_top_edge.add_item( {grman::ArrowItemType::Arrow, 0.5, 14}   );
+    //m_top_edge.add_item( {grman::ArrowItemType::Arrow, 0.6, 14, 1.0 }   );
+//    m_top_edge.add_item( {grman::ArrowItemType::, 0.6, 14}   );
+//    m_top_edge.add_item( {grman::ArrowItemType::, 0.6, 14, 1.0 }   );
 
     // Une boite pour englober les widgets de réglage associés
     m_top_edge.add_child(m_box_edge);
@@ -28,3 +34,31 @@ EdgeInterface::EdgeInterface(Vertex& from, Vertex& to)
     m_label_weight.set_gravity_y(grman::GravityY::Down);
 
 }
+
+void EdgeInterface::indicateur_poids()
+{
+    if(m_slider_weight.get_value()>=0)
+    {
+        m_top_edge.reset_arrow();
+    }
+
+    if(m_slider_weight.get_value()>=10)
+    {
+        m_top_edge.reset_arrow();
+        m_top_edge.add_item( {grman::ArrowItemType::Arrow, 0.4, 14 }   );
+    }
+    if(m_slider_weight.get_value()>=20)
+    {
+        m_top_edge.reset_arrow();
+//            m_top_edge.add_item( {grman::ArrowItemType::Arrow, 0.7, 14 }   );
+//            m_top_edge.add_item( {grman::ArrowItemType::Arrow, 0.5, 14}   );
+
+        m_top_edge.add_item( {grman::ArrowItemType::Arrow, 0.4, 14 }   );
+//        m_top_edge.add_item( {grman::ArrowItemType::Arrow, 0.5, 14}   );
+        m_top_edge.add_item( {grman::ArrowItemType::Arrow, 0.6, 14,}   );
+    }
+}
+
+
+
+

@@ -30,6 +30,30 @@ void Graph::setName(std::string a)
     m_name = a;
 }
 
+void Graph::AjouterArete(int a)
+{
+    Edge &deledge = m_edges[a];
+    std::vector<int>& vedepart = m_vertices[deledge.m_from].m_out;
+    std::vector<int>& vearrive = m_vertices[deledge.m_to].m_in;
+
+    if(m_interface && deledge.m_interface)
+    {
+        m_interface->m_main_box.add_child(deledge.m_interface->m_top_edge);
+    }
+
+    for(auto elem : m_vertices)
+    {
+        if(elem.second.m_idx == deledge.m_from)
+        {
+            vedepart.push_back(a);
+        }
+
+        if(elem.second.m_idx == deledge.m_to)
+        {
+            vearrive.push_back(a);
+        }
+    }
+}
 void Graph::SupprimerArete(int a)
 {
     Edge &deledge = m_edges[a];

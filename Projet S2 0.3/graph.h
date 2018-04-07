@@ -149,6 +149,8 @@ class Graph
         void EcrireFichierSupprimer();
         void ChargerSupprimer();
 
+        void AjouterArete(int a);
+
 
         int getOrdre() const;
         int getNbArc() const;

@@ -45,17 +45,16 @@ void EdgeInterface::indicateur_poids()
     if(m_slider_weight.get_value()>=10)
     {
         m_top_edge.reset_arrow();
-        m_top_edge.add_item( {grman::ArrowItemType::Arrow, 0.4, 14 }   );
+        m_top_edge.add_item( {grman::ArrowItemType::Arrow, 0.9, 14 }   );
     }
     if(m_slider_weight.get_value()>=20)
     {
         m_top_edge.reset_arrow();
-//            m_top_edge.add_item( {grman::ArrowItemType::Arrow, 0.7, 14 }   );
-//            m_top_edge.add_item( {grman::ArrowItemType::Arrow, 0.5, 14}   );
 
-        m_top_edge.add_item( {grman::ArrowItemType::Arrow, 0.4, 14 }   );
-//        m_top_edge.add_item( {grman::ArrowItemType::Arrow, 0.5, 14}   );
-        m_top_edge.add_item( {grman::ArrowItemType::Arrow, 0.6, 14,}   );
+
+        m_top_edge.add_item( {grman::ArrowItemType::Arrow, 0.8, 14 }   );
+        m_top_edge.add_item( {grman::ArrowItemType::Arrow, 0.9, 14,}   );
+
     }
 }
 

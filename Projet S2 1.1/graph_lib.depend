@@ -2287,3 +2287,165 @@
 1523225161 source:c:\users\pierr\desktop\projet s2 1.1\acceuil2.cpp
 	"Acceuil2.h"
 
+1523226332 source:c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 1.1\acceuil1.cpp
+	"Acceuil1.h"
+	<allegro.h>
+	<iostream>
+
+1523226332 c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 1.1\acceuil1.h
+
+1523226332 source:c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 1.1\acceuil2.cpp
+	"Acceuil2.h"
+
+1523226332 c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 1.1\acceuil2.h
+	<iostream>
+	"graph.h"
+	"Menu1.h"
+	"Manuel.h"
+
+1523226332 c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 1.1\graph.h
+	<map>
+	<string>
+	"Edge.h"
+	"GrapheInterface.h"
+	<fstream>
+	<stack>
+	<vector>
+	<queue>
+
+1523226332 c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 1.1\edge.h
+	"EdgeInterface.h"
+
+1523226332 c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 1.1\edgeinterface.h
+	"grman/grman.h"
+	"Vertex.h"
+
+1523226332 c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 1.1\grman\grman.h
+	<allegro.h>
+	<string>
+	"grman_couleurs.h"
+	"coords.h"
+	"widget.h"
+
+1523226332 c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 1.1\grman\grman_couleurs.h
+
+1523226332 c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 1.1\grman\coords.h
+	<cmath>
+
+1523226332 c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 1.1\grman\widget.h
+	"grman.h"
+	<iostream>
+	<string>
+	<vector>
+	<algorithm>
+	<allegro.h>
+
+1523226332 c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 1.1\vertex.h
+	<vector>
+	<memory>
+	"VertexInterface.h"
+
+1523226332 c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 1.1\vertexinterface.h
+	"grman/grman.h"
+
+1523226332 c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 1.1\grapheinterface.h
+	"grman/grman.h"
+	<string>
+	<vector>
+	"Edge.h"
+
+1523226332 c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 1.1\menu1.h
+	<iostream>
+	"graph.h"
+	"grman/grman.h"
+	"Simulation.h"
+	"Analyse1.h"
+
+1523226332 c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 1.1\simulation.h
+	"graph.h"
+	<iostream>
+
+1523226332 c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 1.1\analyse1.h
+	<iostream>
+	"graph.h"
+	"analyse_K_C.h"
+	"Analyse_F_C.h"
+
+1523226332 c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 1.1\analyse_k_c.h
+	"graph.h"
+
+1523226332 c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 1.1\analyse_f_c.h
+	<vector>
+	<iostream>
+	"grman/grman.h"
+	"graph.h"
+
+1523226332 c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 1.1\manuel.h
+	"graph.h"
+
+1523226332 source:c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 1.1\analyse1.cpp
+	"Analyse1.h"
+
+1523226332 source:c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 1.1\analyse_f_c.cpp
+	"Analyse_F_C.h"
+
+1523226332 source:c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 1.1\analyse_k_c.cpp
+	"analyse_K_C.h"
+
+1523226332 source:c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 1.1\edge.cpp
+	"Edge.h"
+
+1523226332 source:c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 1.1\edgeinterface.cpp
+	"EdgeInterface.h"
+
+1523226332 source:c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 1.1\graph.cpp
+	"graph.h"
+
+1523226332 source:c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 1.1\grapheinterface.cpp
+	"GrapheInterface.h"
+
+1523226332 source:c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 1.1\grman\coords.cpp
+	"coords.h"
+
+1523226332 source:c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 1.1\grman\grman.cpp
+	<cmath>
+	<unordered_map>
+	<unordered_set>
+	<utility>
+	<string>
+	<iostream>
+	<regex>
+	"grman.h"
+	<allegro.h>
+	<png.h>
+	<loadpng.h>
+	<jpgalleg.h>
+
+1523226332 source:c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 1.1\grman\widget.cpp
+	"widget.h"
+
+1523226332 source:c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 1.1\main.cpp
+	"grman/grman.h"
+	<iostream>
+	"graph.h"
+	"Acceuil1.h"
+	"Simulation.h"
+	"Analyse_F_C.h"
+	"Acceuil2.h"
+	"analyse_K_C.h"
+
+1523226332 source:c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 1.1\manuel.cpp
+	"Manuel.h"
+
+1523226332 source:c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 1.1\menu1.cpp
+	"Menu1.h"
+
+1523226332 source:c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 1.1\simulation.cpp
+	"Simulation.h"
+
+1523226332 source:c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 1.1\vertex.cpp
+	"Vertex.h"
+
+1523226332 source:c:\users\alex_\onedrive\documents\github\projet-s2\projet s2 1.1\vertexinterface.cpp
+	"VertexInterface.h"
+

@@ -40,7 +40,7 @@ void Menu1(std::string name_ecosys)
         simu_bouton.set_frame_dim(615,295);
         simu_bouton.set_gravity_xy(grman::GravityX::Left,grman::GravityY::Up);
         simu.set_frame_dim(620,300);
-        simu.set_frame_pos(200,500);
+        simu.set_frame_pos(200,400);
         simu_image.set_pic_name("simu.jpg");
 
     /// retour

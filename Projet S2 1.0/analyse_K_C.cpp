@@ -3,6 +3,8 @@
 bool analyse_K_C(std::string name_ecosys)
 {
 
+    bool fin = false;
+
     Graph g;
     g.make_example(name_ecosys);
     g.getm_interface()->page_menu();
@@ -36,12 +38,14 @@ bool analyse_K_C(std::string name_ecosys)
 
     int numeroCombi = 0;
 
+    while(!fin)
+    {
         g.update();
         grman::mettre_a_jour();
 
         if(quitter.clicked())
         {
-            return true;
+            fin = true;
         }
 
         for(unsigned int i=0; i< g.getSommetConnexe()[numeroCombi].size(); i++)
@@ -62,6 +66,7 @@ bool analyse_K_C(std::string name_ecosys)
         {
             numeroCombi = 0;
         }
+    }
 
         return false;
 }

@@ -132,6 +132,8 @@ void GraphInterface::dessiner_reduit(std::vector<std::vector<int>> resultat_algo
         {
             dy=-dy;
         }
+        if(y<0)
+            y=0;
         pt_nouveau_sommet= new VertexInterface(i,x+100,y+10,emplacement_photo,0,0);
         pt_nouveau_sommet->modifier_interface_reduit();
 

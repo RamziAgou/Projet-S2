@@ -142,7 +142,6 @@ class Graph
 
         bool ComparerVect(std::vector<int> a, std::vector<int> b);
 
-
         void afficher_editeur();
         void enlever_editeur();
 

@@ -21,10 +21,8 @@ int main()
     ///g.TuerSommet(5);
 
     Acceuil1();
-    ///analyse_K_C("Foret");
     Acceuil2();
-
-
+   // analyse_K_C();
  //int i;
    // std::cin>>i;
 

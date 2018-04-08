@@ -37,10 +37,17 @@ class GraphInterface
         grman::WidgetButton m_remove_sommet;
         grman::WidgetImage m_remove_sommet_image;
 
+        grman::WidgetButton m_add_arete;
+        grman::WidgetImage m_add_arete_image;
+
+        grman::WidgetButton m_remove_arete;
+        grman::WidgetImage m_remove_arete_image;
+
         grman::WidgetText m_bouton_sauver_label1;
         grman::WidgetText m_bouton_sauver_label2;
         grman::WidgetText m_bouton_quitter_label;
         grman::WidgetText m_sommet_label;
+        grman::WidgetText m_arete_label;
 
         grman::WidgetText m_bouton_charger_label;
 
@@ -76,6 +83,8 @@ class GraphInterface
         grman::WidgetButton& get_bouton_play();
         grman::WidgetButton& get_add_sommet();
         grman::WidgetButton& get_remove_sommet();
+        grman::WidgetButton& get_add_arete();
+        grman::WidgetButton& get_remove_arete();
 
         grman::WidgetBox& get_tool_box();
 
@@ -85,6 +94,7 @@ class GraphInterface
 
         grman::WidgetText& get_bouton_play_pause_label();
         grman::WidgetText& get_sommet_label();
+        grman::WidgetText& get_arete_label();
         grman::WidgetText& get_edition_label();
 
 

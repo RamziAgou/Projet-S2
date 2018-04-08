@@ -5,14 +5,18 @@ bool analyse_K_C(std::string name_ecosys)
 
     bool fin = false;
 
+    ///On créer le graphe
     Graph g;
     g.make_example(name_ecosys);
     g.getm_interface()->page_menu();
+
+    ///On affiche les Combinaisons, effectue l'algo de k_connexité puis on l'affiche sur la console
     g.AffichageCombi();
     g.VerifDoublon();
     g.AfficherKConnexe();
 
 
+    ///Mise en place de l'affichage graphique
     grman::WidgetBox Suivant;
     grman::WidgetText Suivant_label;
     grman::WidgetButton Suivant_bouton;
@@ -36,6 +40,7 @@ bool analyse_K_C(std::string name_ecosys)
     quitter.add_child(quitter_label);
     quitter_label.set_message("Exit");
 
+    ///Variable permettant de changer de combinaison de k_connexité
     int numeroCombi = 0;
 
     while(!fin)
@@ -43,16 +48,19 @@ bool analyse_K_C(std::string name_ecosys)
         g.update();
         grman::mettre_a_jour();
 
+        ///Si on appuye sur le bouton quitter on quitte le sousprogramme
         if(quitter.clicked())
         {
             fin = true;
         }
 
+        ///On supprimes les sommets formant la combinaisons pour pouvoir afficher que le graphe restant
         for(unsigned int i=0; i< g.getSommetConnexe()[numeroCombi].size(); i++)
         {
             g.SupprimerSommet(g.getSommetConnexe()[numeroCombi][i]);
         }
 
+        ///Si on clique sur suivant on rajoute tous les sommets supprimés et on change de combinaisons
         if(Suivant_bouton.clicked())
         {
             for(unsigned int i=0; i< g.getSommetConnexe()[numeroCombi].size(); i++)
@@ -62,6 +70,7 @@ bool analyse_K_C(std::string name_ecosys)
             numeroCombi++;
         }
 
+        ///Permet de boucler quand on arrive a la derniere combinaison on revient a la premiere
         if(numeroCombi >= g.getSommetConnexe().size())
         {
             numeroCombi = 0;

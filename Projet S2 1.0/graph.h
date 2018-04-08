@@ -101,12 +101,16 @@ class Graph
         /// le POINTEUR sur l'interface associée, nullptr -> pas d'interface
         std::shared_ptr<GraphInterface> m_interface = nullptr;
 
+        ///Nom du graphe
         std::string m_name;
+        ///Nombre de sommet du graphe
         int m_ordre;
+        ///Nombre d'arc du graphe
         int m_nbArc;
 
         int m_etat=0;
 
+        ///Permet de vérifier la k_connexité
         int m_maxconnex = 0;
 
 
@@ -129,17 +133,26 @@ class Graph
 
         void make_menu();
 
+        ///Permet de sauvegarder et de charger le graphe : le chargement prend en paramètre le nom du fichier
         void ChargerGraphe(std::string fichier);
         void SauverGraphe();
 
+        ///Algorithme du BFS pour la connexité
         void UseBFS(int a, int numero);
+        ///Permet de trouver le nombre de composante connexe d'un graphe
         int Connexe();
+        ///Permet de trouver le nombre de sommet a enlever pour ne plus etre connexe
         void K_Connexe();
+        ///Permet de retirer de potentiel doublon des combinaisons de sommet a enlever pour la k_connexité
         void VerifDoublon();
+        ///Méthode permettant de récuperer la combinaison de K element parmi N (N est ici le nombre d'indice des sommets)
         std::vector<std::vector<int>> Combinaison(int K);
+        ///Permet d'afficher les combinaisons des k elements parmi n
         void AffichageCombi();
+        ///Affichage console du résultat de la k_connexité
         void AfficherKConnexe();
 
+        ///Méthode permettant de savoir si 2 vecteurs sont égaux
         bool ComparerVect(std::vector<int> a, std::vector<int> b);
 
         void afficher_editeur();
@@ -150,15 +163,24 @@ class Graph
         bool update_simulation();
         std::vector<Edge> update_F_C();
 
+        ///Méthode permettant de supprimer une Arete sans la supprimer de la map
         void SupprimerArete(int a);
+        ///Méthode permettant de supprimer un sommet
         void SupprimerSommet(int b);
+        ///Supprime un sommet en mettant sa population à 0
         void TuerSommet(int b);
 
+        ///Gere le fichier supprimer permettant de garder en mémoire quelle sommet a été supprimé
         void EcrireFichierSupprimer();
         void ChargerSupprimer();
 
+        ///Permet d'ajouter un sommet
         void AjouterArete(int a);
         void AjouterSommet(int b);
+
+        ///Permet d'ajouter ou de supprimer une arete indépendamment d'un sommet
+        void VraiAjouterArete(int a, int b);
+        void VraiSupprimerArete(int a);
 
         std::shared_ptr<GraphInterface> getm_interface() const;
 

@@ -7,7 +7,7 @@ void Graph::maths()
     std::cout<<"je rentre dans maths"<<std::endl;
     int i=0;
     int ktempo;
-    for(i=0;i<m_vertices.size();i++)
+    for(i=0; i<m_vertices.size(); i++)
     {
         std::cout<<"je regarde le sommet"<<i<<std::endl;
         std::cout<<"sa pop est de: "<<m_vertices[i].m_popul<<std::endl;
@@ -25,7 +25,7 @@ void Graph::maths()
         if(m_vertices[elem.first].m_in.size()!=0)
         {
             std::cout<<"il mange "<<m_vertices[elem.first].m_in.size()<<"animal"<<std::endl;
-            for(int y=0;y<m_vertices[elem.first].m_in.size();y++)
+            for(int y=0; y<m_vertices[elem.first].m_in.size(); y++)
             {
                 std::cout<<"le coef de l'arrete est de"<<m_edges[m_vertices[elem.first].m_in[y]].getPoids()<<std::endl;
                 std::cout<<"    la population de l'animal mangé est de"<<m_vertices[m_edges[m_vertices[elem.first].m_in[y]].getDepart()].m_popul_moins_un<<std::endl;
@@ -35,8 +35,8 @@ void Graph::maths()
                 std::cout<<"    ktempo vaut:"<<ktempo<<std::endl;
             }
 
-        m_vertices[elem.first].m_K+=ktempo;
-        std::cout<<"ainsi le nouveau K vaut"<<m_vertices[elem.first].m_K<<std::endl<<std::endl;
+            m_vertices[elem.first].m_K+=ktempo;
+            std::cout<<"ainsi le nouveau K vaut"<<m_vertices[elem.first].m_K<<std::endl<<std::endl;
         }
     }
     std::cout<<"les K finit"<<std::endl;
@@ -58,7 +58,7 @@ void Graph::maths()
         std::cout<<"population apres agrandissement:"<<m_vertices[elem.first].m_popul<<std::endl;
         if(m_vertices[elem.first].m_out.size()!=0)
         {
-            for(int y=0;y<m_vertices[elem.first].m_out.size();y++)
+            for(int y=0; y<m_vertices[elem.first].m_out.size(); y++)
             {
                 std::cout<<"    population se fait manger par le sommet:"<<m_vertices[elem.first].m_out[y]<<std::endl;
                 std::cout<<"ils en mange :"<<m_edges[m_vertices[elem.first].m_out[y]].m_poids*m_vertices[m_edges[m_vertices[elem.first].m_out[y]].m_to].getPopu()<<std::endl;
@@ -110,17 +110,89 @@ void Graph::setName(std::string a)
     m_name = a;
 }
 
+void Graph::VraiAjouterArete(int a, int b)
+{
+    bool possible = true;
+    for(auto elem : m_edges)
+    {
+        ///On vérifie que l'arete qu'on veut ajouter n'existe pas déja
+        if(elem.second.m_from == a && elem.second.m_to == b)
+        {
+            possible = false;
+        }
+    }
+
+    ///Si l'arete n'existe pas on l'ajoute dans le vecteur et on lui donne une interface partant des sommets en parametre
+    if(possible)
+    {
+        int indice;
+        indice = m_edges.size();
+        add_interfaced_edge(indice, a, b, 0, 15);
+        m_nbArc++;
+    }
+    else std::cout << "Cet arc existe deja desole " << std::endl;
+
+}
+
+void Graph::VraiSupprimerArete(int a)
+{
+    ///On récupere les sommets qui utilisent cet arc
+    Edge &deledge = m_edges[a];
+    std::vector<int>& vedepart = m_vertices[deledge.m_from].m_out;
+    std::vector<int>& vearrive = m_vertices[deledge.m_to].m_in;
+    std::map<int, Edge>::iterator it2;
+
+    ///Si l'arete a une interface on ne l'affiche plus a l'écran
+    if(m_interface && deledge.m_interface)
+    {
+        m_interface->m_main_box.remove_child(deledge.m_interface->m_top_edge);
+    }
+
+    ///On parcourt les aretes sortantes du sommets de depart et on retire la bonne
+    std::vector<int>::iterator it;
+    for(it = vedepart.begin(); it != vedepart.end(); it++)
+    {
+        if((*it) == a)
+        {
+            vedepart.erase(it);
+            it--;
+        }
+    }
+
+    ///On parcourt les aretes entrantes du sommets d'arrive et on retire la bonne
+    for(it = vearrive.begin(); it != vearrive.end(); it++)
+    {
+        if((*it) == a)
+        {
+            vearrive.erase(it);
+            it--;
+        }
+    }
+    ///On supprime l'arete de la map et on baisse le nombre d'arc
+    it2 = m_edges.find(a);
+    m_edges.erase(it2);
+    m_nbArc--;
+
+    for(auto elem : m_edges)
+    {
+        std::cout << "Indice sommet depart = " << m_vertices[elem.second.m_from].m_idx << std::endl;
+    }
+}
+
 void Graph::AjouterArete(int a)
 {
+    ///On récupere les vecteurs d'indice d'arc des sommets de départ et d'arrive
     Edge &deledge = m_edges[a];
     std::vector<int>& vedepart = m_vertices[deledge.m_from].m_out;
     std::vector<int>& vearrive = m_vertices[deledge.m_to].m_in;
 
+    ///Si interface on ne l'affiche plus
     if(m_interface && deledge.m_interface)
     {
         m_interface->m_main_box.add_child(deledge.m_interface->m_top_edge);
     }
 
+    ///On parcourt la map de sommet pour verifier si l'indice de départ coincide avec le sommet étudie
     for(auto elem : m_vertices)
     {
         if(elem.second.m_idx == deledge.m_from)
@@ -135,6 +207,7 @@ void Graph::AjouterArete(int a)
     }
 }
 
+///Même Logique que la méthode au dessus sauf qu'on ne retire pas de la map
 void Graph::SupprimerArete(int a)
 {
     Edge &deledge = m_edges[a];
@@ -168,7 +241,10 @@ void Graph::SupprimerArete(int a)
 
 void Graph::AjouterSommet(int b)
 {
+    ///La variable actif nous sert a savoir si un sommet a été supprimé ou pas
     m_vertices[b].actif = true;
+
+    ///On parcourt le vecteur de sommet supprimé pour enlever le sommet qu'on veut ajouter
     std::vector<int>::iterator it;
     for(it = m_supprime.begin(); it!= m_supprime.end(); it++)
     {
@@ -185,6 +261,7 @@ void Graph::AjouterSommet(int b)
         m_interface->m_main_box.add_child(delVer.m_interface->m_top_box);
     }
 
+    ///On parcourt les aretes pour lier les aretes du sommet qu'on veut ajouter
     for(auto elem : m_edges)
     {
         if(elem.second.m_from == b)
@@ -214,6 +291,7 @@ void Graph::SupprimerSommet(int b)
         m_interface->m_main_box.remove_child(delVer.m_interface->m_top_box);
     }
 
+    ///Pour supprimer un sommet on supprime d'abord les aretes qui sont liés a lui
     std::vector<int>::iterator it;
     for(it = delVer.m_out.begin(); it != delVer.m_out.end(); it++)
     {
@@ -227,9 +305,6 @@ void Graph::SupprimerSommet(int b)
         it--;
     }
 
-
-    std::cout << "Vous avez supprime le/la : " << m_vertices[b].getName() << std::endl;
-
 }
 
 void Graph::ChargerSupprimer()
@@ -239,6 +314,7 @@ void Graph::ChargerSupprimer()
     std::string fichier2 = m_name + "Supprimer.txt";
     fp2.open(fichier2.c_str());
 
+    ///On va récuperer les indices des sommets supprimé
     if(fp2)
     {
         int nbSupp;
@@ -252,18 +328,21 @@ void Graph::ChargerSupprimer()
         }
     }
 
+    ///Puis on supprime tous les qui doivent etre supprimé
     for(unsigned int i=0; i< m_supprime.size(); i++)
     {
         SupprimerSommet(m_supprime[i]);
     }
 }
 
+///Permet la sauvegarde des sommets supprimés dans un fichier
 void Graph::EcrireFichierSupprimer()
 {
     std::ofstream fp(m_name + "Supprimer.txt");
 
     if(fp)
     {
+        ///On note le nombre d'indice supprimé dans le fichier et l'indice des sommet
         fp << m_supprime.size() << std::endl;
         std::vector<int>::iterator it;
         for(it = m_supprime.begin(); it!= m_supprime.end(); it++)
@@ -273,6 +352,7 @@ void Graph::EcrireFichierSupprimer()
     }
 }
 
+///Bfs classique
 void Graph::UseBFS(int a, int numero)
 {
     std::queue<int> file;
@@ -284,11 +364,14 @@ void Graph::UseBFS(int a, int numero)
     m_vertices[a].m_connexe.push_back(numero);
 
 
+    ///Tant que la file n'est pas vide on continue de regarder les adjacents
     while(!file.empty())
     {
         adjacents.clear();
         actuel = file.front();
         file.pop();
+
+        ///Pour simplifier la suite je crée un vecteur d'adjacence temporaire au sommet sur lequel on est
 
         for(int i=0; i< m_vertices[actuel].m_out.size(); i++)
         {
@@ -309,6 +392,7 @@ void Graph::UseBFS(int a, int numero)
             }
         }
 
+        ///Je regarde les adjacents et si ils sont pas marqué on les push dans la file et on les marque
         for(unsigned int i=0; i< adjacents.size(); i++)
         {
             voisin = adjacents[i];
@@ -322,6 +406,7 @@ void Graph::UseBFS(int a, int numero)
 
 }
 
+///Algo de connexité utilisant un BFS
 int Graph::Connexe()
 {
     int numero = 0;
@@ -329,6 +414,7 @@ int Graph::Connexe()
 
 
     //m_vertices[1].m_marque = true;
+    ///On parcourt la map de sommets et si ce sommet n'est pas marqué on pratique un BFS en partant de lui
     for(auto elem : m_vertices)
     {
         if(!elem.second.m_marque)
@@ -337,14 +423,17 @@ int Graph::Connexe()
             numero++;
         }
     }
+    ///On récupère le max de connexité par rapport à la derniere fois ou on a fait cette méthode -> utile pour la k_connexité
     m_maxconnex =std::max(m_maxconnex, numero);
 
 
+    ///Puis on set tous les marquages a faux
     for(auto elem : m_vertices)
     {
         m_vertices[elem.second.m_idx].m_marque = false;
     }
 
+    ///On return le numéro de la connexité actuel pour savoir si la combinaison empeche la connexité
     return numero;
 
 }
@@ -352,6 +441,7 @@ int Graph::Connexe()
 
 void Graph::K_Connexe()
 {
+    ///Vecteur de vecteur permettant de stocker toutes les combinaisons
     std::vector<std::vector<int>> Combi;
     std::vector<int> actuel;
     int connexe;
@@ -363,18 +453,27 @@ void Graph::K_Connexe()
     while(!fin)
     {
 
+        ///Si on a fait toutes les combinaisons possible et qu'on a bien une combinaison qui empeche la connexité on sort
         if(m_maxconnex >1 && numeroCombi == Combi.size()-1)
+        {
             fin = true;
+        }
+
+        ///On rempli le vecteur de vecteur de combinaison grace a la méthode Combinaison
         Combi = Combinaison(k);
+        ///On récupere la premier combinaison
         actuel = Combi[numeroCombi];
 
 
+        ///On marque les sommets de la premieres combinaisons pour les "retirer" du BFS
         for(unsigned int i=0; i< actuel.size(); i++)
         {
             m_vertices[actuel[i]].m_marque = true;
         }
+        ///On fait la connexité avec les sommets retirés
         connexe = Connexe();
 
+        ///Si il y'a plus d'une composante connexe on stocke la combinaison qui l'a produit
         if(connexe >1)
         {
             for(unsigned int i=0; i< actuel.size(); i++)
@@ -382,7 +481,9 @@ void Graph::K_Connexe()
                 m_sommet_k_connexe.push_back(actuel);
             }
         }
+        ///On change de combinaison
         numeroCombi++;
+        ///On vérifie qu'on a fait toutes les combinaisons de k elements et si on a rien trouve on augmente le k
         if(numeroCombi == Combi.size() && m_maxconnex <= 1)
         {
             numeroCombi = 1;
@@ -391,7 +492,7 @@ void Graph::K_Connexe()
     }
 }
 
-
+///Permet juste d'afficher les combinaisons qui ont permis de perdre la simple connexité
 void Graph::AfficherKConnexe()
 {
     //K_Connexe();
@@ -434,8 +535,10 @@ bool Graph::ComparerVect(std::vector<int> a, std::vector<int> b)
         return true;
     }
 
-    else return false;
+    else
+        return false;
 }
+
 
 void Graph::VerifDoublon()
 {
@@ -447,6 +550,7 @@ void Graph::VerifDoublon()
         {
             if(j != i)
             {
+                ///On verifié l'unicité des combinaisons si ce n'est pas le cas on supprime pour n'en garder qu'une des deux
                 if(ComparerVect(m_sommet_k_connexe[i], m_sommet_k_connexe[j]) == true)
                 {
                     m_sommet_k_connexe.erase(m_sommet_k_connexe.begin() + j);
@@ -458,7 +562,7 @@ void Graph::VerifDoublon()
 }
 
 
-
+///Permet juste d'afficher toutes les combinaisons donnée par la méthode Combinaison
 void Graph::AffichageCombi()
 {
     std::vector<std::vector<int>> Combi;
@@ -476,7 +580,7 @@ void Graph::AffichageCombi()
     }
 }
 
-
+///Méthode de combinaison: Inspiré du lien suivant -> https://stackoverflow.com/questions/12991758/creating-all-possible-k-combinations-of-n-items-in-c
 std::vector<std::vector<int>> Graph::Combinaison(int K)
 {
     std::vector<std::vector<int>> Combi;
@@ -506,18 +610,22 @@ std::vector<std::vector<int>> Graph::Combinaison(int K)
 
 
 
-
 void Graph::TuerSommet(int b)
 {
+    ///On supprime le sommet d'indice donnée en paramètre
     SupprimerSommet(b);
+    ///On met sa population à 0
     m_vertices[b].m_popul = 0;
+    ///Puis on ajoute le sommet dans le vecteur des sommets supprimés
     m_supprime.push_back(b);
 }
 
+
 void Graph::ChargerGraphe(std::string fichier)
 {
+
     m_interface = std::make_shared<GraphInterface>(50, 0, 750, 600);
-    std::cout<<"je commence";
+    ///On clear toutes les maps pour éviter d'empiler les anciens graphes
     m_edges.clear();
     m_vertices.clear();
 
@@ -530,8 +638,10 @@ void Graph::ChargerGraphe(std::string fichier)
     fichier += ".txt";
     fp.open(fichier.c_str());
 
+
     if(fp)
     {
+        ///On lit toutes les informations du graphe dans le fichier
         fp >> buffer;
         setName(buffer);
         std::cout << "Name : " << getName() << std::endl;
@@ -542,6 +652,7 @@ void Graph::ChargerGraphe(std::string fichier)
 
         fp >> buffer2;
         setNbArc(buffer2);
+        std::cout << "ARC : " << getNbArc() << std::endl;
 
         for(int i=0; i< getOrdre(); i++)
         {
@@ -558,10 +669,11 @@ void Graph::ChargerGraphe(std::string fichier)
 
             add_interfaced_edge(j, indice1, indice2, poids,range);
         }
-
+        ///On supprime les éléments qui ont été supprimés dans une potentielle ancienne sauvegarde
         ChargerSupprimer();
     }
 }
+
 
 void Graph::SauverGraphe()
 {
@@ -588,7 +700,8 @@ void Graph::SauverGraphe()
 
         for(int j=0; j< m_nbArc; j++)
         {
-            fp << m_vertices[m_edges[j].getDepart()].getIdx() << " " << m_vertices[m_edges[j].getArrive()].getIdx() << " "
+            std::cout << " Indice du sommet de départ: " << m_vertices[m_edges[j].m_from].m_idx << std::endl;
+            fp << m_vertices[m_edges[j].m_from].m_idx << " " << m_vertices[m_edges[j].m_to].m_idx << " "
                << m_edges[j].getPoids() << " " << 10 << std::endl;
         }
 
@@ -618,52 +731,28 @@ void Graph::make_example(std::string name_ecosys)
 {
     m_interface = std::make_shared<GraphInterface>(50, 0, 750, 600);
 
-   ChargerGraphe(name_ecosys);
-   // ChargerGraphe("Foret");
-    //ChargerGraphe("Foret");
-    // La ligne précédente est en gros équivalente à :
-    // m_interface = new GraphInterface(50, 0, 750, 600);
-//
-//    /// Les sommets doivent être définis avant les arcs
-//    // Ajouter le sommet d'indice 0 de valeur 30 en x=200 et y=100 avec l'image clown1.jpg etc...
-//    add_interfaced_vertex(0,"clown1", 30.0, 200, 100, "clown1.jpg");
-//    add_interfaced_vertex(1, 60.0, 400, 100, "clown2.jpg");
-//    add_interfaced_vertex(2,  50.0, 200, 300, "clown3.jpg");
-//    add_interfaced_vertex(3,  0.0, 400, 300, "clown4.jpg");
-//    add_interfaced_vertex(4,  100.0, 600, 300, "clown5.jpg");
-//    add_interfaced_vertex(5,  0.0, 100, 500, "bad_clowns_xx3xx.jpg", 0);
-//    add_interfaced_vertex(6,  0.0, 300, 500, "bad_clowns_xx3xx.jpg", 1);
-//    add_interfaced_vertex(7,  0.0, 500, 500, "bad_clowns_xx3xx.jpg", 2);
-//
-//    /// Les arcs doivent être définis entre des sommets qui existent !
-//    // AJouter l'arc d'indice 0, allant du sommet 1 au sommet 2 de poids 50 etc...
-//    add_interfaced_edge(0, 1, 2, 50.0);
-//    add_interfaced_edge(1, 0, 1, 50.0);
-//    add_interfaced_edge(2, 1, 3, 75.0);
-//    add_interfaced_edge(3, 4, 1, 25.0);
-//    add_interfaced_edge(4, 6, 3, 25.0);
-//    add_interfaced_edge(5, 7, 3, 25.0);
-//    add_interfaced_edge(6, 3, 4, 0.0);
-//    add_interfaced_edge(7, 2, 0, 100.0);
-//    add_interfaced_edge(8, 5, 2, 20.0);
-//    add_interfaced_edge(9, 3, 7, 80.0);
+    ChargerGraphe(name_ecosys);
 }
 
 //void Graph::make_reduit(vector)
 
+///Va permettre de vérifier sur quelle bouton on appuye lors de la simulation
 bool Graph::update_simulation()
 {
 
+    ///Si on appuye sur le bouton charger on charge le graphe a nouveau en partant de la derniere sauvegarde
     if ( m_interface->get_bouton_charger().clicked() )
     {
         ChargerGraphe(m_name);
     }
 
+    ///Si on appuye sur sauvegarder on sauvegarde dans le fichier toutes les informations actuel du graphe
     if ( m_interface->get_bouton_sauver().clicked() )
     {
         SauverGraphe();
     }
 
+    ///Si on appuye sur le bouton + de sommets on demande en console quelle sommet on veut ajouter et on l'ajoute
     if( m_interface->get_add_sommet().clicked())
     {
         int choix;
@@ -693,6 +782,43 @@ bool Graph::update_simulation()
 
     }
 
+    ///Si on appuye sur le + de l'arc on demande en console quelles sommets doivent etre reliés entre eux
+    if( m_interface->get_add_arete().clicked())
+    {
+        int choix;
+        int choix2;
+        std::cout << "Voici la liste des sommets : " << std::endl;
+        for(auto elem : m_vertices)
+        {
+            std::cout << elem.first << ". " << elem.second.m_nom << std::endl;
+        }
+        std::cout << "Entre quelle sommet voulez-vous une arete ? (Indice svp)" << std::endl;
+        std::cin >> choix;
+        std::cin >> choix2;
+
+        if((choix >=0 && choix<m_vertices.size()) && (choix2 >=0 && choix2<m_vertices.size()))
+        VraiAjouterArete(choix, choix2);
+        else std::cout << "Ce choix n'est pas possible" << std::endl;
+    }
+
+//    if( m_interface->get_remove_arete().clicked())
+//    {
+//        int choix;
+//        std::cout << "Voici la liste des arcs avec leur indice " << std::endl;
+//        for(auto elem : m_edges)
+//        {
+//            std::cout << elem.first << ". " << m_vertices[elem.second.m_from].getName() << " -> " << m_vertices[elem.second.m_to].getName() << std::endl;
+//        }
+//
+//        std::cout << "Quelle arc voulez-vous supprimer ?" << std::endl;
+//        std::cin >> choix;
+//
+//        if(choix>=0 && choix < m_edges.size())
+//        VraiSupprimerArete(choix);
+//        else std::cout << "Choix impossible " << std::endl;
+//    }
+
+    ///Appuyer sur le - reviens a faire apparaitre des petites croix sur les sommets permettant de supprimer plusieurs sommet en même temps
     if( m_interface->get_remove_sommet().clicked())
     {
         if(m_interface->deja_clique==0)
@@ -727,6 +853,7 @@ bool Graph::update_simulation()
 //        }
 //    }
 
+    ///Si on appuye sur la croix d'un sommet on le supprime et on met sa population à 0
     for(auto elem : m_vertices)
     {
         if(elem.second.getInterVertex()->m_delete.clicked())
@@ -735,6 +862,7 @@ bool Graph::update_simulation()
         }
     }
 
+    ///Si on appuye sur pause, on affiche l'éditeur et on stop la simulation
     if ( m_interface->get_bouton_pause().clicked() )
     {
         afficher_editeur();//affiche l'interface editeur
@@ -761,7 +889,7 @@ bool Graph::update_simulation()
         }
     }
 
-     for(auto elem : m_vertices)
+    for(auto elem : m_vertices)
     {
         elem.second.getInterVertex()->adjust_dim_sommet();
 
@@ -773,6 +901,7 @@ bool Graph::update_simulation()
 
     }
 
+    ///Si on appuye sur le bouton play, on repart en simulation et on retire l'éditeur
     if ( m_interface->get_bouton_play().clicked() )
     {
         m_etat=1;
@@ -827,13 +956,13 @@ std::vector<Edge> Graph::update_F_C()
     std::vector<Edge> aretes_a_conserver;
     std::vector<Edge> aretes_a_enlever;
 
-    for(int i=0;i<sommet_a_afficher.size();i++)
+    for(int i=0; i<sommet_a_afficher.size(); i++)
     {
         for(auto elem_arete : m_edges)
         {
             testa=0;
             testd=0;
-            for(int y=0;y<sommet_a_afficher[i].size();y++)
+            for(int y=0; y<sommet_a_afficher[i].size(); y++)
             {
                 if(elem_arete.second.m_from==sommet_a_afficher[i][y])
                 {
@@ -845,22 +974,22 @@ std::vector<Edge> Graph::update_F_C()
                 }
             }
             if(testa==1&&testd==1)
-            aretes_a_conserver.push_back(elem_arete.second);
+                aretes_a_conserver.push_back(elem_arete.second);
         }
     }
     int tempo;
     for(auto elem_arete : m_edges)
+    {
+        tempo=0;
+        for(int z=0; z<aretes_a_conserver.size(); z++)
         {
-            tempo=0;
-            for(int z=0;z<aretes_a_conserver.size();z++)
-            {
-                if((elem_arete.second.m_from==aretes_a_conserver[z].m_from)&&(elem_arete.second.m_to==aretes_a_conserver[z].m_to))
-                    tempo=1;
-            }
-            if(tempo!=1)
-                aretes_a_enlever.push_back(elem_arete.second);
+            if((elem_arete.second.m_from==aretes_a_conserver[z].m_from)&&(elem_arete.second.m_to==aretes_a_conserver[z].m_to))
+                tempo=1;
         }
-    for(int i=0;i<aretes_a_enlever.size();i++)
+        if(tempo!=1)
+            aretes_a_enlever.push_back(elem_arete.second);
+    }
+    for(int i=0; i<aretes_a_enlever.size(); i++)
     {
         m_interface->m_main_box.remove_child(aretes_a_enlever[i].m_interface->m_top_edge);
     }
@@ -870,7 +999,6 @@ std::vector<Edge> Graph::update_F_C()
 /// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface
 void Graph::update(int a)
 {
-
 
     if (!m_interface)
     {
@@ -953,14 +1081,14 @@ std::vector<std::vector<int>> Graph::F_C()
     std::vector<int> composante_fortement_connexe_actuel;
     std::stack<int> pile;
     std::cout<<std::endl<<"Nettoyage fort "<<std::endl;
-        for(auto elem_net : m_vertices)
-        {
-            std::cout<<" le sommet "<<elem_net.first<<" a pour plus "<<m_vertices[elem_net.first].m_plus<<" et pour moins "<<m_vertices[elem_net.first].m_moins<<std::endl;
-                std::cout<<"        je le nettois"<<std::endl;
-                m_vertices[elem_net.first].m_moins=0;
-                m_vertices[elem_net.first].m_plus=0;
-        }
-        std::cout<<"                        nettoyage terminé"<<std::endl;
+    for(auto elem_net : m_vertices)
+    {
+        std::cout<<" le sommet "<<elem_net.first<<" a pour plus "<<m_vertices[elem_net.first].m_plus<<" et pour moins "<<m_vertices[elem_net.first].m_moins<<std::endl;
+        std::cout<<"        je le nettois"<<std::endl;
+        m_vertices[elem_net.first].m_moins=0;
+        m_vertices[elem_net.first].m_plus=0;
+    }
+    std::cout<<"                        nettoyage terminé"<<std::endl;
     for(auto elem_depart : m_vertices)
     {
         std::cout<<std::endl<<"je commence par nettoyer tout les plus et moins qui ne sont pas a -1 -1"<<std::endl;
@@ -1080,11 +1208,14 @@ void Graph::afficher_editeur()
 
     m_interface->get_tool_box().add_child(m_interface->get_edition_label());
     m_interface->get_tool_box().add_child(m_interface->get_sommet_label());
+    m_interface->get_tool_box().add_child(m_interface->get_arete_label());
     m_interface->get_tool_box().remove_child(m_interface->get_bouton_pause());
     m_interface->get_tool_box().add_child(m_interface->get_bouton_play());
     m_interface->get_bouton_play_pause_label().set_message("Pause");
     m_interface->get_tool_box().add_child(m_interface->get_add_sommet());
     m_interface->get_tool_box().add_child(m_interface->get_remove_sommet());
+    m_interface->get_tool_box().add_child(m_interface->get_add_arete());
+    m_interface->get_tool_box().add_child(m_interface->get_remove_arete());
 
 }
 

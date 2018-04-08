@@ -5,6 +5,7 @@ void Simulation(std::string name_ecosys)
 {
     Graph g;
     g.make_example(name_ecosys);
+    g.ChargerGraphe(name_ecosys);
     bool fin = false;
     int tempo_visu=0;
     int tempo_visu_max=30;
@@ -13,7 +14,6 @@ void Simulation(std::string name_ecosys)
     /// ( contrairement à des frameworks plus avancés )
     while (!key[KEY_ESC] )
     {
-
 
         g.update();
         g.update_simulation();

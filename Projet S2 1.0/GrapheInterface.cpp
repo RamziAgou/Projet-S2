@@ -68,15 +68,26 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
     m_sommet_label.set_frame(5,230,100,100);
     m_sommet_label.set_message("Sommet");
 
+    m_arete_label.set_frame(5,470,100,100);
+    m_arete_label.set_message("Arc");
+
     //m_tool_box.add_child( m_add_sommet );
     m_add_sommet.set_frame(3,240,35,35);
     m_add_sommet.add_child(m_add_sommet_image);
     m_add_sommet_image.set_pic_name("add_sommet.jpg");
 
+    m_add_arete.set_frame(3,480,35,35);
+    m_add_arete.add_child(m_add_arete_image);
+    m_add_arete_image.set_pic_name("add_arete.jpg");
+
     //m_tool_box.add_child( m_remove_sommet );
     m_remove_sommet.set_frame(47,240,35,35);
     m_remove_sommet.add_child(m_remove_sommet_image);
     m_remove_sommet_image.set_pic_name("remove_sommet.png");
+
+    m_remove_arete.set_frame(47,480,35,35);
+    m_remove_arete.add_child(m_remove_arete_image);
+    m_remove_arete_image.set_pic_name("remove_arete.png");
 
     //m_tool_box.add_child( m_edition_label );
     m_edition_label.set_frame(5,210,100,100);
@@ -214,14 +225,29 @@ grman::WidgetButton& GraphInterface::get_add_sommet()
     return m_add_sommet;
 }
 
+grman::WidgetButton& GraphInterface::get_add_arete()
+{
+    return m_add_arete;
+}
+
 grman::WidgetButton& GraphInterface::get_remove_sommet()
 {
     return m_remove_sommet;
 }
 
+grman::WidgetButton& GraphInterface::get_remove_arete()
+{
+    return m_remove_arete;
+}
+
 grman::WidgetText& GraphInterface::get_sommet_label()
 {
     return m_sommet_label;
+}
+
+grman::WidgetText& GraphInterface::get_arete_label()
+{
+    return m_arete_label;
 }
 
 grman::WidgetText& GraphInterface::get_edition_label()

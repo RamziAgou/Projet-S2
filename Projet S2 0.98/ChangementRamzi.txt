@@ -1,0 +1,7 @@
+Rajouter getter m_sommet_enlever; graph.cpp/h
+La fonction Analyse_K_C evidemment
+Rajout de la fonction VerifDoublon; graph.cpp/h
+Rajout de la fonction ComparerVect; graph.cpp/h
+
+La fonction analyse_k_c renvoie true des qu'on quitte sur quitter
+Ce sera à toi de la faire boucler dans tes menus.

@@ -135,9 +135,12 @@ class Graph
         void UseBFS(int a, int numero);
         int Connexe();
         void K_Connexe();
+        void VerifDoublon();
         std::vector<std::vector<int>> Combinaison(int K);
         void AffichageCombi();
         void AfficherKConnexe();
+
+        bool ComparerVect(std::vector<int> a, std::vector<int> b);
 
 
         void afficher_editeur();
@@ -173,6 +176,8 @@ class Graph
 
         std::map<int, Vertex>& getMapVertex();
         std::map<int, Edge>& getMapEdge();
+
+        std::vector<std::vector<int>>& getSommetConnexe(){return m_sommet_k_connexe;}
 
         ///algorithme de forte connexité
         std::vector<std::vector<int>> F_C();

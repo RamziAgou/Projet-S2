@@ -1645,3 +1645,317 @@
 1523126872 source:c:\users\pierr\desktop\projet s2 0.5\graph.cpp
 	"graph.h"
 
+1523182856 source:c:\users\ramzi\documents\github\projet-s2\projet s2 0.8\acceuil1.cpp
+	"Acceuil1.h"
+	<allegro.h>
+	<iostream>
+
+1523182856 c:\users\ramzi\documents\github\projet-s2\projet s2 0.8\acceuil1.h
+
+1523182856 source:c:\users\ramzi\documents\github\projet-s2\projet s2 0.8\acceuil2.cpp
+	"Acceuil2.h"
+
+1523182856 c:\users\ramzi\documents\github\projet-s2\projet s2 0.8\acceuil2.h
+	<iostream>
+	"graph.h"
+	"Menu1.h"
+
+1523197835 c:\users\ramzi\documents\github\projet-s2\projet s2 0.8\graph.h
+	<map>
+	<string>
+	"Edge.h"
+	"GrapheInterface.h"
+	<fstream>
+	<stack>
+	<vector>
+	<queue>
+
+1523182856 c:\users\ramzi\documents\github\projet-s2\projet s2 0.8\edge.h
+	"EdgeInterface.h"
+
+1523182856 c:\users\ramzi\documents\github\projet-s2\projet s2 0.8\edgeinterface.h
+	"grman/grman.h"
+	"Vertex.h"
+
+1523182856 c:\users\ramzi\documents\github\projet-s2\projet s2 0.8\grman\grman.h
+	<allegro.h>
+	<string>
+	"grman_couleurs.h"
+	"coords.h"
+	"widget.h"
+
+1523182856 c:\users\ramzi\documents\github\projet-s2\projet s2 0.8\grman\grman_couleurs.h
+
+1523182856 c:\users\ramzi\documents\github\projet-s2\projet s2 0.8\grman\coords.h
+	<cmath>
+
+1523182856 c:\users\ramzi\documents\github\projet-s2\projet s2 0.8\grman\widget.h
+	"grman.h"
+	<iostream>
+	<string>
+	<vector>
+	<algorithm>
+	<allegro.h>
+
+1523182856 c:\users\ramzi\documents\github\projet-s2\projet s2 0.8\vertex.h
+	<vector>
+	<memory>
+	"VertexInterface.h"
+
+1523182856 c:\users\ramzi\documents\github\projet-s2\projet s2 0.8\vertexinterface.h
+	"grman/grman.h"
+
+1523182856 c:\users\ramzi\documents\github\projet-s2\projet s2 0.8\grapheinterface.h
+	"grman/grman.h"
+	<string>
+	<vector>
+	"Edge.h"
+
+1523182856 c:\users\ramzi\documents\github\projet-s2\projet s2 0.8\menu1.h
+	<iostream>
+	"graph.h"
+	"grman/grman.h"
+	"Simulation.h"
+	"Analyse1.h"
+
+1523182856 c:\users\ramzi\documents\github\projet-s2\projet s2 0.8\simulation.h
+	"graph.h"
+	<iostream>
+
+1523182856 c:\users\ramzi\documents\github\projet-s2\projet s2 0.8\analyse1.h
+	<iostream>
+
+1523182856 source:c:\users\ramzi\documents\github\projet-s2\projet s2 0.8\analyse1.cpp
+	"Analyse1.h"
+
+1523182856 source:c:\users\ramzi\documents\github\projet-s2\projet s2 0.8\analyse_f_c.cpp
+	"Analyse_F_C.h"
+
+1523182856 c:\users\ramzi\documents\github\projet-s2\projet s2 0.8\analyse_f_c.h
+	<vector>
+	<iostream>
+	"grman/grman.h"
+	"graph.h"
+
+1523198038 source:c:\users\ramzi\documents\github\projet-s2\projet s2 0.8\analyse_k_c.cpp
+	"analyse_K_C.h"
+
+1523183644 c:\users\ramzi\documents\github\projet-s2\projet s2 0.8\analyse_k_c.h
+	"graph.h"
+
+1523182856 source:c:\users\ramzi\documents\github\projet-s2\projet s2 0.8\edge.cpp
+	"Edge.h"
+
+1523182856 source:c:\users\ramzi\documents\github\projet-s2\projet s2 0.8\edgeinterface.cpp
+	"EdgeInterface.h"
+
+1523198942 source:c:\users\ramzi\documents\github\projet-s2\projet s2 0.8\graph.cpp
+	"graph.h"
+
+1523182856 source:c:\users\ramzi\documents\github\projet-s2\projet s2 0.8\grapheinterface.cpp
+	"GrapheInterface.h"
+
+1523182856 source:c:\users\ramzi\documents\github\projet-s2\projet s2 0.8\grman\coords.cpp
+	"coords.h"
+
+1523182856 source:c:\users\ramzi\documents\github\projet-s2\projet s2 0.8\grman\grman.cpp
+	<cmath>
+	<unordered_map>
+	<unordered_set>
+	<utility>
+	<string>
+	<iostream>
+	<regex>
+	"grman.h"
+	<allegro.h>
+	<png.h>
+	<loadpng.h>
+	<jpgalleg.h>
+
+1523182856 source:c:\users\ramzi\documents\github\projet-s2\projet s2 0.8\grman\widget.cpp
+	"widget.h"
+
+1523198897 source:c:\users\ramzi\documents\github\projet-s2\projet s2 0.8\main.cpp
+	"grman/grman.h"
+	<iostream>
+	"graph.h"
+	"Acceuil1.h"
+	"Simulation.h"
+	"Analyse_F_C.h"
+	"Acceuil2.h"
+	"analyse_K_C.h"
+
+1523182856 source:c:\users\ramzi\documents\github\projet-s2\projet s2 0.8\manuel.cpp
+	"Manuel.h"
+
+1523182856 c:\users\ramzi\documents\github\projet-s2\projet s2 0.8\manuel.h
+
+1523182856 source:c:\users\ramzi\documents\github\projet-s2\projet s2 0.8\menu1.cpp
+	"Menu1.h"
+
+1523182856 source:c:\users\ramzi\documents\github\projet-s2\projet s2 0.8\simulation.cpp
+	"Simulation.h"
+
+1523182856 source:c:\users\ramzi\documents\github\projet-s2\projet s2 0.8\vertex.cpp
+	"Vertex.h"
+
+1523182856 source:c:\users\ramzi\documents\github\projet-s2\projet s2 0.8\vertexinterface.cpp
+	"VertexInterface.h"
+
+1523182856 source:c:\users\ramzi\documents\github\projet-s2\projet s2 0.98\acceuil1.cpp
+	"Acceuil1.h"
+	<allegro.h>
+	<iostream>
+
+1523182856 c:\users\ramzi\documents\github\projet-s2\projet s2 0.98\acceuil1.h
+
+1523182856 source:c:\users\ramzi\documents\github\projet-s2\projet s2 0.98\acceuil2.cpp
+	"Acceuil2.h"
+
+1523182856 c:\users\ramzi\documents\github\projet-s2\projet s2 0.98\acceuil2.h
+	<iostream>
+	"graph.h"
+	"Menu1.h"
+
+1523197835 c:\users\ramzi\documents\github\projet-s2\projet s2 0.98\graph.h
+	<map>
+	<string>
+	"Edge.h"
+	"GrapheInterface.h"
+	<fstream>
+	<stack>
+	<vector>
+	<queue>
+
+1523182856 c:\users\ramzi\documents\github\projet-s2\projet s2 0.98\edge.h
+	"EdgeInterface.h"
+
+1523182856 c:\users\ramzi\documents\github\projet-s2\projet s2 0.98\edgeinterface.h
+	"grman/grman.h"
+	"Vertex.h"
+
+1523182856 c:\users\ramzi\documents\github\projet-s2\projet s2 0.98\grman\grman.h
+	<allegro.h>
+	<string>
+	"grman_couleurs.h"
+	"coords.h"
+	"widget.h"
+
+1523182856 c:\users\ramzi\documents\github\projet-s2\projet s2 0.98\grman\grman_couleurs.h
+
+1523182856 c:\users\ramzi\documents\github\projet-s2\projet s2 0.98\grman\coords.h
+	<cmath>
+
+1523182856 c:\users\ramzi\documents\github\projet-s2\projet s2 0.98\grman\widget.h
+	"grman.h"
+	<iostream>
+	<string>
+	<vector>
+	<algorithm>
+	<allegro.h>
+
+1523182856 c:\users\ramzi\documents\github\projet-s2\projet s2 0.98\vertex.h
+	<vector>
+	<memory>
+	"VertexInterface.h"
+
+1523182856 c:\users\ramzi\documents\github\projet-s2\projet s2 0.98\vertexinterface.h
+	"grman/grman.h"
+
+1523182856 c:\users\ramzi\documents\github\projet-s2\projet s2 0.98\grapheinterface.h
+	"grman/grman.h"
+	<string>
+	<vector>
+	"Edge.h"
+
+1523182856 c:\users\ramzi\documents\github\projet-s2\projet s2 0.98\menu1.h
+	<iostream>
+	"graph.h"
+	"grman/grman.h"
+	"Simulation.h"
+	"Analyse1.h"
+
+1523182856 c:\users\ramzi\documents\github\projet-s2\projet s2 0.98\simulation.h
+	"graph.h"
+	<iostream>
+
+1523182856 c:\users\ramzi\documents\github\projet-s2\projet s2 0.98\analyse1.h
+	<iostream>
+
+1523182856 source:c:\users\ramzi\documents\github\projet-s2\projet s2 0.98\analyse1.cpp
+	"Analyse1.h"
+
+1523182856 source:c:\users\ramzi\documents\github\projet-s2\projet s2 0.98\analyse_f_c.cpp
+	"Analyse_F_C.h"
+
+1523182856 c:\users\ramzi\documents\github\projet-s2\projet s2 0.98\analyse_f_c.h
+	<vector>
+	<iostream>
+	"grman/grman.h"
+	"graph.h"
+
+1523199209 source:c:\users\ramzi\documents\github\projet-s2\projet s2 0.98\analyse_k_c.cpp
+	"analyse_K_C.h"
+
+1523183644 c:\users\ramzi\documents\github\projet-s2\projet s2 0.98\analyse_k_c.h
+	"graph.h"
+
+1523182856 source:c:\users\ramzi\documents\github\projet-s2\projet s2 0.98\edge.cpp
+	"Edge.h"
+
+1523182856 source:c:\users\ramzi\documents\github\projet-s2\projet s2 0.98\edgeinterface.cpp
+	"EdgeInterface.h"
+
+1523198942 source:c:\users\ramzi\documents\github\projet-s2\projet s2 0.98\graph.cpp
+	"graph.h"
+
+1523182856 source:c:\users\ramzi\documents\github\projet-s2\projet s2 0.98\grapheinterface.cpp
+	"GrapheInterface.h"
+
+1523182856 source:c:\users\ramzi\documents\github\projet-s2\projet s2 0.98\grman\coords.cpp
+	"coords.h"
+
+1523182856 source:c:\users\ramzi\documents\github\projet-s2\projet s2 0.98\grman\grman.cpp
+	<cmath>
+	<unordered_map>
+	<unordered_set>
+	<utility>
+	<string>
+	<iostream>
+	<regex>
+	"grman.h"
+	<allegro.h>
+	<png.h>
+	<loadpng.h>
+	<jpgalleg.h>
+
+1523182856 source:c:\users\ramzi\documents\github\projet-s2\projet s2 0.98\grman\widget.cpp
+	"widget.h"
+
+1523199209 source:c:\users\ramzi\documents\github\projet-s2\projet s2 0.98\main.cpp
+	"grman/grman.h"
+	<iostream>
+	"graph.h"
+	"Acceuil1.h"
+	"Simulation.h"
+	"Analyse_F_C.h"
+	"Acceuil2.h"
+	"analyse_K_C.h"
+
+1523182856 source:c:\users\ramzi\documents\github\projet-s2\projet s2 0.98\manuel.cpp
+	"Manuel.h"
+
+1523182856 c:\users\ramzi\documents\github\projet-s2\projet s2 0.98\manuel.h
+
+1523182856 source:c:\users\ramzi\documents\github\projet-s2\projet s2 0.98\menu1.cpp
+	"Menu1.h"
+
+1523182856 source:c:\users\ramzi\documents\github\projet-s2\projet s2 0.98\simulation.cpp
+	"Simulation.h"
+
+1523182856 source:c:\users\ramzi\documents\github\projet-s2\projet s2 0.98\vertex.cpp
+	"Vertex.h"
+
+1523182856 source:c:\users\ramzi\documents\github\projet-s2\projet s2 0.98\vertexinterface.cpp
+	"VertexInterface.h"
+

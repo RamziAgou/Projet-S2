@@ -22,11 +22,15 @@ class EdgeInterface
         // Une boite pour englober les widgets de réglage associés
         grman::WidgetBox m_box_edge;
 
+        grman::WidgetBox m_Ibox_edge; ///ajouté
+
         // Un slider de visualisation/modification du poids valeur de l'arc
         grman::WidgetVSlider m_slider_weight;
 
         // Un label de visualisation du poids de l'arc
         grman::WidgetText m_label_weight;
+
+        grman::WidgetImage m_image_edge;
 
     public :
 

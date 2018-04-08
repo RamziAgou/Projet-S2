@@ -32,6 +32,12 @@ EdgeInterface::EdgeInterface(Vertex& from, Vertex& to)
     // Label de visualisation de valeur
     m_box_edge.add_child( m_label_weight );
     m_label_weight.set_gravity_y(grman::GravityY::Down);
+    ///ajouté
+    m_top_edge.add_child(m_Ibox_edge);
+
+    m_Ibox_edge.set_frame(-12,16,40,40);
+    m_Ibox_edge.add_child(m_image_edge);
+
 
 }
 

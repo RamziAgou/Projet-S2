@@ -192,10 +192,6 @@ bool Graph::update_simulation()
             for(auto elem : m_vertices)
             {
                 elem.second.getInterVertex()->m_top_box.add_child(elem.second.getInterVertex()->m_delete );
-                if(elem.second.getInterVertex()->m_delete.clicked())
-                {
-                    //supprimer_sommet(elem.second.getIdx());
-                }
 
             }
             m_interface->deja_clique=1;
@@ -211,6 +207,16 @@ bool Graph::update_simulation()
             m_interface->deja_clique=0;
         }
 
+    }
+
+    for(auto elem : m_vertices)
+    {
+        int choix;
+        if(elem.second.getInterVertex()->m_delete.clicked())
+        {
+            //supprimer_sommet(elem.second.getIdx());
+            std::cin >> choix;
+        }
     }
 
     if ( m_interface->get_bouton_pause().clicked() )

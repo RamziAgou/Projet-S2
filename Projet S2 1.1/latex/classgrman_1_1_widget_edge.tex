@@ -1,0 +1,116 @@
+\hypertarget{classgrman_1_1_widget_edge}{}\section{grman\+:\+:Widget\+Edge Class Reference}
+\label{classgrman_1_1_widget_edge}\index{grman\+::\+Widget\+Edge@{grman\+::\+Widget\+Edge}}
+Inheritance diagram for grman\+:\+:Widget\+Edge\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classgrman_1_1_widget_edge}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classgrman_1_1_widget_edge_adbaeb94bef0a5334fd3ddc0fe30343c5}{draw}} ()
+\item 
+\mbox{\Hypertarget{classgrman_1_1_widget_edge_ad28a27ac45fe76a43e56c4fc97f57d89}\label{classgrman_1_1_widget_edge_ad28a27ac45fe76a43e56c4fc97f57d89}} 
+void {\bfseries attach\+\_\+from} (\mbox{\hyperlink{classgrman_1_1_widget}{Widget}} \&from)
+\item 
+\mbox{\Hypertarget{classgrman_1_1_widget_edge_a82240d34e4e099b935e410dfe9b031cf}\label{classgrman_1_1_widget_edge_a82240d34e4e099b935e410dfe9b031cf}} 
+void {\bfseries attach\+\_\+to} (\mbox{\hyperlink{classgrman_1_1_widget}{Widget}} \&to)
+\item 
+\mbox{\Hypertarget{classgrman_1_1_widget_edge_afe5f45cb7b4b36f01ff52538df0891e4}\label{classgrman_1_1_widget_edge_afe5f45cb7b4b36f01ff52538df0891e4}} 
+void {\bfseries reset\+\_\+no\+\_\+items} ()
+\item 
+\mbox{\Hypertarget{classgrman_1_1_widget_edge_afbe9483635cc9d3bf934f154a36c5936}\label{classgrman_1_1_widget_edge_afbe9483635cc9d3bf934f154a36c5936}} 
+void {\bfseries reset\+\_\+arrow} ()
+\item 
+\mbox{\Hypertarget{classgrman_1_1_widget_edge_af509a89d939f07c3db1a2ad47f69f760}\label{classgrman_1_1_widget_edge_af509a89d939f07c3db1a2ad47f69f760}} 
+void {\bfseries reset\+\_\+arrow\+\_\+with\+\_\+bullet} ()
+\item 
+\mbox{\Hypertarget{classgrman_1_1_widget_edge_a28984f345cdebfd03833b69dbfe079e6}\label{classgrman_1_1_widget_edge_a28984f345cdebfd03833b69dbfe079e6}} 
+void {\bfseries reset\+\_\+middle\+\_\+arrow} ()
+\item 
+\mbox{\Hypertarget{classgrman_1_1_widget_edge_a7dd45ab136a5bde2f75b93fcfaaab281}\label{classgrman_1_1_widget_edge_a7dd45ab136a5bde2f75b93fcfaaab281}} 
+void {\bfseries reset\+\_\+middle\+\_\+arrow\+\_\+with\+\_\+bullets} ()
+\item 
+\mbox{\Hypertarget{classgrman_1_1_widget_edge_a86413db4c60fd85d249667b55f8d4d1a}\label{classgrman_1_1_widget_edge_a86413db4c60fd85d249667b55f8d4d1a}} 
+void {\bfseries add\+\_\+item} (\mbox{\hyperlink{structgrman_1_1_arrow_item}{Arrow\+Item}} ai)
+\item 
+\mbox{\Hypertarget{classgrman_1_1_widget_edge_ab8e0a11fb4d0a465aea36736e683c76d}\label{classgrman_1_1_widget_edge_ab8e0a11fb4d0a465aea36736e683c76d}} 
+void {\bfseries set\+\_\+children\+\_\+position} (double rel\+\_\+pos)
+\item 
+\mbox{\Hypertarget{classgrman_1_1_widget_edge_abb666eb206a3777171883ef638708c74}\label{classgrman_1_1_widget_edge_abb666eb206a3777171883ef638708c74}} 
+void {\bfseries set\+\_\+children\+\_\+lateral} (double abs\+\_\+lat)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classgrman_1_1_widget}{Widget}} $\ast$ \mbox{\hyperlink{classgrman_1_1_widget_edge_ac80f872a3c762175fb8067728faee007}{m\+\_\+attach}} \mbox{[}2\mbox{]} = \{nullptr, nullptr\}
+\item 
+\mbox{\Hypertarget{classgrman_1_1_widget_edge_acc06b753b4d1898226a1d6b256db541e}\label{classgrman_1_1_widget_edge_acc06b753b4d1898226a1d6b256db541e}} 
+std\+::vector$<$ \mbox{\hyperlink{structgrman_1_1_arrow_item}{Arrow\+Item}} $>$ {\bfseries m\+\_\+items}
+\item 
+\mbox{\Hypertarget{classgrman_1_1_widget_edge_a07ba980c6b3aba81d150c823a33e1642}\label{classgrman_1_1_widget_edge_a07ba980c6b3aba81d150c823a33e1642}} 
+int {\bfseries m\+\_\+color} = G\+R\+I\+S\+S\+O\+M\+B\+RE
+\item 
+\mbox{\Hypertarget{classgrman_1_1_widget_edge_ae03251d33cb4879a90e23726aa7eb280}\label{classgrman_1_1_widget_edge_ae03251d33cb4879a90e23726aa7eb280}} 
+int {\bfseries m\+\_\+thickness} = 2
+\item 
+\mbox{\Hypertarget{classgrman_1_1_widget_edge_a83b0c644beee05cd3a36ffe2f9675d04}\label{classgrman_1_1_widget_edge_a83b0c644beee05cd3a36ffe2f9675d04}} 
+double {\bfseries m\+\_\+children\+\_\+position} = 0.\+5
+\item 
+\mbox{\Hypertarget{classgrman_1_1_widget_edge_a67aa0a57bece3e2f6c59216984567a38}\label{classgrman_1_1_widget_edge_a67aa0a57bece3e2f6c59216984567a38}} 
+double {\bfseries m\+\_\+children\+\_\+lateral} = 16
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 402 of file widget.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classgrman_1_1_widget_edge_adbaeb94bef0a5334fd3ddc0fe30343c5}\label{classgrman_1_1_widget_edge_adbaeb94bef0a5334fd3ddc0fe30343c5}} 
+\index{grman\+::\+Widget\+Edge@{grman\+::\+Widget\+Edge}!draw@{draw}}
+\index{draw@{draw}!grman\+::\+Widget\+Edge@{grman\+::\+Widget\+Edge}}
+\subsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void grman\+::\+Widget\+Edge\+::draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+La suite concerne les éléments de décorations, flèches/extrémités Pour chaque élément de décoration du lien... ~\newline
+~\newline
+~\newline
+~\newline
+ Cas Bullet
+
+Cas pointe de flèche ou triangle
+
+Pointe de flèche
+
+Triangle 
+
+Reimplemented from \mbox{\hyperlink{classgrman_1_1_widget}{grman\+::\+Widget}}.
+
+
+
+Definition at line 344 of file widget.\+cpp.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classgrman_1_1_widget_edge_ac80f872a3c762175fb8067728faee007}\label{classgrman_1_1_widget_edge_ac80f872a3c762175fb8067728faee007}} 
+\index{grman\+::\+Widget\+Edge@{grman\+::\+Widget\+Edge}!m\+\_\+attach@{m\+\_\+attach}}
+\index{m\+\_\+attach@{m\+\_\+attach}!grman\+::\+Widget\+Edge@{grman\+::\+Widget\+Edge}}
+\subsubsection{\texorpdfstring{m\+\_\+attach}{m\_attach}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classgrman_1_1_widget}{Widget}}$\ast$ grman\+::\+Widget\+Edge\+::m\+\_\+attach\mbox{[}2\mbox{]} = \{nullptr, nullptr\}\hspace{0.3cm}{\ttfamily [protected]}}
+
+Si un de 2 pointeur est à nul, l\textquotesingle{}arête n\textquotesingle{}est pas traitée Si les 2 pointeurs sont distincts du nul l\textquotesingle{}arête est traité Les 2 instances pointées ne doivent pas être détruites sous peine de plantage douloureux du programme ! 
+
+Definition at line 411 of file widget.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+grman/widget.\+h\item 
+grman/widget.\+cpp\end{DoxyCompactItemize}

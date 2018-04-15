@@ -1,0 +1,144 @@
+\hypertarget{class_vertex}{}\section{Vertex Class Reference}
+\label{class_vertex}\index{Vertex@{Vertex}}
+
+
+classe representant les sommets du graphe  
+
+
+
+
+{\ttfamily \#include $<$Vertex.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_vertex_a33a48157a850ed9a59ae5d8d0a552f98}{Vertex}} (std\+::string name=\char`\"{}\char`\"{}, double value=0, \mbox{\hyperlink{class_vertex_interface}{Vertex\+Interface}} $\ast$interface=nullptr)
+\begin{DoxyCompactList}\small\item\em Constructeur. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_vertex_adc6514220f5501e790a912f7d9c0d720}{pre\+\_\+update}} ()
+\begin{DoxyCompactList}\small\item\em Le constructeur met en place les éléments de l\textquotesingle{}interface. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_vertex_a68b740256d930792dccb31072e96f85f}{post\+\_\+update}} ()
+\begin{DoxyCompactList}\small\item\em Gestion du \mbox{\hyperlink{class_vertex}{Vertex}} après l\textquotesingle{}appel à l\textquotesingle{}interface. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_vertex_a739eea636c2575d2680e55d903127784}\label{class_vertex_a739eea636c2575d2680e55d903127784}} 
+double \mbox{\hyperlink{class_vertex_a739eea636c2575d2680e55d903127784}{getX}} ()
+\begin{DoxyCompactList}\small\item\em Récupère la position en abscisse du sommet sur l\textquotesingle{}écran. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_vertex_a1dca46200c8dc04ef3591d3b01d06c25}\label{class_vertex_a1dca46200c8dc04ef3591d3b01d06c25}} 
+double \mbox{\hyperlink{class_vertex_a1dca46200c8dc04ef3591d3b01d06c25}{getY}} ()
+\begin{DoxyCompactList}\small\item\em Récupère la position en ordonnée du sommet sur l\textquotesingle{}écran. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_vertex_a7d895a02cc499befdd666cf52c18a98b}\label{class_vertex_a7d895a02cc499befdd666cf52c18a98b}} 
+void {\bfseries set\+Idx} (int a)
+\item 
+\mbox{\Hypertarget{class_vertex_a1cdbcc1917565ad3e2f737c26ad1f091}\label{class_vertex_a1cdbcc1917565ad3e2f737c26ad1f091}} 
+int {\bfseries get\+Idx} () const
+\item 
+\mbox{\Hypertarget{class_vertex_a3ffe80a7314a15284ec2c7bf27617027}\label{class_vertex_a3ffe80a7314a15284ec2c7bf27617027}} 
+void {\bfseries set\+Kdebase} (int a)
+\item 
+\mbox{\Hypertarget{class_vertex_af93932c6669793033a84157844b45ab9}\label{class_vertex_af93932c6669793033a84157844b45ab9}} 
+int {\bfseries get\+Popu} () const
+\item 
+\mbox{\Hypertarget{class_vertex_adbe2bfdd783cc3b07ab5158a217968a5}\label{class_vertex_adbe2bfdd783cc3b07ab5158a217968a5}} 
+void {\bfseries set\+Popu} (int a)
+\item 
+\mbox{\Hypertarget{class_vertex_a90b3c5022b63ddf2ddd859a38acc41e3}\label{class_vertex_a90b3c5022b63ddf2ddd859a38acc41e3}} 
+double {\bfseries get\+Range} () const
+\item 
+\mbox{\Hypertarget{class_vertex_ad6b6a0c1293c046fc86c14366b568c90}\label{class_vertex_ad6b6a0c1293c046fc86c14366b568c90}} 
+void {\bfseries set\+Range} (double a)
+\item 
+\mbox{\Hypertarget{class_vertex_a9d1db1789299fd14088a7f4bc3c8e194}\label{class_vertex_a9d1db1789299fd14088a7f4bc3c8e194}} 
+std\+::string {\bfseries get\+Name} () const
+\item 
+\mbox{\Hypertarget{class_vertex_af4ff3e2b208dd73a51d8de1350d4d877}\label{class_vertex_af4ff3e2b208dd73a51d8de1350d4d877}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_vertex_interface}{Vertex\+Interface}} $>$ \& {\bfseries get\+Inter\+Vertex} ()
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_vertex_afab89afd724f1b07b1aaad6bdc61c47a}\label{class_vertex_afab89afd724f1b07b1aaad6bdc61c47a}} 
+class {\bfseries Graph}
+\item 
+\mbox{\Hypertarget{class_vertex_a1748f97d45d6ef457da5e2f88aac4899}\label{class_vertex_a1748f97d45d6ef457da5e2f88aac4899}} 
+class {\bfseries Vertex\+Interface}
+\item 
+\mbox{\Hypertarget{class_vertex_ad2c8ba04c9d9989ccbf3c5aba267a3d7}\label{class_vertex_ad2c8ba04c9d9989ccbf3c5aba267a3d7}} 
+class {\bfseries Edge}
+\item 
+\mbox{\Hypertarget{class_vertex_a8e1edfb3728013ee10d1d7fb1fb89585}\label{class_vertex_a8e1edfb3728013ee10d1d7fb1fb89585}} 
+class {\bfseries Edge\+Interface}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+classe representant les sommets du graphe 
+
+La classe gere les sommets du graphe 
+
+Definition at line 19 of file Vertex.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_vertex_a33a48157a850ed9a59ae5d8d0a552f98}\label{class_vertex_a33a48157a850ed9a59ae5d8d0a552f98}} 
+\index{Vertex@{Vertex}!Vertex@{Vertex}}
+\index{Vertex@{Vertex}!Vertex@{Vertex}}
+\subsubsection{\texorpdfstring{Vertex()}{Vertex()}}
+{\footnotesize\ttfamily Vertex\+::\+Vertex (\begin{DoxyParamCaption}\item[{std\+::string}]{name = {\ttfamily \char`\"{}\char`\"{}},  }\item[{double}]{value = {\ttfamily 0},  }\item[{\mbox{\hyperlink{class_vertex_interface}{Vertex\+Interface}} $\ast$}]{interface = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructeur. 
+
+Constructeur de la classe \mbox{\hyperlink{class_vertex}{Vertex}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \+: Nom du graphe \\
+\hline
+{\em value} & \+: Population de l\textquotesingle{}espece \\
+\hline
+{\em interface} & \+: Interface du sommet \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 84 of file Vertex.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_vertex_a68b740256d930792dccb31072e96f85f}\label{class_vertex_a68b740256d930792dccb31072e96f85f}} 
+\index{Vertex@{Vertex}!post\+\_\+update@{post\+\_\+update}}
+\index{post\+\_\+update@{post\+\_\+update}!Vertex@{Vertex}}
+\subsubsection{\texorpdfstring{post\+\_\+update()}{post\_update()}}
+{\footnotesize\ttfamily void Vertex\+::post\+\_\+update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gestion du \mbox{\hyperlink{class_vertex}{Vertex}} après l\textquotesingle{}appel à l\textquotesingle{}interface. 
+
+Reprendre la valeur du slider dans la donnée m\+\_\+value locale 
+
+Definition at line 74 of file Vertex.\+cpp.
+
+\mbox{\Hypertarget{class_vertex_adc6514220f5501e790a912f7d9c0d720}\label{class_vertex_adc6514220f5501e790a912f7d9c0d720}} 
+\index{Vertex@{Vertex}!pre\+\_\+update@{pre\+\_\+update}}
+\index{pre\+\_\+update@{pre\+\_\+update}!Vertex@{Vertex}}
+\subsubsection{\texorpdfstring{pre\+\_\+update()}{pre\_update()}}
+{\footnotesize\ttfamily void Vertex\+::pre\+\_\+update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Le constructeur met en place les éléments de l\textquotesingle{}interface. 
+
+\mbox{\hyperlink{class_vertex}{Vertex}} étant géré par \mbox{\hyperlink{class_graph}{Graph}} ce sera la méthode update de graph qui appellera le pre\+\_\+update et post\+\_\+update de \mbox{\hyperlink{class_vertex}{Vertex}} (pas directement la boucle de jeu) Voir l\textquotesingle{}implémentation \mbox{\hyperlink{class_graph_a059117ff51417cf4e4d35ae4f43ef1b3}{Graph\+::update}} dans le .cpp Copier la valeur locale de la donnée m\+\_\+value vers le slider associé
+
+Copier la valeur locale de la donnée m\+\_\+value vers le label sous le slider 
+
+Definition at line 41 of file Vertex.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_vertex_8h}{Vertex.\+h}}\item 
+\mbox{\hyperlink{_vertex_8cpp}{Vertex.\+cpp}}\end{DoxyCompactItemize}

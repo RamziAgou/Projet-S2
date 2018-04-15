@@ -1,0 +1,93 @@
+\hypertarget{class_edge_interface}{}\section{Edge\+Interface Class Reference}
+\label{class_edge_interface}\index{Edge\+Interface@{Edge\+Interface}}
+
+
+classe representant l\textquotesingle{}interface graphique des arcs du graphe  
+
+
+
+
+{\ttfamily \#include $<$Edge\+Interface.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_edge_interface_a996267d30334b0cb47a3160a0e346282}{Edge\+Interface}} (\mbox{\hyperlink{class_vertex}{Vertex}} \&from, \mbox{\hyperlink{class_vertex}{Vertex}} \&to)
+\begin{DoxyCompactList}\small\item\em Constructeur. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_edge_interface_abaae5853de7534da494a6c8915e74c6e}\label{class_edge_interface_abaae5853de7534da494a6c8915e74c6e}} 
+{\bfseries Edge\+Interface} (\mbox{\hyperlink{class_vertex_interface}{Vertex\+Interface}} \&from, \mbox{\hyperlink{class_vertex_interface}{Vertex\+Interface}} \&to)
+\item 
+void \mbox{\hyperlink{class_edge_interface_af8d91949a9ea0698fe2d0f2d9d85f970}{indicateur\+\_\+poids}} ()
+\begin{DoxyCompactList}\small\item\em Affiche un certain nombre de fleche representant l\textquotesingle{}intensité de l\textquotesingle{}echange. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_edge_interface_ad2c8ba04c9d9989ccbf3c5aba267a3d7}\label{class_edge_interface_ad2c8ba04c9d9989ccbf3c5aba267a3d7}} 
+class {\bfseries Edge}
+\item 
+\mbox{\Hypertarget{class_edge_interface_afab89afd724f1b07b1aaad6bdc61c47a}\label{class_edge_interface_afab89afd724f1b07b1aaad6bdc61c47a}} 
+class {\bfseries Graph}
+\item 
+\mbox{\Hypertarget{class_edge_interface_ac93b7cbbd1099ea02c66e418d388b01d}\label{class_edge_interface_ac93b7cbbd1099ea02c66e418d388b01d}} 
+class {\bfseries Graph\+Interface}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+classe representant l\textquotesingle{}interface graphique des arcs du graphe 
+
+La classe permet de créer un arc graphiquement et de le gérer 
+
+Definition at line 19 of file Edge\+Interface.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_edge_interface_a996267d30334b0cb47a3160a0e346282}\label{class_edge_interface_a996267d30334b0cb47a3160a0e346282}} 
+\index{Edge\+Interface@{Edge\+Interface}!Edge\+Interface@{Edge\+Interface}}
+\index{Edge\+Interface@{Edge\+Interface}!Edge\+Interface@{Edge\+Interface}}
+\subsubsection{\texorpdfstring{Edge\+Interface()}{EdgeInterface()}}
+{\footnotesize\ttfamily Edge\+Interface\+::\+Edge\+Interface (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vertex}{Vertex}} \&}]{from,  }\item[{\mbox{\hyperlink{class_vertex}{Vertex}} \&}]{to }\end{DoxyParamCaption})}
+
+
+
+Constructeur. 
+
+Constructeur de la classe \mbox{\hyperlink{class_edge_interface}{Edge\+Interface}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em from} & \+: Indice du sommet de depart \\
+\hline
+{\em to} & \+: Indice du sommet d\textquotesingle{}arrive \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 12 of file Edge\+Interface.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_edge_interface_af8d91949a9ea0698fe2d0f2d9d85f970}\label{class_edge_interface_af8d91949a9ea0698fe2d0f2d9d85f970}} 
+\index{Edge\+Interface@{Edge\+Interface}!indicateur\+\_\+poids@{indicateur\+\_\+poids}}
+\index{indicateur\+\_\+poids@{indicateur\+\_\+poids}!Edge\+Interface@{Edge\+Interface}}
+\subsubsection{\texorpdfstring{indicateur\+\_\+poids()}{indicateur\_poids()}}
+{\footnotesize\ttfamily void Edge\+Interface\+::indicateur\+\_\+poids (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Affiche un certain nombre de fleche representant l\textquotesingle{}intensité de l\textquotesingle{}echange. 
+
+on rajoute une arrow dans le cas où le poids est elevé
+
+on rajoute une deuxième arrow dans le cas où le poids est encore plus elevé 
+
+Definition at line 42 of file Edge\+Interface.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_edge_interface_8h}{Edge\+Interface.\+h}}\item 
+\mbox{\hyperlink{_edge_interface_8cpp}{Edge\+Interface.\+cpp}}\end{DoxyCompactItemize}

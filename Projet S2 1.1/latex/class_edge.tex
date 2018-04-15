@@ -1,0 +1,120 @@
+\hypertarget{class_edge}{}\section{Edge Class Reference}
+\label{class_edge}\index{Edge@{Edge}}
+
+
+classe representant les arcs du graphe  
+
+
+
+
+{\ttfamily \#include $<$Edge.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_edge_a4e753bd8587d8253691bed94cfd2d2e0}{Edge}} (double poids=0, \mbox{\hyperlink{class_edge_interface}{Edge\+Interface}} $\ast$interface=nullptr)
+\begin{DoxyCompactList}\small\item\em Constructeur. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_edge_ab9f1fdf7c47051d419ea5b73bed0e21d}{pre\+\_\+update}} ()
+\item 
+void \mbox{\hyperlink{class_edge_a4d172425eac4e94c78ab1bd66ba48d50}{post\+\_\+update}} ()
+\begin{DoxyCompactList}\small\item\em Gestion du \mbox{\hyperlink{class_edge}{Edge}} après l\textquotesingle{}appel à l\textquotesingle{}interface. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_edge_a8eb7b072bf122b0fbc52f807ed073c9b}\label{class_edge_a8eb7b072bf122b0fbc52f807ed073c9b}} 
+int {\bfseries get\+Depart} () const
+\item 
+\mbox{\Hypertarget{class_edge_af973fb2d29c4cb10519c503ae3723863}\label{class_edge_af973fb2d29c4cb10519c503ae3723863}} 
+int {\bfseries get\+Arrive} () const
+\item 
+\mbox{\Hypertarget{class_edge_adf88a2a19e5e607180b25c869ecbc755}\label{class_edge_adf88a2a19e5e607180b25c869ecbc755}} 
+double {\bfseries get\+Poids} () const
+\item 
+\mbox{\Hypertarget{class_edge_a2d2c9f559af9c8ea57a16de4a309704f}\label{class_edge_a2d2c9f559af9c8ea57a16de4a309704f}} 
+double {\bfseries getrange} ()
+\item 
+\mbox{\Hypertarget{class_edge_ad4e94f144788f1ebc3ac0253f7a0e0e7}\label{class_edge_ad4e94f144788f1ebc3ac0253f7a0e0e7}} 
+void {\bfseries set\+Arrive} (int a)
+\item 
+\mbox{\Hypertarget{class_edge_abea71d0cfa7c3169e9a088ecdbaa8dcd}\label{class_edge_abea71d0cfa7c3169e9a088ecdbaa8dcd}} 
+void {\bfseries set\+Depart} (int a)
+\item 
+\mbox{\Hypertarget{class_edge_a98d5af2bb9e02597b8c52c25295d5675}\label{class_edge_a98d5af2bb9e02597b8c52c25295d5675}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_edge_interface}{Edge\+Interface}} $>$ \& {\bfseries get\+Inter\+Edge} ()
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_edge_afab89afd724f1b07b1aaad6bdc61c47a}\label{class_edge_afab89afd724f1b07b1aaad6bdc61c47a}} 
+class {\bfseries Graph}
+\item 
+\mbox{\Hypertarget{class_edge_a8e1edfb3728013ee10d1d7fb1fb89585}\label{class_edge_a8e1edfb3728013ee10d1d7fb1fb89585}} 
+class {\bfseries Edge\+Interface}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+classe representant les arcs du graphe 
+
+La classe permet la création des arcs du graphe 
+
+Definition at line 18 of file Edge.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_edge_a4e753bd8587d8253691bed94cfd2d2e0}\label{class_edge_a4e753bd8587d8253691bed94cfd2d2e0}} 
+\index{Edge@{Edge}!Edge@{Edge}}
+\index{Edge@{Edge}!Edge@{Edge}}
+\subsubsection{\texorpdfstring{Edge()}{Edge()}}
+{\footnotesize\ttfamily Edge\+::\+Edge (\begin{DoxyParamCaption}\item[{double}]{poids = {\ttfamily 0},  }\item[{\mbox{\hyperlink{class_edge_interface}{Edge\+Interface}} $\ast$}]{interface = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructeur. 
+
+Constructeur de la classe \mbox{\hyperlink{class_edge}{Edge}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em poids} & \+: poids de l\textquotesingle{}arc \\
+\hline
+{\em interface} & \+: Interface de l\textquotesingle{}arc \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 52 of file Edge.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_edge_a4d172425eac4e94c78ab1bd66ba48d50}\label{class_edge_a4d172425eac4e94c78ab1bd66ba48d50}} 
+\index{Edge@{Edge}!post\+\_\+update@{post\+\_\+update}}
+\index{post\+\_\+update@{post\+\_\+update}!Edge@{Edge}}
+\subsubsection{\texorpdfstring{post\+\_\+update()}{post\_update()}}
+{\footnotesize\ttfamily void Edge\+::post\+\_\+update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gestion du \mbox{\hyperlink{class_edge}{Edge}} après l\textquotesingle{}appel à l\textquotesingle{}interface. 
+
+Reprendre la valeur du slider dans la donnée m\+\_\+weight locale 
+
+Definition at line 30 of file Edge.\+cpp.
+
+\mbox{\Hypertarget{class_edge_ab9f1fdf7c47051d419ea5b73bed0e21d}\label{class_edge_ab9f1fdf7c47051d419ea5b73bed0e21d}} 
+\index{Edge@{Edge}!pre\+\_\+update@{pre\+\_\+update}}
+\index{pre\+\_\+update@{pre\+\_\+update}!Edge@{Edge}}
+\subsubsection{\texorpdfstring{pre\+\_\+update()}{pre\_update()}}
+{\footnotesize\ttfamily void Edge\+::pre\+\_\+update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{class_edge}{Edge}} étant géré par \mbox{\hyperlink{class_graph}{Graph}} ce sera la méthode update de graph qui appellera le pre\+\_\+update et post\+\_\+update de \mbox{\hyperlink{class_edge}{Edge}} (pas directement la boucle de jeu) Voir l\textquotesingle{}implémentation \mbox{\hyperlink{class_graph_a059117ff51417cf4e4d35ae4f43ef1b3}{Graph\+::update}} dans le .cpp Copier la valeur locale de la donnée m\+\_\+weight vers le slider associé
+
+Copier la valeur locale de la donnée m\+\_\+weight vers le label sous le slider 
+
+Definition at line 12 of file Edge.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_edge_8h}{Edge.\+h}}\item 
+\mbox{\hyperlink{_edge_8cpp}{Edge.\+cpp}}\end{DoxyCompactItemize}

@@ -1,9 +1,21 @@
+/*!
+ * \file Vertex.h
+ * \brief Création d'un écosystème
+ * \author Groupe AGOUGILE-CAMUGLI-AVAKIAN
+ * \version 1.1
+ */
+
 #ifndef VERTEX_H_INCLUDED
 #define VERTEX_H_INCLUDED
 #include <vector>
 #include <memory>
 #include "VertexInterface.h"
 
+/*! \class Vertex
+   * \brief classe representant les sommets du graphe
+   *
+   *  La classe gere les sommets du graphe
+   */
 class Vertex
 {
     // Les (methodes des) classes amies pourront accéder
@@ -20,16 +32,24 @@ class Vertex
         /// liste des indices des arcs partant du sommet : accès aux successeurs
         std::vector<int> m_out;
 
-        /// un exemple de donnée associée à l'arc, on peut en ajouter d'autres...
+        ///Valeur représentant la population de l'espèce
         int m_popul;
+
+        ///Nom de l'espèce
         std::string m_nom;
+
+        ///Indice du Sommet
         int m_idx;
+        ///Valeur maximale que la population peut atteindre
         double m_range;
 
+        ///Variable utilisé dans l'algorithme de forte connexité
         int m_plus;
         int m_moins;
 
+        ///Variable utilisé pour le BFS et la Connexité
         bool m_marque = false;
+        ///Variable utilisé pour le BFS et la Connexité
         std::vector<int> m_connexe;
         bool actif = true;
 
@@ -52,8 +72,15 @@ class Vertex
 
     public:
 
-        /// Les constructeurs sont à compléter selon vos besoin...
-        /// Ici on ne donne qu'un seul constructeur qui peut utiliser une interface
+        /*!
+     *  \brief Constructeur
+     *
+     *  Constructeur de la classe Vertex
+     *
+     *  \param name : Nom du graphe
+        \param value : Population de l'espece
+        \param interface : Interface du sommet
+     */
         Vertex (std::string name ="", double value=0, VertexInterface *interface=nullptr) :
             m_nom(name), m_popul(value), m_interface(interface),m_moins(0),m_plus(0),m_popul_moins_un(0),m_K(0),m_r(0.01),m_Kdebase(0)  {  }
 
@@ -63,7 +90,9 @@ class Vertex
         void pre_update();
         void post_update();
 
+        ///Récupère la position en abscisse du sommet sur l'écran
         double getX();
+        ///Récupère la position en ordonnée du sommet sur l'écran
         double getY();
 
         void setIdx(int a);

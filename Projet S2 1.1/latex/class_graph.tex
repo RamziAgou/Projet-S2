@@ -1,0 +1,586 @@
+\hypertarget{class_graph}{}\section{Graph Class Reference}
+\label{class_graph}\index{Graph@{Graph}}
+
+
+classe representant le graphe  
+
+
+
+
+{\ttfamily \#include $<$graph.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_graph_a6d716090e2ae19abf6b40b5f1a7f7f68}{Graph}} (\mbox{\hyperlink{class_graph_interface}{Graph\+Interface}} $\ast$interface=nullptr)
+\begin{DoxyCompactList}\small\item\em Constructeur. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_ad48f0c077cb727b86c6a934f3e8b5a22}{add\+\_\+interfaced\+\_\+vertex}} (int idx, std\+::string name, double value, int x, int y, std\+::string pic\+\_\+name=\char`\"{}\char`\"{}, double range=0, int popu=0, int k\+\_\+debase=0, double r=0, int pic\+\_\+idx=0)
+\begin{DoxyCompactList}\small\item\em Ajoute un sommet au graphe et associe ce sommet à son interface. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_a6621ccdfeceb6ebe211794255c6c7b10}{add\+\_\+interfaced\+\_\+edge}} (int idx, int vert1, int vert2, double weight=0, double range=10)
+\begin{DoxyCompactList}\small\item\em Ajoute un arc au graphe et associe cet arc à son interface. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_acef35137bf7b8ebb89065b16cf4ead41}{make\+\_\+example}} (std\+::string name\+\_\+ecosys)
+\begin{DoxyCompactList}\small\item\em Méthode qui appelle la lecture du fichier et associe le graphe à une interface. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_graph_a823002a0a0fce2789d69914f8b74f646}\label{class_graph_a823002a0a0fce2789d69914f8b74f646}} 
+void \mbox{\hyperlink{class_graph_a823002a0a0fce2789d69914f8b74f646}{make\+\_\+menu}} ()
+\begin{DoxyCompactList}\small\item\em Associe le graphe à une interface. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_a337d58e17f4093dccfa916a79868c7fd}{Charger\+Graphe}} (std\+::string fichier)
+\begin{DoxyCompactList}\small\item\em Permet de charger le graphe \+: le chargement prend en paramètre le nom du fichier. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_graph_a3182c8cf0f62a137507b3f8d9b4f0bd9}\label{class_graph_a3182c8cf0f62a137507b3f8d9b4f0bd9}} 
+void \mbox{\hyperlink{class_graph_a3182c8cf0f62a137507b3f8d9b4f0bd9}{Sauver\+Graphe}} ()
+\begin{DoxyCompactList}\small\item\em Sauvegarde le fichier dans le fichier de l\textquotesingle{}écosystème actuel. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_aef5d47c8a2c8c07ff1537ba3e712c38e}{Use\+B\+FS}} (int a, int numero)
+\begin{DoxyCompactList}\small\item\em Algorithme du B\+FS pour la connexité \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_graph_a08356c075a94f49f534fc94639e71a5b}{Connexe}} ()
+\begin{DoxyCompactList}\small\item\em Permet de trouver le nombre de composante connexe d\textquotesingle{}un graphe. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_a7c4693763bddb263298d23fad676ba15}{K\+\_\+\+Connexe}} ()
+\begin{DoxyCompactList}\small\item\em Permet de trouver le nombre de sommet a enlever pour ne plus etre connexe. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_acc5f85d0654f66b67e0c1929b864cc7e}{Verif\+Doublon}} ()
+\begin{DoxyCompactList}\small\item\em Permet de retirer de potentiel doublon des combinaisons de sommet a enlever pour la k\+\_\+connexité \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \mbox{\hyperlink{class_graph_a7fbebc5a132b1946cbab6e77d89dd8fc}{Combinaison}} (int K)
+\begin{DoxyCompactList}\small\item\em Méthode permettant de récuperer la combinaison de K element parmi N (N est ici le nombre d\textquotesingle{}indice des sommets) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_aca571f52856c4d1d116f2e6a53bbb118}{Affichage\+Combi}} ()
+\begin{DoxyCompactList}\small\item\em Permet d\textquotesingle{}afficher les combinaisons des k elements parmi n. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_aa6f6d2e4448b092fd1dcedfe07919810}{Afficher\+K\+Connexe}} ()
+\begin{DoxyCompactList}\small\item\em Affichage console du résultat de la k\+\_\+connexité \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_graph_a9acca9ee2cfb117023cb5c1557bc2ef0}\label{class_graph_a9acca9ee2cfb117023cb5c1557bc2ef0}} 
+bool \mbox{\hyperlink{class_graph_a9acca9ee2cfb117023cb5c1557bc2ef0}{Comparer\+Vect}} (std\+::vector$<$ int $>$ a, std\+::vector$<$ int $>$ b)
+\begin{DoxyCompactList}\small\item\em Méthode permettant de savoir si 2 vecteurs sont égaux. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_graph_abcfb71ad1db9e52550859eea0532449e}\label{class_graph_abcfb71ad1db9e52550859eea0532449e}} 
+void \mbox{\hyperlink{class_graph_abcfb71ad1db9e52550859eea0532449e}{afficher\+\_\+editeur}} ()
+\begin{DoxyCompactList}\small\item\em Affiche l\textquotesingle{}éditeur quand l\textquotesingle{}utilisateur met la simulation en pause. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_graph_a2bcac9a0489d79bda796e966a4a16812}\label{class_graph_a2bcac9a0489d79bda796e966a4a16812}} 
+void \mbox{\hyperlink{class_graph_a2bcac9a0489d79bda796e966a4a16812}{enlever\+\_\+editeur}} ()
+\begin{DoxyCompactList}\small\item\em Retire l\textquotesingle{}editeur quand l\textquotesingle{}utilisateur remet la situation en lecture. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_graph_a059117ff51417cf4e4d35ae4f43ef1b3}\label{class_graph_a059117ff51417cf4e4d35ae4f43ef1b3}} 
+void \mbox{\hyperlink{class_graph_a059117ff51417cf4e4d35ae4f43ef1b3}{update}} (int a=0)
+\begin{DoxyCompactList}\small\item\em La méthode update à appeler dans la boucle de jeu pour les graphes avec interface. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_graph_a68a31a4c1fa331d39376013630d1013d}{update\+\_\+simulation}} ()
+\begin{DoxyCompactList}\small\item\em Méthode qui permet à la simulation de tourner. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{class_edge}{Edge}} $>$ \mbox{\hyperlink{class_graph_af83ef39aab26054d358d244b75cfba91}{update\+\_\+\+F\+\_\+C}} ()
+\begin{DoxyCompactList}\small\item\em méthode permetant d\textquotesingle{}adapter le graphisme du graphe à une forte connexité (enlevant ainsi les aretes inutiles) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_a7e5f884616a6012698ed16dc9248f87c}{Supprimer\+Arete}} (int a)
+\begin{DoxyCompactList}\small\item\em Méthode permettant de supprimer une Arete sans la supprimer de la map. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_a0b7c11dd1be25c5f8c6850eaf3669cf7}{Supprimer\+Sommet}} (int b)
+\begin{DoxyCompactList}\small\item\em Méthode permettant de supprimer un sommet. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_a9363f2707016147d370a0fdf9b3b9f3f}{Tuer\+Sommet}} (int b)
+\begin{DoxyCompactList}\small\item\em Supprime un sommet en mettant sa population à 0. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_a1a937d5adda0490af696cdad1d6274bd}{Ecrire\+Fichier\+Supprimer}} ()
+\begin{DoxyCompactList}\small\item\em Gere le fichier supprimer permettant de garder en mémoire quelle sommet a été supprimé \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_a8ea8770a96f1f66a6dd58dd3fdf3dae8}{Charger\+Supprimer}} ()
+\item 
+void \mbox{\hyperlink{class_graph_a700209e1539c210767f20f5bbcce4c7b}{Ajouter\+Arete}} (int a)
+\begin{DoxyCompactList}\small\item\em Permet d\textquotesingle{}ajouter une arete -\/$>$ utilise quand on ajoute un sommet seulement. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_a1ad62947bc72c220c738389cce03b929}{Ajouter\+Sommet}} (int b)
+\begin{DoxyCompactList}\small\item\em Permet d\textquotesingle{}ajouter un sommet. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_a883366bc889fdc6e33f4806f89bfcaa8}{Vrai\+Ajouter\+Arete}} (int a, int b)
+\begin{DoxyCompactList}\small\item\em Permet d\textquotesingle{}ajouter ou de supprimer une arete indépendamment d\textquotesingle{}un sommet. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_aecf104b3c712dc8c688f9fe0f44e400c}{Vrai\+Supprimer\+Arete}} (int a)
+\item 
+\mbox{\Hypertarget{class_graph_a2dbad3985ec244d88ae0742cda9b6a60}\label{class_graph_a2dbad3985ec244d88ae0742cda9b6a60}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_graph_interface}{Graph\+Interface}} $>$ {\bfseries getm\+\_\+interface} () const
+\item 
+\mbox{\Hypertarget{class_graph_ac748faf19840106e15e56908f556a59c}\label{class_graph_ac748faf19840106e15e56908f556a59c}} 
+int {\bfseries getetat} ()
+\item 
+\mbox{\Hypertarget{class_graph_a83da017b0b59fc0b783e6f14cdf30a51}\label{class_graph_a83da017b0b59fc0b783e6f14cdf30a51}} 
+int {\bfseries get\+Ordre} () const
+\item 
+\mbox{\Hypertarget{class_graph_adf664773d5ea6929760a1b55ce97b320}\label{class_graph_adf664773d5ea6929760a1b55ce97b320}} 
+int {\bfseries get\+Nb\+Arc} () const
+\item 
+\mbox{\Hypertarget{class_graph_a87f7cfb59a6614098e487e6df9b02da4}\label{class_graph_a87f7cfb59a6614098e487e6df9b02da4}} 
+std\+::string {\bfseries get\+Name} () const
+\item 
+\mbox{\Hypertarget{class_graph_abc152458f9bb9a9c5f4ea72d5201fb87}\label{class_graph_abc152458f9bb9a9c5f4ea72d5201fb87}} 
+void {\bfseries set\+Ordre} (int a)
+\item 
+\mbox{\Hypertarget{class_graph_a89e062bee87c08145f92af6f4bbe4e05}\label{class_graph_a89e062bee87c08145f92af6f4bbe4e05}} 
+void {\bfseries set\+Nb\+Arc} (int a)
+\item 
+\mbox{\Hypertarget{class_graph_a984aee3355592c6023cc586b8ef61817}\label{class_graph_a984aee3355592c6023cc586b8ef61817}} 
+void {\bfseries set\+Name} (std\+::string a)
+\item 
+\mbox{\Hypertarget{class_graph_ae9137ea42e95dfd0592dda759fc6bef0}\label{class_graph_ae9137ea42e95dfd0592dda759fc6bef0}} 
+void {\bfseries setinterface} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_graph_interface}{Graph\+Interface}} $>$ le\+\_\+pt)
+\item 
+\mbox{\Hypertarget{class_graph_a12c55161c0b95e3ac7a525b5af18075e}\label{class_graph_a12c55161c0b95e3ac7a525b5af18075e}} 
+std\+::map$<$ int, \mbox{\hyperlink{class_vertex}{Vertex}} $>$ \& {\bfseries get\+Map\+Vertex} ()
+\item 
+\mbox{\Hypertarget{class_graph_ae8f5590e76c9f022539d4e1487281694}\label{class_graph_ae8f5590e76c9f022539d4e1487281694}} 
+std\+::map$<$ int, \mbox{\hyperlink{class_edge}{Edge}} $>$ \& {\bfseries get\+Map\+Edge} ()
+\item 
+\mbox{\Hypertarget{class_graph_a899d3e9fa5015ddddb089d955cf46efd}\label{class_graph_a899d3e9fa5015ddddb089d955cf46efd}} 
+std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \& {\bfseries get\+Sommet\+Connexe} ()
+\item 
+std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \mbox{\hyperlink{class_graph_a10bdefa4d6bbdb4f5d69ebf360297824}{F\+\_\+C}} ()
+\begin{DoxyCompactList}\small\item\em algorithme de forte connexité \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_a81df231a09b41ba8d86fee27262aff9d}{maths}} ()
+\begin{DoxyCompactList}\small\item\em tour de boucle \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+classe representant le graphe 
+
+La classe gere la totalités des fonctionnalités du graphe 
+
+Definition at line 96 of file graph.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_graph_a6d716090e2ae19abf6b40b5f1a7f7f68}\label{class_graph_a6d716090e2ae19abf6b40b5f1a7f7f68}} 
+\index{Graph@{Graph}!Graph@{Graph}}
+\index{Graph@{Graph}!Graph@{Graph}}
+\subsubsection{\texorpdfstring{Graph()}{Graph()}}
+{\footnotesize\ttfamily Graph\+::\+Graph (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph_interface}{Graph\+Interface}} $\ast$}]{interface = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructeur. 
+
+Constructeur de la classe Graphe
+
+
+\begin{DoxyParams}{Parameters}
+{\em interface} & \+: Interface du graphe \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 139 of file graph.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_graph_a6621ccdfeceb6ebe211794255c6c7b10}\label{class_graph_a6621ccdfeceb6ebe211794255c6c7b10}} 
+\index{Graph@{Graph}!add\+\_\+interfaced\+\_\+edge@{add\+\_\+interfaced\+\_\+edge}}
+\index{add\+\_\+interfaced\+\_\+edge@{add\+\_\+interfaced\+\_\+edge}!Graph@{Graph}}
+\subsubsection{\texorpdfstring{add\+\_\+interfaced\+\_\+edge()}{add\_interfaced\_edge()}}
+{\footnotesize\ttfamily void Graph\+::add\+\_\+interfaced\+\_\+edge (\begin{DoxyParamCaption}\item[{int}]{idx,  }\item[{int}]{vert1,  }\item[{int}]{vert2,  }\item[{double}]{weight = {\ttfamily 0},  }\item[{double}]{range = {\ttfamily 10} }\end{DoxyParamCaption})}
+
+
+
+Ajoute un arc au graphe et associe cet arc à son interface. 
+
+Aide à l\textquotesingle{}ajout d\textquotesingle{}arcs interfacés 
+
+Definition at line 1070 of file graph.\+cpp.
+
+\mbox{\Hypertarget{class_graph_ad48f0c077cb727b86c6a934f3e8b5a22}\label{class_graph_ad48f0c077cb727b86c6a934f3e8b5a22}} 
+\index{Graph@{Graph}!add\+\_\+interfaced\+\_\+vertex@{add\+\_\+interfaced\+\_\+vertex}}
+\index{add\+\_\+interfaced\+\_\+vertex@{add\+\_\+interfaced\+\_\+vertex}!Graph@{Graph}}
+\subsubsection{\texorpdfstring{add\+\_\+interfaced\+\_\+vertex()}{add\_interfaced\_vertex()}}
+{\footnotesize\ttfamily void Graph\+::add\+\_\+interfaced\+\_\+vertex (\begin{DoxyParamCaption}\item[{int}]{idx,  }\item[{std\+::string}]{name,  }\item[{double}]{value,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{std\+::string}]{pic\+\_\+name = {\ttfamily \char`\"{}\char`\"{}},  }\item[{double}]{range = {\ttfamily 0},  }\item[{int}]{popu = {\ttfamily 0},  }\item[{int}]{k\+\_\+debase = {\ttfamily 0},  }\item[{double}]{r = {\ttfamily 0},  }\item[{int}]{pic\+\_\+idx = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Ajoute un sommet au graphe et associe ce sommet à son interface. 
+
+Aide à l\textquotesingle{}ajout de sommets interfacés 
+
+Definition at line 1047 of file graph.\+cpp.
+
+\mbox{\Hypertarget{class_graph_aca571f52856c4d1d116f2e6a53bbb118}\label{class_graph_aca571f52856c4d1d116f2e6a53bbb118}} 
+\index{Graph@{Graph}!Affichage\+Combi@{Affichage\+Combi}}
+\index{Affichage\+Combi@{Affichage\+Combi}!Graph@{Graph}}
+\subsubsection{\texorpdfstring{Affichage\+Combi()}{AffichageCombi()}}
+{\footnotesize\ttfamily void Graph\+::\+Affichage\+Combi (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Permet d\textquotesingle{}afficher les combinaisons des k elements parmi n. 
+
+Permet juste d\textquotesingle{}afficher toutes les combinaisons donnée par la méthode Combinaison. 
+
+Definition at line 579 of file graph.\+cpp.
+
+\mbox{\Hypertarget{class_graph_aa6f6d2e4448b092fd1dcedfe07919810}\label{class_graph_aa6f6d2e4448b092fd1dcedfe07919810}} 
+\index{Graph@{Graph}!Afficher\+K\+Connexe@{Afficher\+K\+Connexe}}
+\index{Afficher\+K\+Connexe@{Afficher\+K\+Connexe}!Graph@{Graph}}
+\subsubsection{\texorpdfstring{Afficher\+K\+Connexe()}{AfficherKConnexe()}}
+{\footnotesize\ttfamily void Graph\+::\+Afficher\+K\+Connexe (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Affichage console du résultat de la k\+\_\+connexité 
+
+Permet juste d\textquotesingle{}afficher les combinaisons qui ont permis de perdre la simple connexité-\/ 
+
+Definition at line 509 of file graph.\+cpp.
+
+\mbox{\Hypertarget{class_graph_a700209e1539c210767f20f5bbcce4c7b}\label{class_graph_a700209e1539c210767f20f5bbcce4c7b}} 
+\index{Graph@{Graph}!Ajouter\+Arete@{Ajouter\+Arete}}
+\index{Ajouter\+Arete@{Ajouter\+Arete}!Graph@{Graph}}
+\subsubsection{\texorpdfstring{Ajouter\+Arete()}{AjouterArete()}}
+{\footnotesize\ttfamily void Graph\+::\+Ajouter\+Arete (\begin{DoxyParamCaption}\item[{int}]{a }\end{DoxyParamCaption})}
+
+
+
+Permet d\textquotesingle{}ajouter une arete -\/$>$ utilise quand on ajoute un sommet seulement. 
+
+On récupere les vecteurs d\textquotesingle{}indice d\textquotesingle{}arc des sommets de départ et d\textquotesingle{}arrive
+
+Si interface on ne l\textquotesingle{}affiche plus
+
+On parcourt la map de sommet pour verifier si l\textquotesingle{}indice de départ coincide avec le sommet étudie 
+
+Definition at line 195 of file graph.\+cpp.
+
+\mbox{\Hypertarget{class_graph_a1ad62947bc72c220c738389cce03b929}\label{class_graph_a1ad62947bc72c220c738389cce03b929}} 
+\index{Graph@{Graph}!Ajouter\+Sommet@{Ajouter\+Sommet}}
+\index{Ajouter\+Sommet@{Ajouter\+Sommet}!Graph@{Graph}}
+\subsubsection{\texorpdfstring{Ajouter\+Sommet()}{AjouterSommet()}}
+{\footnotesize\ttfamily void Graph\+::\+Ajouter\+Sommet (\begin{DoxyParamCaption}\item[{int}]{b }\end{DoxyParamCaption})}
+
+
+
+Permet d\textquotesingle{}ajouter un sommet. 
+
+La variable actif nous sert a savoir si un sommet a été supprimé ou pas
+
+On parcourt le vecteur de sommet supprimé pour enlever le sommet qu\textquotesingle{}on veut ajouter
+
+On parcourt les aretes pour lier les aretes du sommet qu\textquotesingle{}on veut ajouter 
+
+Definition at line 255 of file graph.\+cpp.
+
+\mbox{\Hypertarget{class_graph_a337d58e17f4093dccfa916a79868c7fd}\label{class_graph_a337d58e17f4093dccfa916a79868c7fd}} 
+\index{Graph@{Graph}!Charger\+Graphe@{Charger\+Graphe}}
+\index{Charger\+Graphe@{Charger\+Graphe}!Graph@{Graph}}
+\subsubsection{\texorpdfstring{Charger\+Graphe()}{ChargerGraphe()}}
+{\footnotesize\ttfamily void Graph\+::\+Charger\+Graphe (\begin{DoxyParamCaption}\item[{std\+::string}]{fichier }\end{DoxyParamCaption})}
+
+
+
+Permet de charger le graphe \+: le chargement prend en paramètre le nom du fichier. 
+
+On clear toutes les maps pour éviter d\textquotesingle{}empiler les anciens graphes
+
+On lit toutes les informations du graphe dans le fichier
+
+On supprime les éléments qui ont été supprimés dans une potentielle ancienne sauvegarde 
+
+Definition at line 637 of file graph.\+cpp.
+
+\mbox{\Hypertarget{class_graph_a8ea8770a96f1f66a6dd58dd3fdf3dae8}\label{class_graph_a8ea8770a96f1f66a6dd58dd3fdf3dae8}} 
+\index{Graph@{Graph}!Charger\+Supprimer@{Charger\+Supprimer}}
+\index{Charger\+Supprimer@{Charger\+Supprimer}!Graph@{Graph}}
+\subsubsection{\texorpdfstring{Charger\+Supprimer()}{ChargerSupprimer()}}
+{\footnotesize\ttfamily void Graph\+::\+Charger\+Supprimer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+On va récuperer les indices des sommets supprimé
+
+Puis on supprime tous les qui doivent etre supprimé 
+
+Definition at line 323 of file graph.\+cpp.
+
+\mbox{\Hypertarget{class_graph_a7fbebc5a132b1946cbab6e77d89dd8fc}\label{class_graph_a7fbebc5a132b1946cbab6e77d89dd8fc}} 
+\index{Graph@{Graph}!Combinaison@{Combinaison}}
+\index{Combinaison@{Combinaison}!Graph@{Graph}}
+\subsubsection{\texorpdfstring{Combinaison()}{Combinaison()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::vector$<$ int $>$ $>$ Graph\+::\+Combinaison (\begin{DoxyParamCaption}\item[{int}]{K }\end{DoxyParamCaption})}
+
+
+
+Méthode permettant de récuperer la combinaison de K element parmi N (N est ici le nombre d\textquotesingle{}indice des sommets) 
+
+Méthode de combinaison\+: Inspiré du lien suivant -\/$>$ \href{https://stackoverflow.com/questions/12991758/creating-all-possible-k-combinations-of-n-items-in-c}{\tt https\+://stackoverflow.\+com/questions/12991758/creating-\/all-\/possible-\/k-\/combinations-\/of-\/n-\/items-\/in-\/c}. 
+
+Definition at line 597 of file graph.\+cpp.
+
+\mbox{\Hypertarget{class_graph_a08356c075a94f49f534fc94639e71a5b}\label{class_graph_a08356c075a94f49f534fc94639e71a5b}} 
+\index{Graph@{Graph}!Connexe@{Connexe}}
+\index{Connexe@{Connexe}!Graph@{Graph}}
+\subsubsection{\texorpdfstring{Connexe()}{Connexe()}}
+{\footnotesize\ttfamily int Graph\+::\+Connexe (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Permet de trouver le nombre de composante connexe d\textquotesingle{}un graphe. 
+
+Algo de connexité utilisant un B\+FS. On parcourt la map de sommets et si ce sommet n\textquotesingle{}est pas marqué on pratique un B\+FS en partant de lui
+
+On récupère le max de connexité par rapport à la derniere fois ou on a fait cette méthode -\/$>$ utile pour la k\+\_\+connexité
+
+Puis on set tous les marquages a faux
+
+On return le numéro de la connexité actuel pour savoir si la combinaison empeche la connexité 
+
+Definition at line 423 of file graph.\+cpp.
+
+\mbox{\Hypertarget{class_graph_a1a937d5adda0490af696cdad1d6274bd}\label{class_graph_a1a937d5adda0490af696cdad1d6274bd}} 
+\index{Graph@{Graph}!Ecrire\+Fichier\+Supprimer@{Ecrire\+Fichier\+Supprimer}}
+\index{Ecrire\+Fichier\+Supprimer@{Ecrire\+Fichier\+Supprimer}!Graph@{Graph}}
+\subsubsection{\texorpdfstring{Ecrire\+Fichier\+Supprimer()}{EcrireFichierSupprimer()}}
+{\footnotesize\ttfamily void Graph\+::\+Ecrire\+Fichier\+Supprimer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gere le fichier supprimer permettant de garder en mémoire quelle sommet a été supprimé 
+
+Permet la sauvegarde des sommets supprimés dans un fichier. On note le nombre d\textquotesingle{}indice supprimé dans le fichier et l\textquotesingle{}indice des sommet 
+
+Definition at line 352 of file graph.\+cpp.
+
+\mbox{\Hypertarget{class_graph_a10bdefa4d6bbdb4f5d69ebf360297824}\label{class_graph_a10bdefa4d6bbdb4f5d69ebf360297824}} 
+\index{Graph@{Graph}!F\+\_\+C@{F\+\_\+C}}
+\index{F\+\_\+C@{F\+\_\+C}!Graph@{Graph}}
+\subsubsection{\texorpdfstring{F\+\_\+\+C()}{F\_C()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::vector$<$ int $>$ $>$ Graph\+::\+F\+\_\+C (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+algorithme de forte connexité 
+
+méthode permetant de troouver les ellement de forte connexités elle renvois un tableau d\textquotesingle{}indice où chaque ligne correspond à un element de forte connexité je suis une méthode trouvé sur internet qui consiste à marquer moins les predecesseur et plus les successeur en parcour bfs et enfin de trouver les element qui ont plus et moins marqué petite particularité au lieu d\textquotesingle{}utiliser un bool pour le marquage j\textquotesingle{}utilise un entier ainsi je marque à -\/1 -\/1 les elements qui ont déjà été déterminé comme forte connexité et 2 2 les sommet de débuts de recherche ~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+~\newline
+ les std\+::cout sont assez explicite pour se passer de commentaire.
+
+std\+::cout$<$$<$std\+::endl$<$$<$\char`\"{}\+Nettoyage fort \char`\"{}$<$$<$std\+::endl; il y a peut-\/être du nettoyage inutile mais je voulais m\textquotesingle{}assurer que c\textquotesingle{}etait vraiment ok ~\newline
+~\newline
+~\newline
+~\newline
+ std\+::cout$<$$<$\char`\"{}                        nettoyage terminé\char`\"{}$<$$<$std\+::endl;
+
+std\+::cout$<$$<$std\+::endl$<$$<$\char`\"{}je commence par nettoyer tout les plus et moins qui ne sont pas a -\/1 -\/1\char`\"{}$<$$<$std\+::endl;
+
+std\+::cout$<$$<$\char`\"{} le sommet \char`\"{}$<$$<$elem\+\_\+net.\+first$<$$<$\char`\"{} a pour plus \char`\"{}$<$$<$m\+\_\+vertices\mbox{[}elem\+\_\+net.\+first\mbox{]}.m\+\_\+plus$<$$<$\char`\"{} et pour moins \char`\"{}$<$$<$m\+\_\+vertices\mbox{[}elem\+\_\+net.\+first\mbox{]}.m\+\_\+moins$<$$<$std\+::endl;
+
+std\+::cout$<$$<$\char`\"{}        je le nettois\char`\"{}$<$$<$std\+::endl; 
+
+Definition at line 1096 of file graph.\+cpp.
+
+\mbox{\Hypertarget{class_graph_a7c4693763bddb263298d23fad676ba15}\label{class_graph_a7c4693763bddb263298d23fad676ba15}} 
+\index{Graph@{Graph}!K\+\_\+\+Connexe@{K\+\_\+\+Connexe}}
+\index{K\+\_\+\+Connexe@{K\+\_\+\+Connexe}!Graph@{Graph}}
+\subsubsection{\texorpdfstring{K\+\_\+\+Connexe()}{K\_Connexe()}}
+{\footnotesize\ttfamily void Graph\+::\+K\+\_\+\+Connexe (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Permet de trouver le nombre de sommet a enlever pour ne plus etre connexe. 
+
+Vecteur de vecteur permettant de stocker toutes les combinaisons
+
+Si on a fait toutes les combinaisons possible et qu\textquotesingle{}on a bien une combinaison qui empeche la connexité on sort
+
+On rempli le vecteur de vecteur de combinaison grace a la méthode Combinaison
+
+On récupere la premier combinaison
+
+On marque les sommets de la premieres combinaisons pour les \char`\"{}retirer\char`\"{} du B\+FS
+
+On fait la connexité avec les sommets retirés
+
+Si il y\textquotesingle{}a plus d\textquotesingle{}une composante connexe on stocke la combinaison qui l\textquotesingle{}a produit
+
+On change de combinaison
+
+On vérifie qu\textquotesingle{}on a fait toutes les combinaisons de k elements et si on a rien trouve on augmente le k 
+
+Definition at line 455 of file graph.\+cpp.
+
+\mbox{\Hypertarget{class_graph_acef35137bf7b8ebb89065b16cf4ead41}\label{class_graph_acef35137bf7b8ebb89065b16cf4ead41}} 
+\index{Graph@{Graph}!make\+\_\+example@{make\+\_\+example}}
+\index{make\+\_\+example@{make\+\_\+example}!Graph@{Graph}}
+\subsubsection{\texorpdfstring{make\+\_\+example()}{make\_example()}}
+{\footnotesize\ttfamily void Graph\+::make\+\_\+example (\begin{DoxyParamCaption}\item[{std\+::string}]{name\+\_\+ecosys }\end{DoxyParamCaption})}
+
+
+
+Méthode qui appelle la lecture du fichier et associe le graphe à une interface. 
+
+Méthode spéciale qui construit un graphe arbitraire (démo) Cette méthode est à enlever et remplacer par un système de chargement de fichiers par exemple. Bien sûr on ne veut pas que vos graphes soient construits \char`\"{}à la main\char`\"{} dans le code comme ça. 
+
+Definition at line 743 of file graph.\+cpp.
+
+\mbox{\Hypertarget{class_graph_a81df231a09b41ba8d86fee27262aff9d}\label{class_graph_a81df231a09b41ba8d86fee27262aff9d}} 
+\index{Graph@{Graph}!maths@{maths}}
+\index{maths@{maths}!Graph@{Graph}}
+\subsubsection{\texorpdfstring{maths()}{maths()}}
+{\footnotesize\ttfamily void Graph\+::maths (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+tour de boucle 
+
+cette méthode permet d\textquotesingle{}effectuer les changement d\textquotesingle{}un \char`\"{}tour de jeu\char`\"{} on gardera les cout pour pouvoir verrifier le bon déroulement (en cas de stabilité on a l\textquotesingle{}impression que rien ne se passe) on ballaye les sommets et on actualise la n-\/1 pop qui permet d\textquotesingle{}actualiser correctement les attribut
+
+on met à jour les K en suivant les formules données
+
+on actualise les populaton en suivant toujours les formules donné en pj 
+
+Definition at line 14 of file graph.\+cpp.
+
+\mbox{\Hypertarget{class_graph_a7e5f884616a6012698ed16dc9248f87c}\label{class_graph_a7e5f884616a6012698ed16dc9248f87c}} 
+\index{Graph@{Graph}!Supprimer\+Arete@{Supprimer\+Arete}}
+\index{Supprimer\+Arete@{Supprimer\+Arete}!Graph@{Graph}}
+\subsubsection{\texorpdfstring{Supprimer\+Arete()}{SupprimerArete()}}
+{\footnotesize\ttfamily void Graph\+::\+Supprimer\+Arete (\begin{DoxyParamCaption}\item[{int}]{a }\end{DoxyParamCaption})}
+
+
+
+Méthode permettant de supprimer une Arete sans la supprimer de la map. 
+
+Même Logique que la méthode au dessus sauf qu\textquotesingle{}on ne retire pas de la map. 
+
+Definition at line 224 of file graph.\+cpp.
+
+\mbox{\Hypertarget{class_graph_a0b7c11dd1be25c5f8c6850eaf3669cf7}\label{class_graph_a0b7c11dd1be25c5f8c6850eaf3669cf7}} 
+\index{Graph@{Graph}!Supprimer\+Sommet@{Supprimer\+Sommet}}
+\index{Supprimer\+Sommet@{Supprimer\+Sommet}!Graph@{Graph}}
+\subsubsection{\texorpdfstring{Supprimer\+Sommet()}{SupprimerSommet()}}
+{\footnotesize\ttfamily void Graph\+::\+Supprimer\+Sommet (\begin{DoxyParamCaption}\item[{int}]{b }\end{DoxyParamCaption})}
+
+
+
+Méthode permettant de supprimer un sommet. 
+
+Pour supprimer un sommet on supprime d\textquotesingle{}abord les aretes qui sont liés a lui 
+
+Definition at line 297 of file graph.\+cpp.
+
+\mbox{\Hypertarget{class_graph_a9363f2707016147d370a0fdf9b3b9f3f}\label{class_graph_a9363f2707016147d370a0fdf9b3b9f3f}} 
+\index{Graph@{Graph}!Tuer\+Sommet@{Tuer\+Sommet}}
+\index{Tuer\+Sommet@{Tuer\+Sommet}!Graph@{Graph}}
+\subsubsection{\texorpdfstring{Tuer\+Sommet()}{TuerSommet()}}
+{\footnotesize\ttfamily void Graph\+::\+Tuer\+Sommet (\begin{DoxyParamCaption}\item[{int}]{b }\end{DoxyParamCaption})}
+
+
+
+Supprime un sommet en mettant sa population à 0. 
+
+On supprime le sommet d\textquotesingle{}indice donnée en paramètre
+
+On met sa population à 0
+
+Puis on ajoute le sommet dans le vecteur des sommets supprimés 
+
+Definition at line 626 of file graph.\+cpp.
+
+\mbox{\Hypertarget{class_graph_af83ef39aab26054d358d244b75cfba91}\label{class_graph_af83ef39aab26054d358d244b75cfba91}} 
+\index{Graph@{Graph}!update\+\_\+\+F\+\_\+C@{update\+\_\+\+F\+\_\+C}}
+\index{update\+\_\+\+F\+\_\+C@{update\+\_\+\+F\+\_\+C}!Graph@{Graph}}
+\subsubsection{\texorpdfstring{update\+\_\+\+F\+\_\+\+C()}{update\_F\_C()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_edge}{Edge}} $>$ Graph\+::update\+\_\+\+F\+\_\+C (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+méthode permetant d\textquotesingle{}adapter le graphisme du graphe à une forte connexité (enlevant ainsi les aretes inutiles) 
+
+on enlève les affichages inutiles
+
+on cherche les rraete à garder
+
+on cherche les arrete à enlever en regardant les aretes qu\textquotesingle{}on a pas vu juste avant
+
+on enlève finalement les aretes non voulut 
+
+Definition at line 948 of file graph.\+cpp.
+
+\mbox{\Hypertarget{class_graph_a68a31a4c1fa331d39376013630d1013d}\label{class_graph_a68a31a4c1fa331d39376013630d1013d}} 
+\index{Graph@{Graph}!update\+\_\+simulation@{update\+\_\+simulation}}
+\index{update\+\_\+simulation@{update\+\_\+simulation}!Graph@{Graph}}
+\subsubsection{\texorpdfstring{update\+\_\+simulation()}{update\_simulation()}}
+{\footnotesize\ttfamily bool Graph\+::update\+\_\+simulation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Méthode qui permet à la simulation de tourner. 
+
+Va permettre de vérifier sur quelle bouton on appuye lors de la simulation. Si on appuye sur le bouton charger on charge le graphe a nouveau en partant de la derniere sauvegarde
+
+Si on appuye sur sauvegarder on sauvegarde dans le fichier toutes les informations actuel du graphe
+
+Si on appuye sur le bouton + de sommets on demande en console quelle sommet on veut ajouter et on l\textquotesingle{}ajoute
+
+Si on appuye sur le + de l\textquotesingle{}arc on demande en console quelles sommets doivent etre reliés entre eux
+
+Appuyer sur le -\/ reviens a faire apparaitre des petites croix sur les sommets permettant de supprimer plusieurs sommet en même temps
+
+Si on appuye sur la croix d\textquotesingle{}un sommet on le supprime et on met sa population à 0
+
+Si on appuye sur pause, on affiche l\textquotesingle{}éditeur et on stop la simulation
+
+Si on appuye sur le bouton play, on repart en simulation et on retire l\textquotesingle{}éditeur 
+
+Definition at line 753 of file graph.\+cpp.
+
+\mbox{\Hypertarget{class_graph_aef5d47c8a2c8c07ff1537ba3e712c38e}\label{class_graph_aef5d47c8a2c8c07ff1537ba3e712c38e}} 
+\index{Graph@{Graph}!Use\+B\+FS@{Use\+B\+FS}}
+\index{Use\+B\+FS@{Use\+B\+FS}!Graph@{Graph}}
+\subsubsection{\texorpdfstring{Use\+B\+F\+S()}{UseBFS()}}
+{\footnotesize\ttfamily void Graph\+::\+Use\+B\+FS (\begin{DoxyParamCaption}\item[{int}]{a,  }\item[{int}]{numero }\end{DoxyParamCaption})}
+
+
+
+Algorithme du B\+FS pour la connexité 
+
+Bfs classique. Tant que la file n\textquotesingle{}est pas vide on continue de regarder les adjacents
+
+Pour simplifier la suite je crée un vecteur d\textquotesingle{}adjacence temporaire au sommet sur lequel on est
+
+LA D\+O\+U\+B\+LE B\+O\+U\+C\+LE F\+OR P\+E\+R\+M\+ET DE C\+R\+E\+ER LE V\+E\+C\+T\+E\+UR D A\+D\+J\+A\+C\+E\+N\+CE
+
+Je regarde les adjacents et si ils sont pas marqué on les push dans la file et on les marque 
+
+Definition at line 369 of file graph.\+cpp.
+
+\mbox{\Hypertarget{class_graph_acc5f85d0654f66b67e0c1929b864cc7e}\label{class_graph_acc5f85d0654f66b67e0c1929b864cc7e}} 
+\index{Graph@{Graph}!Verif\+Doublon@{Verif\+Doublon}}
+\index{Verif\+Doublon@{Verif\+Doublon}!Graph@{Graph}}
+\subsubsection{\texorpdfstring{Verif\+Doublon()}{VerifDoublon()}}
+{\footnotesize\ttfamily void Graph\+::\+Verif\+Doublon (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Permet de retirer de potentiel doublon des combinaisons de sommet a enlever pour la k\+\_\+connexité 
+
+On verifié l\textquotesingle{}unicité des combinaisons si ce n\textquotesingle{}est pas le cas on supprime pour n\textquotesingle{}en garder qu\textquotesingle{}une des deux 
+
+Definition at line 556 of file graph.\+cpp.
+
+\mbox{\Hypertarget{class_graph_a883366bc889fdc6e33f4806f89bfcaa8}\label{class_graph_a883366bc889fdc6e33f4806f89bfcaa8}} 
+\index{Graph@{Graph}!Vrai\+Ajouter\+Arete@{Vrai\+Ajouter\+Arete}}
+\index{Vrai\+Ajouter\+Arete@{Vrai\+Ajouter\+Arete}!Graph@{Graph}}
+\subsubsection{\texorpdfstring{Vrai\+Ajouter\+Arete()}{VraiAjouterArete()}}
+{\footnotesize\ttfamily void Graph\+::\+Vrai\+Ajouter\+Arete (\begin{DoxyParamCaption}\item[{int}]{a,  }\item[{int}]{b }\end{DoxyParamCaption})}
+
+
+
+Permet d\textquotesingle{}ajouter ou de supprimer une arete indépendamment d\textquotesingle{}un sommet. 
+
+On vérifie que l\textquotesingle{}arete qu\textquotesingle{}on veut ajouter n\textquotesingle{}existe pas déja
+
+Si l\textquotesingle{}arete n\textquotesingle{}existe pas on l\textquotesingle{}ajoute dans le vecteur et on lui donne une interface partant des sommets en parametre 
+
+Definition at line 126 of file graph.\+cpp.
+
+\mbox{\Hypertarget{class_graph_aecf104b3c712dc8c688f9fe0f44e400c}\label{class_graph_aecf104b3c712dc8c688f9fe0f44e400c}} 
+\index{Graph@{Graph}!Vrai\+Supprimer\+Arete@{Vrai\+Supprimer\+Arete}}
+\index{Vrai\+Supprimer\+Arete@{Vrai\+Supprimer\+Arete}!Graph@{Graph}}
+\subsubsection{\texorpdfstring{Vrai\+Supprimer\+Arete()}{VraiSupprimerArete()}}
+{\footnotesize\ttfamily void Graph\+::\+Vrai\+Supprimer\+Arete (\begin{DoxyParamCaption}\item[{int}]{a }\end{DoxyParamCaption})}
+
+On récupere les sommets qui utilisent cet arc
+
+Si l\textquotesingle{}arete a une interface on ne l\textquotesingle{}affiche plus a l\textquotesingle{}écran
+
+On parcourt les aretes sortantes du sommets de depart et on retire la bonne
+
+On parcourt les aretes entrantes du sommets d\textquotesingle{}arrive et on retire la bonne
+
+On supprime l\textquotesingle{}arete de la map et on baisse le nombre d\textquotesingle{}arc 
+
+Definition at line 150 of file graph.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{graph_8h}{graph.\+h}}\item 
+\mbox{\hyperlink{graph_8cpp}{graph.\+cpp}}\end{DoxyCompactItemize}

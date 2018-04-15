@@ -1,5 +1,13 @@
+/*!
+ * \file main.cpp
+ * \brief Création d'un écosystème
+ * \author Groupe AGOUGILE-CAMUGLI-AVAKIAN
+ * \version 1.1
+ */
+
 #include "grman/grman.h"
 #include <iostream>
+
 
 #include "graph.h"
 #include "Acceuil1.h"

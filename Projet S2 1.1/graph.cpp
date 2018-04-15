@@ -1,4 +1,13 @@
+/*!
+ * \file Graph.cpp
+ * \brief Création d'un écosystème
+ * \author Groupe AGOUGILE-CAMUGLI-AVAKIAN
+ * \version 1.1
+ */
+
 #include "graph.h"
+
+
 
 ///cette méthode permet d'effectuer les changement d'un "tour de jeu"
 ///on gardera les cout pour pouvoir verrifier le bon déroulement (en cas de stabilité on a l'impression que rien ne se passe)
@@ -496,7 +505,7 @@ void Graph::K_Connexe()
     }
 }
 
-///Permet juste d'afficher les combinaisons qui ont permis de perdre la simple connexité
+///Permet juste d'afficher les combinaisons qui ont permis de perdre la simple connexité-
 void Graph::AfficherKConnexe()
 {
     //K_Connexe();
@@ -910,9 +919,6 @@ bool Graph::update_simulation()
     {
         m_etat=1;
         enlever_editeur();//enleve l'interface editeur
-        m_interface->get_tool_box().remove_child(m_interface->get_add_arete());
-        m_interface->get_tool_box().remove_child(m_interface->get_arete_label());
-        m_interface->get_tool_box().remove_child(m_interface->get_remove_arete());
 
         for(auto elem : m_vertices)
         {
@@ -930,6 +936,7 @@ bool Graph::update_simulation()
         {
             elem.second.getInterEdge()->m_box_edge.remove_child(elem.second.getInterEdge()->m_slider_weight);
             elem.second.getInterEdge()->m_box_edge.set_dim(60,15);
+
         }
     }
 

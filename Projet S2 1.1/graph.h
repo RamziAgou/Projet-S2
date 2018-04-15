@@ -1,7 +1,12 @@
+/*!
+ * \file Graph.h
+ * \brief Création d'un écosystème
+ * \author Groupe AGOUGILE-CAMUGLI-AVAKIAN
+ * \version 1.1
+ */
+
 #ifndef GRAPH_H_INCLUDED
 #define GRAPH_H_INCLUDED
-
-///c bon
 
 
 /**************************************************************
@@ -83,7 +88,11 @@
 #include <vector>
 #include <queue>
 
-
+/*! \class Graph
+   * \brief classe representant le graphe
+   *
+   *  La classe gere la totalités des fonctionnalités du graphe
+   */
 class Graph
 {
     private :
@@ -94,8 +103,10 @@ class Graph
         /// La liste des sommets
         std::map<int, Vertex> m_vertices;
 
+        ///Liste des sommets a supprimer à chaque tour de la k_connexité
         std::vector<int> m_supprime;
 
+        ///Tableau de toutes les combinaisons résultant de la k_connexité
          std::vector<std::vector<int>> m_sommet_k_connexe;
 
         /// le POINTEUR sur l'interface associée, nullptr -> pas d'interface
@@ -108,6 +119,7 @@ class Graph
         ///Nombre d'arc du graphe
         int m_nbArc;
 
+        ///Variable permettant de savoir dans quelle menu on se trouve
         int m_etat=0;
 
         ///Permet de vérifier la k_connexité
@@ -117,24 +129,30 @@ class Graph
     public:
 
 
-        /// Les constructeurs sont à compléter selon vos besoin...
-        /// Ici on ne donne qu'un seul constructeur qui peut utiliser une interface
+        /*!
+     *  \brief Constructeur
+     *
+     *  Constructeur de la classe Graphe
+     *
+     *  \param interface : Interface du graphe
+     */
         Graph (GraphInterface *interface=nullptr) :
             m_interface(interface)  {  }
 
+        ///Ajoute un sommet au graphe et associe ce sommet à son interface
         void add_interfaced_vertex(int idx, std::string name, double value, int x, int y, std::string pic_name="",double range=0,int popu=0 ,int k_debase=0,double r=0, int pic_idx=0);
+        ///Ajoute un arc au graphe et associe cet arc à son interface
         void add_interfaced_edge(int idx, int vert1, int vert2, double weight=0,double range=10);
 
-        /// Méthode spéciale qui construit un graphe arbitraire (démo)
-        /// Voir implémentation dans le .cpp
-        /// Cette méthode est à enlever et remplacer par un système
-        /// de chargement de fichiers par exemple.
+        ///Méthode qui appelle la lecture du fichier et associe le graphe à une interface
         void make_example(std::string name_ecosys);
 
+        ///Associe le graphe à une interface
         void make_menu();
 
-        ///Permet de sauvegarder et de charger le graphe : le chargement prend en paramètre le nom du fichier
+        ///Permet de charger le graphe : le chargement prend en paramètre le nom du fichier
         void ChargerGraphe(std::string fichier);
+        ///Sauvegarde le fichier dans le fichier de l'écosystème actuel
         void SauverGraphe();
 
         ///Algorithme du BFS pour la connexité
@@ -155,11 +173,14 @@ class Graph
         ///Méthode permettant de savoir si 2 vecteurs sont égaux
         bool ComparerVect(std::vector<int> a, std::vector<int> b);
 
+        ///Affiche l'éditeur quand l'utilisateur met la simulation en pause
         void afficher_editeur();
+        ///Retire l'editeur quand l'utilisateur remet la situation en lecture
         void enlever_editeur();
 
         /// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface
         void update(int a=0);
+        ///Méthode qui permet à la simulation de tourner
         bool update_simulation();
         std::vector<Edge> update_F_C();
 
@@ -174,8 +195,9 @@ class Graph
         void EcrireFichierSupprimer();
         void ChargerSupprimer();
 
-        ///Permet d'ajouter un sommet
+        ///Permet d'ajouter une arete -> utilise quand on ajoute un sommet seulement
         void AjouterArete(int a);
+        ///Permet d'ajouter un sommet
         void AjouterSommet(int b);
 
         ///Permet d'ajouter ou de supprimer une arete indépendamment d'un sommet

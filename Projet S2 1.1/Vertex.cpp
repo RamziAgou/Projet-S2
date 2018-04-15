@@ -1,3 +1,10 @@
+/*!
+ * \file Vertex.cpp
+ * \brief Création d'un écosystème
+ * \author Groupe AGOUGILE-CAMUGLI-AVAKIAN
+ * \version 1.1
+ */
+
 #include "Vertex.h"
 
 std::string Vertex::getName() const

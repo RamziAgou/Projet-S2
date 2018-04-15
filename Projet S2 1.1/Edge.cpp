@@ -1,4 +1,13 @@
+/*!
+ * \file Edge.cpp
+ * \brief Création d'un écosystème
+ * \author Groupe AGOUGILE-CAMUGLI-AVAKIAN
+ * \version 1.1
+ */
+
 #include "Edge.h"
+
+
 
 void Edge::pre_update()
 {

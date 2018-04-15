@@ -1,3 +1,10 @@
+/*!
+ * \file VertexInterface.cpp
+ * \brief Création d'un écosystème
+ * \author Groupe AGOUGILE-CAMUGLI-AVAKIAN
+ * \version 1.1
+ */
+
 #include "VertexInterface.h"
 
 grman::WidgetBox& VertexInterface::getTopBox()

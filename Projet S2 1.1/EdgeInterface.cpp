@@ -1,4 +1,13 @@
+/*!
+ * \file EdgeInterface.cpp
+ * \brief Création d'un écosystème
+ * \author Groupe AGOUGILE-CAMUGLI-AVAKIAN
+ * \version 1.1
+ */
+
 #include "EdgeInterface.h"
+
+
 
 EdgeInterface::EdgeInterface(Vertex& from, Vertex& to)
 {

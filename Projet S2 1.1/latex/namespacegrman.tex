@@ -1,0 +1,217 @@
+\hypertarget{namespacegrman}{}\section{grman Namespace Reference}
+\label{namespacegrman}\index{grman@{grman}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structgrman_1_1_arrow_item}{Arrow\+Item}}
+\item 
+class \mbox{\hyperlink{classgrman_1_1_widget}{Widget}}
+\item 
+class \mbox{\hyperlink{classgrman_1_1_widget_box}{Widget\+Box}}
+\item 
+class \mbox{\hyperlink{classgrman_1_1_widget_button}{Widget\+Button}}
+\item 
+class \mbox{\hyperlink{classgrman_1_1_widget_check_box}{Widget\+Check\+Box}}
+\item 
+class \mbox{\hyperlink{classgrman_1_1_widget_edge}{Widget\+Edge}}
+\item 
+class \mbox{\hyperlink{classgrman_1_1_widget_image}{Widget\+Image}}
+\item 
+class \mbox{\hyperlink{classgrman_1_1_widget_text}{Widget\+Text}}
+\begin{DoxyCompactList}\small\item\em Extrêmement rudimentaire \+: à compléter ! \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classgrman_1_1_widget_v_slider}{Widget\+V\+Slider}}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespacegrman_a37dae71efad746ef1270e249704731dd}\label{namespacegrman_a37dae71efad746ef1270e249704731dd}} 
+enum {\bfseries GravityX} \{ {\bfseries None}, 
+{\bfseries Center}, 
+{\bfseries Left}, 
+{\bfseries Right}
+ \}
+\item 
+\mbox{\Hypertarget{namespacegrman_ab3ee1c80923ba9ef1a726140c3e6a554}\label{namespacegrman_ab3ee1c80923ba9ef1a726140c3e6a554}} 
+enum {\bfseries GravityY} \{ {\bfseries None}, 
+{\bfseries Center}, 
+{\bfseries Up}, 
+{\bfseries Down}
+ \}
+\item 
+enum \mbox{\hyperlink{namespacegrman_a6092293c9849bd8847921b542dee733c}{Arrow\+Item\+Type}} \{ {\bfseries Arrow}, 
+{\bfseries Triangle}, 
+{\bfseries Bullet}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespacegrman_a2139034e3a5eaee44ba4409a53bc5ae6}\label{namespacegrman_a2139034e3a5eaee44ba4409a53bc5ae6}} 
+unsigned \mbox{\hyperlink{namespacegrman_a2139034e3a5eaee44ba4409a53bc5ae6}{get\+\_\+picture\+\_\+nb}} (std\+::string name)
+\begin{DoxyCompactList}\small\item\em Gestion des ressources image (fichiers images et B\+I\+T\+M\+AP chargées) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacegrman_a5bf4a37e4e86d4146d22743d3a1f0593}\label{namespacegrman_a5bf4a37e4e86d4146d22743d3a1f0593}} 
+B\+I\+T\+M\+AP $\ast$ {\bfseries get\+\_\+picture} (std\+::string pic\+\_\+name)
+\item 
+\mbox{\Hypertarget{namespacegrman_a41d7cab1779d4b6c0ed8e9c944377363}\label{namespacegrman_a41d7cab1779d4b6c0ed8e9c944377363}} 
+void {\bfseries show\+\_\+picture} (B\+I\+T\+M\+AP $\ast$dest, std\+::string pic\+\_\+name, int x, int y, unsigned pic\+\_\+idx)
+\item 
+\mbox{\Hypertarget{namespacegrman_a52f4b023fcb652acb205f1a276a106c6}\label{namespacegrman_a52f4b023fcb652acb205f1a276a106c6}} 
+void {\bfseries set\+\_\+pictures\+\_\+path} (std\+::string path\+\_\+name)
+\item 
+void \mbox{\hyperlink{namespacegrman_ac57085d09f8f682904c05a7c10814a4f}{mettre\+\_\+a\+\_\+jour}} ()
+\begin{DoxyCompactList}\small\item\em A appeler une fois en fin de boucle de jeu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacegrman_ab4c5898d4a76764b9ef2ef86165588de}{init}} ()
+\begin{DoxyCompactList}\small\item\em Lancement et fermeture services Allegro. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacegrman_a38ede9a4327e191933a939ff25de64ab}\label{namespacegrman_a38ede9a4327e191933a939ff25de64ab}} 
+void {\bfseries fermer\+\_\+allegro} ()
+\item 
+\mbox{\Hypertarget{namespacegrman_a0bee1e2880b629a96aca7dd3a752820a}\label{namespacegrman_a0bee1e2880b629a96aca7dd3a752820a}} 
+void \mbox{\hyperlink{namespacegrman_a0bee1e2880b629a96aca7dd3a752820a}{buf\+\_\+effacer\+\_\+page}} ()
+\begin{DoxyCompactList}\small\item\em Buffer et sorties graphiques. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacegrman_ab03d1a6a11e74604d09a10226bfb1021}\label{namespacegrman_ab03d1a6a11e74604d09a10226bfb1021}} 
+void {\bfseries buf\+\_\+afficher\+\_\+page} ()
+\item 
+\mbox{\Hypertarget{namespacegrman_a2c2ccd2231089b13b05d54193c8bb117}\label{namespacegrman_a2c2ccd2231089b13b05d54193c8bb117}} 
+void \mbox{\hyperlink{namespacegrman_a2c2ccd2231089b13b05d54193c8bb117}{rafraichir\+\_\+clavier\+\_\+souris}} ()
+\begin{DoxyCompactList}\small\item\em Entrées clavier/souris. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacegrman_a3bae6cee5ee6d40477a2c68b66939f33}\label{namespacegrman_a3bae6cee5ee6d40477a2c68b66939f33}} 
+void \mbox{\hyperlink{namespacegrman_a3bae6cee5ee6d40477a2c68b66939f33}{thick\+\_\+line}} (B\+I\+T\+M\+AP $\ast$bmp, int x1, int y1, int x2, int y2, int thickness, int color)
+\begin{DoxyCompactList}\small\item\em Auxiliaires \+: compléments aux fonctions graphiques allegro. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacegrman_a137af76bdbb7cd3962f82141ebf965f9}\label{namespacegrman_a137af76bdbb7cd3962f82141ebf965f9}} 
+void {\bfseries rect\+\_\+around} (B\+I\+T\+M\+AP $\ast$bmp, int color, int thickness=1, int receding=0)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{namespacegrman_a1576bfdaffb0e7a44eec352a321e1103}{page\+\_\+color}} =P\+A\+G\+E\+\_\+\+C\+O\+U\+L\+E\+U\+R\+\_\+\+I\+N\+IT
+\begin{DoxyCompactList}\small\item\em Constantes. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacegrman_a85e3b6c74febb61a1fa6e42364bb9067}\label{namespacegrman_a85e3b6c74febb61a1fa6e42364bb9067}} 
+B\+I\+T\+M\+AP $\ast$ {\bfseries page} =N\+U\+LL
+\item 
+char \mbox{\hyperlink{namespacegrman_a89a33151dc06a3f64e3374a81ec0fc45}{key\+\_\+last}}
+\item 
+\mbox{\Hypertarget{namespacegrman_ade67620d6b11edc441843c9ad001c8de}\label{namespacegrman_ade67620d6b11edc441843c9ad001c8de}} 
+int {\bfseries mouse\+\_\+click}
+\item 
+\mbox{\Hypertarget{namespacegrman_a6dee2fe792ec8e6fa9c5b7fa8aec058b}\label{namespacegrman_a6dee2fe792ec8e6fa9c5b7fa8aec058b}} 
+int {\bfseries mouse\+\_\+unclick}
+\item 
+\mbox{\Hypertarget{namespacegrman_aa3860a8dbf5ad78ad0728f07fbad694a}\label{namespacegrman_aa3860a8dbf5ad78ad0728f07fbad694a}} 
+int {\bfseries key\+\_\+press} \mbox{[}K\+E\+Y\+\_\+\+M\+AX\mbox{]}
+\item 
+\mbox{\Hypertarget{namespacegrman_aeb1e878d46844a01e849b078df879603}\label{namespacegrman_aeb1e878d46844a01e849b078df879603}} 
+int {\bfseries key\+\_\+unpress} \mbox{[}K\+E\+Y\+\_\+\+M\+AX\mbox{]}
+\item 
+\mbox{\Hypertarget{namespacegrman_a95a79e2ed9c687856ce84cbf90fce411}\label{namespacegrman_a95a79e2ed9c687856ce84cbf90fce411}} 
+int {\bfseries mouse\+\_\+click\+\_\+x}
+\item 
+\mbox{\Hypertarget{namespacegrman_a4ba12905bccbc1e130d79e06031ce755}\label{namespacegrman_a4ba12905bccbc1e130d79e06031ce755}} 
+int {\bfseries mouse\+\_\+click\+\_\+y}
+\item 
+\mbox{\Hypertarget{namespacegrman_ad8ec2c0216406bf1184cc51fe5aae0cc}\label{namespacegrman_ad8ec2c0216406bf1184cc51fe5aae0cc}} 
+int {\bfseries mouse\+\_\+move\+\_\+x}
+\item 
+\mbox{\Hypertarget{namespacegrman_a05c890b81dff8c414e5a343da7c9e772}\label{namespacegrman_a05c890b81dff8c414e5a343da7c9e772}} 
+int {\bfseries mouse\+\_\+move\+\_\+y}
+\item 
+\mbox{\Hypertarget{namespacegrman_a4a0c6c4d12870a9a3a414bfd1590d2b2}\label{namespacegrman_a4a0c6c4d12870a9a3a414bfd1590d2b2}} 
+\mbox{\hyperlink{struct_coords}{Coords}} {\bfseries mouse\+\_\+pos}
+\item 
+\mbox{\Hypertarget{namespacegrman_aa467808c0e51eb31432d66fa59133b6a}\label{namespacegrman_aa467808c0e51eb31432d66fa59133b6a}} 
+\mbox{\hyperlink{struct_frame}{Frame}} {\bfseries page\+\_\+frame}
+\item 
+\mbox{\Hypertarget{namespacegrman_a4ef59508819d5eb90f8241411d950505}\label{namespacegrman_a4ef59508819d5eb90f8241411d950505}} 
+\mbox{\hyperlink{classgrman_1_1_widget}{Widget}} $\ast$ {\bfseries gui\+\_\+over} = nullptr
+\item 
+\mbox{\Hypertarget{namespacegrman_a927c3da2c1ff68e15f6b980dffc3938d}\label{namespacegrman_a927c3da2c1ff68e15f6b980dffc3938d}} 
+\mbox{\hyperlink{classgrman_1_1_widget}{Widget}} $\ast$ {\bfseries gui\+\_\+last\+\_\+over} = nullptr
+\item 
+\mbox{\Hypertarget{namespacegrman_a32c466eede64f06357878edc619e0aec}\label{namespacegrman_a32c466eede64f06357878edc619e0aec}} 
+\mbox{\hyperlink{classgrman_1_1_widget}{Widget}} $\ast$ {\bfseries gui\+\_\+focus} = nullptr
+\item 
+\mbox{\Hypertarget{namespacegrman_a1b391342c371e12c0acecf039f546983}\label{namespacegrman_a1b391342c371e12c0acecf039f546983}} 
+\mbox{\hyperlink{classgrman_1_1_widget}{Widget}} $\ast$ {\bfseries gui\+\_\+leave} = nullptr
+\item 
+\mbox{\Hypertarget{namespacegrman_a1dfb3bf1e7a1322846fc6ffd6caec6c6}\label{namespacegrman_a1dfb3bf1e7a1322846fc6ffd6caec6c6}} 
+std\+::unordered\+\_\+map$<$ std\+::string, B\+I\+T\+M\+AP $\ast$ $>$ \mbox{\hyperlink{namespacegrman_a1dfb3bf1e7a1322846fc6ffd6caec6c6}{g\+\_\+pic\+\_\+names}}
+\begin{DoxyCompactList}\small\item\em Gestion des contenus graphiques (fichiers images) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacegrman_a8aa98e2dcb10cf3a26d2de888ab1040d}\label{namespacegrman_a8aa98e2dcb10cf3a26d2de888ab1040d}} 
+std\+::unordered\+\_\+set$<$ std\+::string $>$ {\bfseries g\+\_\+failed\+\_\+pic\+\_\+names}
+\item 
+\mbox{\Hypertarget{namespacegrman_a71c02cfad29c409bdad370ef6677ef6b}\label{namespacegrman_a71c02cfad29c409bdad370ef6677ef6b}} 
+std\+::string {\bfseries g\+\_\+pic\+\_\+path}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Graphic Manager is a collection of functions and globals that acts as a glue between your C++ app and Allegro Call \mbox{\hyperlink{namespacegrman_ab4c5898d4a76764b9ef2ef86165588de}{grman\+::init()}}; once at startup 
+
+\subsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{namespacegrman_a6092293c9849bd8847921b542dee733c}\label{namespacegrman_a6092293c9849bd8847921b542dee733c}} 
+\index{grman@{grman}!Arrow\+Item\+Type@{Arrow\+Item\+Type}}
+\index{Arrow\+Item\+Type@{Arrow\+Item\+Type}!grman@{grman}}
+\subsubsection{\texorpdfstring{Arrow\+Item\+Type}{ArrowItemType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespacegrman_a6092293c9849bd8847921b542dee733c}{grman\+::\+Arrow\+Item\+Type}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+Différents éléments de décoration des flèches Ceci peut être étendu en étendant le code \mbox{\hyperlink{classgrman_1_1_widget_edge_adbaeb94bef0a5334fd3ddc0fe30343c5}{Widget\+Edge\+::draw}} 
+
+Definition at line 377 of file widget.\+h.
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{namespacegrman_ab4c5898d4a76764b9ef2ef86165588de}\label{namespacegrman_ab4c5898d4a76764b9ef2ef86165588de}} 
+\index{grman@{grman}!init@{init}}
+\index{init@{init}!grman@{grman}}
+\subsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void grman\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Lancement et fermeture services Allegro. 
+
+Gestion des caractères accentués 
+
+Definition at line 156 of file grman.\+cpp.
+
+\mbox{\Hypertarget{namespacegrman_ac57085d09f8f682904c05a7c10814a4f}\label{namespacegrman_ac57085d09f8f682904c05a7c10814a4f}} 
+\index{grman@{grman}!mettre\+\_\+a\+\_\+jour@{mettre\+\_\+a\+\_\+jour}}
+\index{mettre\+\_\+a\+\_\+jour@{mettre\+\_\+a\+\_\+jour}!grman@{grman}}
+\subsubsection{\texorpdfstring{mettre\+\_\+a\+\_\+jour()}{mettre\_a\_jour()}}
+{\footnotesize\ttfamily void grman\+::mettre\+\_\+a\+\_\+jour (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+A appeler une fois en fin de boucle de jeu. 
+
+mouse\+\_\+unclick \&\& !gui\+\_\+grabbed $\vert$$\vert$ new click select $\vert$$\vert$ capture left (key E\+N\+T\+ER or K\+EY E\+SC) ? 
+
+Definition at line 133 of file grman.\+cpp.
+
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{namespacegrman_a89a33151dc06a3f64e3374a81ec0fc45}\label{namespacegrman_a89a33151dc06a3f64e3374a81ec0fc45}} 
+\index{grman@{grman}!key\+\_\+last@{key\+\_\+last}}
+\index{key\+\_\+last@{key\+\_\+last}!grman@{grman}}
+\subsubsection{\texorpdfstring{key\+\_\+last}{key\_last}}
+{\footnotesize\ttfamily char grman\+::key\+\_\+last}
+
+Les globales suivantes nécessitent un appel à rafraichir\+\_\+clavier\+\_\+souris en début de boucle d\textquotesingle{}interaction pour être mises à jour à chaque tour de boucle 
+
+Definition at line 38 of file grman.\+cpp.
+
+\mbox{\Hypertarget{namespacegrman_a1576bfdaffb0e7a44eec352a321e1103}\label{namespacegrman_a1576bfdaffb0e7a44eec352a321e1103}} 
+\index{grman@{grman}!page\+\_\+color@{page\+\_\+color}}
+\index{page\+\_\+color@{page\+\_\+color}!grman@{grman}}
+\subsubsection{\texorpdfstring{page\+\_\+color}{page\_color}}
+{\footnotesize\ttfamily int grman\+::page\+\_\+color =P\+A\+G\+E\+\_\+\+C\+O\+U\+L\+E\+U\+R\+\_\+\+I\+N\+IT}
+
+
+
+Constantes. 
+
+Variables globales \+: visibles partout où \mbox{\hyperlink{grman_8h_source}{grman.\+h}} est inclus 
+
+Definition at line 34 of file grman.\+cpp.
+
